@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"liuninglin.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC. ##What is Amplify Amplify is an all">
+    <meta name="description" content="This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC. What is AmplifyAmplify is an all-in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Amplify - POC">
 <meta property="og:url" content="https://liuninglin.github.io/posts/1998f291.html">
 <meta property="og:site_name" content="Johnny&#39;s Odyssey">
-<meta property="og:description" content="This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC. ##What is Amplify Amplify is an all">
+<meta property="og:description" content="This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC. What is AmplifyAmplify is an all-in">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://liuninglin.github.io/posts/1998f291/Get%20Started%20%E2%80%94%20amplify-johnny%202022-08-10%2014-41-53.png">
 <meta property="og:image" content="https://liuninglin.github.io/posts/1998f291/Get%20Started%20%E2%80%94%20amplify-johnny%202022-08-10%2014-51-22.png">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://liuninglin.github.io/posts/1998f291/aws-exports.js%20%E2%80%94%20amplify-johnny%202022-08-11%2014-01-57.png">
 <meta property="og:image" content="https://liuninglin.github.io/posts/1998f291/code.png">
 <meta property="article:published_time" content="2022-08-13T23:27:31.000Z">
-<meta property="article:modified_time" content="2022-10-01T22:23:31.083Z">
+<meta property="article:modified_time" content="2022-10-01T22:25:39.768Z">
 <meta property="article:author" content="Johnny Liu">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros"><span class="nav-number">1.</span> <span class="nav-text">Pros</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Start"><span class="nav-number"></span> <span class="nav-text">How to Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools-for-Development"><span class="nav-number"></span> <span class="nav-text">Tools for Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amplify-POC"><span class="nav-number"></span> <span class="nav-text">Amplify POC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture"><span class="nav-number">1.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Authentication-Configuration"><span class="nav-number">2.</span> <span class="nav-text">Authentication Configuration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Links-you-can-refer-to"><span class="nav-number"></span> <span class="nav-text">Links you can refer to</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Amplify"><span class="nav-number">1.</span> <span class="nav-text">What is Amplify</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros"><span class="nav-number">1.1.</span> <span class="nav-text">Pros</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cons"><span class="nav-number">1.2.</span> <span class="nav-text">Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Cases"><span class="nav-number">1.3.</span> <span class="nav-text">Use Cases</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Start"><span class="nav-number">2.</span> <span class="nav-text">How to Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools-for-Development"><span class="nav-number">3.</span> <span class="nav-text">Tools for Development</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Steps-for-Amplify-Development"><span class="nav-number">3.1.</span> <span class="nav-text">Steps for Amplify Development</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Amplify-POC"><span class="nav-number">4.</span> <span class="nav-text">Amplify POC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Business-Requirements"><span class="nav-number">4.1.</span> <span class="nav-text">Business Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Architecture"><span class="nav-number">4.2.</span> <span class="nav-text">Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Structure"><span class="nav-number">4.3.</span> <span class="nav-text">Code Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Authentication-Configuration"><span class="nav-number">4.4.</span> <span class="nav-text">Authentication Configuration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Links-you-can-refer-to"><span class="nav-number">5.</span> <span class="nav-text">Links you can refer to</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -284,8 +284,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC.</p>
-<p>##What is Amplify</p>
-<p>Amplify is an all-in-one platform for frontend developers to develop, test, and deploy the whole website or mobile app. The frontend developers only need to know vanilla JavaScript or React or Vue.js, the knowledge of RestAPI, and database management is not necessary for this platform cause Amplify Studio can help frontend developers to maintain these through the UI.</p>
+<h2 id="What-is-Amplify"><a href="#What-is-Amplify" class="headerlink" title="What is Amplify"></a>What is Amplify</h2><p>Amplify is an all-in-one platform for frontend developers to develop, test, and deploy the whole website or mobile app. The frontend developers only need to know vanilla JavaScript or React or Vue.js, the knowledge of RestAPI, and database management is not necessary for this platform cause Amplify Studio can help frontend developers to maintain these through the UI.</p>
 <span id="more"></span>
 
 <h3 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h3><ul>
@@ -295,8 +294,7 @@
 <li>Automatic CI&#x2F;CD.</li>
 <li>Serverless.</li>
 </ul>
-<p>###Cons</p>
-<ul>
+<h3 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h3><ul>
 <li><p>The learning curve is a little bit steep for backed developers. (Developers should learn React and GraphQL, and know how to use Figma)</p>
 </li>
 <li><p>Not good for developing a complex website, you still need to know some backend knowledge to develop advanced features.</p>
@@ -325,13 +323,12 @@
 <li><p>For CI&#x2F;CD and deployment, you need to commit your local codes and push them to the remote repository to activate CI&#x2F;CD. After that, you can access your remote website through a fixed URL.</p>
 </li>
 <li><p>For local deployment, you can use the npm command to preview changes.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 <p>I still want to summarize all steps for my Amplify POC, you can check this first to get a landscape of development in Amplify.</p>
-<p>###Steps for Amplify Development</p>
-<ol>
+<h3 id="Steps-for-Amplify-Development"><a href="#Steps-for-Amplify-Development" class="headerlink" title="Steps for Amplify Development"></a>Steps for Amplify Development</h3><ol>
 <li><p>Initialization of Amplify</p>
 <ul>
 <li><p>Install Amplify CLI</p>
@@ -405,7 +402,7 @@
 <li><p>Lambda development</p>
 <ol>
 <li><p>Amplify CLI</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">amplify add function</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">amplify add <span class="keyword">function</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Development in your local machine</p>
 <p>Find your created Lambda function, and write your features in the src folder.</p>
@@ -413,7 +410,7 @@
 </li>
 <li><p>Add endpoint for Lambda</p>
 <p>Using Amplify CLI and choosing REST as the calling method</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">amplify add api</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">amplify add api</span><br></pre></td></tr></table></figure>
 
 <p>Then, in your React codes, you can call this API by <code>API.get</code></p>
 <p>In addition, we can also use DynanomoDB to trigger a Lambda function. Just like the screenshot below.</p>
@@ -422,8 +419,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="Amplify-POC"><a href="#Amplify-POC" class="headerlink" title="Amplify POC"></a>Amplify POC</h2><p>###Business Requirements</p>
-<p>This POC is aimed to recreate a Quant Portal website that is originally created based on SharePoint.</p>
+<h2 id="Amplify-POC"><a href="#Amplify-POC" class="headerlink" title="Amplify POC"></a>Amplify POC</h2><h3 id="Business-Requirements"><a href="#Business-Requirements" class="headerlink" title="Business Requirements"></a>Business Requirements</h3><p>This POC is aimed to recreate a Quant Portal website that is originally created based on SharePoint.</p>
 <p>You can treat this Quant Portal as an online file management system.</p>
 <p>The main business requirements show below.</p>
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/posts/1998f291/Quant Portal POC@2x.png" alt="Quant Portal POC@2x" style="zoom: 33%;">
@@ -433,8 +429,7 @@
 <p>In your React codes, you need to use <code>API.get</code> to call AppSync through QraphQL or use <code>API.get</code> to call a REST API through API Gateway.</p>
 <p>There are two ways of Lambda integration, one is triggered by the DynamoDB table, and another is triggered by API Gateway.</p>
 <p>![Amplify POC](Amplify - POC&#x2F;Amplify POC.png)</p>
-<p>###Code Structure</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/posts/1998f291/index.py — amplify-johnny 2022-08-11 13-44-12.png" alt="index.py — amplify-johnny 2022-08-11 13-44-12" style="zoom:50%;">
+<h3 id="Code-Structure"><a href="#Code-Structure" class="headerlink" title="Code Structure"></a>Code Structure</h3><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/posts/1998f291/index.py — amplify-johnny 2022-08-11 13-44-12.png" alt="index.py — amplify-johnny 2022-08-11 13-44-12" style="zoom:50%;">
 
 <ul>
 <li>amplify<ul>
