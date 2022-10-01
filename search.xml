@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Attention for Using Markdown code block</title>
-    <url>/posts/d2fb4425.html</url>
-    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
-<span id="more"></span>  
-<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
-]]></content>
-      <categories>
-        <category>Language</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Auto-start Services on Boot in Linux</title>
     <url>/posts/857f09d5.html</url>
     <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
@@ -54,6 +37,250 @@
         <tag>Linux</tag>
         <tag>Linux Command</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/posts/0.html</url>
+    <content><![CDATA[<p>#Amplify - POC</p>
+<p>This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC.</p>
+<p>##What is Amplify</p>
+<p>Amplify is an all-in-one platform for frontend developers to develop, test, and deploy the whole website or mobile app. The frontend developers only need to know vanilla JavaScript or React or Vue.js, the knowledge of RestAPI, and database management is not necessary for this platform cause Amplify Studio can help frontend developers to maintain these through the UI.</p>
+<h3 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h3><ul>
+<li>The learning curve is not higher for frontend developers.</li>
+<li>Easily to connect with other AWS services (Cognito, Lambda, AppSync, DynamoDB)</li>
+<li>Less maintenance works.</li>
+<li>Automatic CI&#x2F;CD.</li>
+<li>Serverless.</li>
+</ul>
+<p>###Cons</p>
+<ul>
+<li><p>The learning curve is a little bit steep for backed developers. (Developers should learn React and GraphQL, and know how to use Figma)</p>
+</li>
+<li><p>Not good for developing a complex website, you still need to know some backend knowledge to develop advanced features.</p>
+</li>
+<li><p>For UI components, you can’t design a Figma template by yourself, you need to modify the fixed template created by Amplify team.</p>
+</li>
+</ul>
+<h3 id="Use-Cases"><a href="#Use-Cases" class="headerlink" title="Use Cases"></a>Use Cases</h3><p>Based on the analysis above, Amplify is great for simple website development or mobile app with basic CRUD functions.</p>
+<p>Like a file management system, or a simple CRM system.</p>
+<h2 id="How-to-Start"><a href="#How-to-Start" class="headerlink" title="How to Start"></a>How to Start</h2><p>You can follow the link below to go through this workshop quickly. It provides almost everything you need to know in Amplify.</p>
+<p><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US">https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US</a></p>
+<h2 id="Tools-for-Development"><a href="#Tools-for-Development" class="headerlink" title="Tools for Development"></a>Tools for Development</h2><ul>
+<li><p>Amplify Studio</p>
+<ul>
+<li>This is an online design platform, you can design your website or mobile app on this for most features. But for some custom features, you still need to develop in your local machine, then use Amplify CLI to sync your local changes to the remote system.</li>
+</ul>
+</li>
+<li><p>Amplify CLI</p>
+<ul>
+<li>You can use Amplify CLI to complete all configuration and development and not to use Amplify Studio</li>
+<li>You can reach out to this link to learn more about this. <a href="https://docs.amplify.aws/cli/">https://docs.amplify.aws/cli/</a></li>
+</ul>
+</li>
+<li><p>Git CLI</p>
+<ul>
+<li><p>For CI&#x2F;CD and deployment, you need to commit your local codes and push them to the remote repository to activate CI&#x2F;CD. After that, you can access your remote website through a fixed URL.</p>
+</li>
+<li><p>For local deployment, you can use the npm command to preview changes.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>I still want to summarize all steps for my Amplify POC, you can check this first to get a landscape of development in Amplify.</p>
+<p>###Steps for Amplify Development</p>
+<ol>
+<li><p>Initialization of Amplify</p>
+<ul>
+<li><p>Install Amplify CLI</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @aws-amplify/cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Amplify configuration</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">amplify configure</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create a new React app</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx create-react-app amplify-poc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Amplify initialization</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">amplify init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install necessary packages</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install aws-amplify @aws-amplify/ui-react</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Authentication (Using AWS Cognito for SSO)</p>
+<ol>
+<li><p>Find an existing Cognito User Pool (e.g. Okta ) and create a new app client in it.</p>
+</li>
+<li><p>Create a new identity pool that connected with this Cognito User Pool and the new app client</p>
+</li>
+<li><p>Authentication configuration in Amplify</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">amplify add auth</span><br></pre></td></tr></table></figure>
+
+<p>Follow the instruction in the command line and choose the user pool and identity pool, then push your changes to Amplify studio  <code>amplify push </code>. </p>
+<p><strong>Important Caveat</strong> </p>
+<p><strong>After this authentication configuration, you might find there’re two sets of Cognito Configuration. One is for Amplify Studio authentication, and another is for this new website or new mobile app authentication. So, please be aware of which one is amplify created automatically, and which one is created by yourself.</strong></p>
+</li>
+</ol>
+</li>
+<li><p>Importing UI components from Figma</p>
+<ul>
+<li><p>You can only use an Amplify-built Figma template, Amplify can’t import components built by yourself. The template link shows below.</p>
+<p><a href="https://www.figma.com/community/file/1047600760128127424">https://www.figma.com/community/file/1047600760128127424</a></p>
+<p>You can make a copy of this template and do some modifications based on this template. (like creating a new page component by using an existing UI component).</p>
+</li>
+<li><p>BTW, you can also use my POC template.</p>
+<p><a href="https://www.figma.com/file/w9yXc7rxVcFQCAElNNmmDO/AWS-Amplify-UI-Kit-Community">https://www.figma.com/file/w9yXc7rxVcFQCAElNNmmDO/AWS-Amplify-UI-Kit-Community</a></p>
+</li>
+</ul>
+</li>
+<li><p>Data model design</p>
+<p>Login to Amplify Studio, then you can design your data model in this online platform.</p>
+<p>![amplify-johnny - staging - Amplify Studio 2022-08-10 14-37-20](Amplify - POC&#x2F;amplify-johnny - staging - Amplify Studio 2022-08-10 14-37-20.png)</p>
+</li>
+<li><p>S3 configuration</p>
+<p>Follow instructions on AWS Amplify.</p>
+<p>By default, the files you uploaded will store in the public folder.</p>
+</li>
+<li><p>Frontend development</p>
+<p>Develop in your local machine, and you can preview by using the npm command <code>npm  start</code></p>
+<p>For your frontend development, all codes are located in the src folder.</p>
+<img src="/posts/0/Get Started — amplify-johnny 2022-08-10 14-41-53.png" alt="Get Started — amplify-johnny 2022-08-10 14-41-53" style="zoom:50%;">
+</li>
+<li><p>API development</p>
+<p>After you finished data model creation, Amplify Studio will create all related GraphQL queries for you automatically.</p>
+<ol>
+<li><p>Write and test your GrahQL script in Amplify Studio.</p>
+<p>![amplify-johnny - staging - Amplify Studio 2022-08-10 14-45-15](Amplify - POC&#x2F;amplify-johnny - staging - Amplify Studio 2022-08-10 14-45-15.png)</p>
+<p>![AppSyncConsole 2022-08-10 14-48-56](Amplify - POC&#x2F;AppSyncConsole 2022-08-10 14-48-56.png)</p>
+</li>
+<li><p>Copy scripts into your local codes.</p>
+</li>
+<li><p>Import GraphSQL queries into your React codes.</p>
+</li>
+</ol>
+</li>
+<li><p>Lambda development</p>
+<ol>
+<li><p>Amplify CLI</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">amplify add function</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Development in your local machine</p>
+<p>Find your created Lambda function, and write your features in the src folder.</p>
+<img src="/posts/0/Get Started — amplify-johnny 2022-08-10 14-51-22.png" alt="Get Started — amplify-johnny 2022-08-10 14-51-22" style="zoom:50%;">
+</li>
+<li><p>Add endpoint for Lambda</p>
+<p>Using Amplify CLI and choosing REST as the calling method</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">amplify add api</span><br></pre></td></tr></table></figure>
+
+<p>Then, in your React codes, you can call this API by <code>API.get</code></p>
+<p>In addition, we can also use DynanomoDB to trigger a Lambda function. Just like the screenshot below.</p>
+<p>![image-20220810150705985](Amplify - POC&#x2F;image-20220810150705985.png)</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Amplify-POC"><a href="#Amplify-POC" class="headerlink" title="Amplify POC"></a>Amplify POC</h2><p>###Business Requirements</p>
+<p>This POC is aimed to recreate a Quant Portal website that is originally created based on SharePoint.</p>
+<p>You can treat this Quant Portal as an online file management system.</p>
+<p>The main business requirements show below.</p>
+<img src="/posts/0/Quant Portal POC@2x.png" alt="Quant Portal POC@2x" style="zoom: 33%;">
+
+
+
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>This is the whole architecture of this Amplify POC. </p>
+<p>Before calling GraphQL each time, the frontend will get a token from Cognito automatically for authentication. After successful verification, it will transfer requests to AppSync, API Gateway, or S3 built-in REST API. </p>
+<p>In your React codes, you need to use <code>API.get</code> to call AppSync through QraphQL or use <code>API.get</code> to call a REST API through API Gateway.</p>
+<p>There are two ways of Lambda integration, one is triggered by the DynamoDB table, and another is triggered by API Gateway. </p>
+<p>![Amplify POC](Amplify - POC&#x2F;Amplify POC.png)</p>
+<p>###Code Structure</p>
+<img src="/posts/0/index.py — amplify-johnny 2022-08-11 13-44-12.png" alt="index.py — amplify-johnny 2022-08-11 13-44-12" style="zoom:50%;">
+
+<ul>
+<li>amplify<ul>
+<li>all backend codes (contains authentication, API, Lambda function, storage, etc.)</li>
+</ul>
+</li>
+<li>public<ul>
+<li>all static files (images, icons, and static HTML files)</li>
+</ul>
+</li>
+<li>src<ul>
+<li>all React codes</li>
+</ul>
+</li>
+</ul>
+<p>Next, I’ll dive into each item above to explain.</p>
+<ol>
+<li><p>src</p>
+<img src="/posts/0/index.js — amplify-johnny 2022-08-11 13-58-04.png" alt="index.js — amplify-johnny 2022-08-11 13-58-04" style="zoom:50%;">
+
+<ul>
+<li>components (self-created)<ul>
+<li>All Amplify-created pages are located under the “ui-components” folder. So, it’s better to create a new folder to put your custom page codes. Because after you type  <code>amplify pull</code> command, Amplify will replace all pages under ui-components automatically for making sure all page codes are consistent with the UI module in Amplify Studio.</li>
+</ul>
+</li>
+<li>contexts (self-created)<ul>
+<li>For putting login and logout logic</li>
+</ul>
+</li>
+<li>graphql (self-created)<ul>
+<li>For putting all GraphQL queries codes</li>
+</ul>
+</li>
+<li>models <ul>
+<li>GraphQL model data</li>
+</ul>
+</li>
+<li>ui-components (self-created)<ul>
+<li>All page codes and are consistent with Amplify Studio</li>
+<li>You can use <code>amplify pull</code> to update when you did some changes in Amplify Studio</li>
+</ul>
+</li>
+<li>App.js<ul>
+<li>The root code of React</li>
+</ul>
+</li>
+<li>index.js<ul>
+<li>React code</li>
+</ul>
+</li>
+<li>aws-export.js<ul>
+<li>Most important configuration file, don’t change this.</li>
+<li>Contains configuration of auth, API, storage, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>amplify</p>
+<img src="/posts/0/aws-exports.js — amplify-johnny 2022-08-11 14-01-57.png" alt="aws-exports.js — amplify-johnny 2022-08-11 14-01-57" style="zoom:50%;">
+
+<p>In folder amplify, you only need to write your codes under function, and don’t change other folders.</p>
+<p>Under folder function, it contains all Lambda functions you created by using the command  <code>amplify add function</code>, and you need to choose the Lambda name you created, and write your codes in the index.py file if you choose the python platform for your Lambda.</p>
+</li>
+</ol>
+<h3 id="Authentication-Configuration"><a href="#Authentication-Configuration" class="headerlink" title="Authentication Configuration"></a>Authentication Configuration</h3><p>For integrating with AWS Cognito, you not only need to configure by using the command <code>amplify add auth</code>, but also you need to add these codes into your App.js file for authentication configuration.</p>
+<p>Because AWS Cognito User Pool has a redirect URL, it’s not convenient to use the same authentication configuration for the local development environment and remote test environment. It’s better to add two sets of authentication configurations. BTW, you need to pay attention to whether the authentication configuration belongs to the test environment or not when you push your codes to the remote branch for CI&#x2F;CD.</p>
+<img src="/posts/0/code.png" alt="code" style="zoom:40%;">
+
+
+
+
+
+<h2 id="Links-you-can-refer-to"><a href="#Links-you-can-refer-to" class="headerlink" title="Links you can refer to"></a>Links you can refer to</h2><ul>
+<li><p>Amplify Immersion Day Workshop</p>
+<p><a href="https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US">https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US</a></p>
+</li>
+<li><p>Amplify UI document</p>
+<p><a href="https://ui.docs.amplify.aws/">https://ui.docs.amplify.aws/</a></p>
+</li>
+<li><p>Amplify Framework Documentation</p>
+<p><a href="https://docs.amplify.aws/">https://docs.amplify.aws/</a></p>
+</li>
+<li><p>Amplify CLI</p>
+<p><a href="https://docs.amplify.aws/cli/">https://docs.amplify.aws/cli/</a></p>
+</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Cannot Start Namenode with Safemode Error</title>
@@ -121,6 +348,23 @@
       <tags>
         <tag>BigData</tag>
         <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Attention for Using Markdown code block</title>
+    <url>/posts/d2fb4425.html</url>
+    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
+<span id="more"></span>  
+<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
+]]></content>
+      <categories>
+        <category>Language</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -205,6 +449,99 @@
       </categories>
       <tags>
         <tag>BigData</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Enable Kerberos on Ambari</title>
+    <url>/posts/3f0454be.html</url>
+    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
+<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
+<li><p>Install a new version of the KDC server</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p>Update the KDC server configuration file</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “realms”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “domain_realm”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
+<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
+<p>Set up the KDC server to auto-start on boot.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
+<ol>
+<li><p>Create a KDC admin</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
+<li><p>Restart the kadmin process</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
+<ol>
+<li><p>Download the specific version of the JCE file</p>
+<p> For Oracle JDK 1.8:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
+<p> For Oracle JDK 1.7:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
+<li><p>Add the JCE file to the JDK installation direction</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
+<li>Enter into the configuration of the kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
+<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
+<ol start="2">
+<li>Choose the type of KDC</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
+<ol start="3">
+<li>Configure the Kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
+<ol start="4">
+<li>Install and test the Kerberos client</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
+<ol start="5">
+<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
+<ol start="6">
+<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
+<ol start="7">
+<li>Stop services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
+<ol start="8">
+<li>Kerberos cluster</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
+<ol start="9">
+<li>Start and test services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
       </tags>
   </entry>
   <entry>
@@ -5139,99 +5476,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Enable Kerberos on Ambari</title>
-    <url>/posts/3f0454be.html</url>
-    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
-<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
-<li><p>Install a new version of the KDC server</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>
-<ol start="2">
-<li><p>Update the KDC server configuration file</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “realms”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “domain_realm”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
-<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
-<p>Set up the KDC server to auto-start on boot.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
-<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
-<ol>
-<li><p>Create a KDC admin</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
-<li><p>Restart the kadmin process</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
-<ol>
-<li><p>Download the specific version of the JCE file</p>
-<p> For Oracle JDK 1.8:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
-<p> For Oracle JDK 1.7:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
-<li><p>Add the JCE file to the JDK installation direction</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
-<li>Enter into the configuration of the kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
-<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
-<ol start="2">
-<li>Choose the type of KDC</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
-<ol start="3">
-<li>Configure the Kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
-<ol start="4">
-<li>Install and test the Kerberos client</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
-<ol start="5">
-<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
-<ol start="6">
-<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
-<ol start="7">
-<li>Stop services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
-<ol start="8">
-<li>Kerberos cluster</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
-<ol start="9">
-<li>Start and test services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>[Hexo]Create a blog with hexo in github</title>
     <url>/posts/fe740d97.html</url>
     <content><![CDATA[<p><img src="/posts/fe740d97/Hexo-Create-a-blog-with-hexo-in-github%5Chexo.png" alt="hexo">  </p>
@@ -5268,121 +5512,6 @@
 </li>
 <li><p>access to your github blog</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Several Tricks for Using Hexo Efficiently</title>
-    <url>/posts/eacbb695.html</url>
-    <content><![CDATA[<p><img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Cgithub_hexo_blog.png" alt="github_hexo_blog">  </p>
-<h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><ol>
-<li><p>add a theme to your Hexo (eg. theme next)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file(_config.yml, not your theme config file)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>	
-<h2 id="add-RSS-plugin"><a href="#add-RSS-plugin" class="headerlink" title="add RSS plugin"></a>add RSS plugin</h2><ol>
-<li><p>install RSS tools by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file(_config.yml, not your theme config file)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feed:</span> <span class="comment"># RSS订阅插件</span></span><br><span class="line"> 		<span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line"> 		<span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line"> 		<span class="attr">limit:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">hexo-generate-feed</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your theme config file(theme&#x2F;_config.yml)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set RSS to false to disable feed link.</span></span><br><span class="line"><span class="comment"># Leave RSS as empty to use site&#x27;s feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.</span></span><br><span class="line"><span class="comment"># Set RSS to specific value if you have burned your feed already.</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="change-the-code-block-theme"><a href="#change-the-code-block-theme" class="headerlink" title="change the code block theme"></a>change the code block theme</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="record-the-number-of-viewers"><a href="#record-the-number-of-viewers" class="headerlink" title="record the number of viewers"></a>record the number of viewers</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Show Views/Visitors of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">eye</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="generate-the-excerpt"><a href="#generate-the-excerpt" class="headerlink" title="generate the excerpt"></a>generate the excerpt</h2><p>There are two methods for generating excerpts for the home page.</p>
-<ol>
-<li><p>update theme config file (theme&#x2F;next&#x2F;_config.yml)<br>It is not good for you when you are using markdown language because of the bad show effect.</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Automatically Excerpt. Not recommend.</span></span><br><span class="line"><span class="comment"># Use &lt;!-- more --&gt; in the post to control excerpt accurately.</span></span><br><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">300</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>add markdown code in your post to control excerpt accurately</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-search-plugin"><a href="#add-search-plugin" class="headerlink" title="add search plugin"></a>add search plugin</h2><ol>
-<li><p>install search plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the blog config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="comment"># if auto, trigger search by changing input</span></span><br><span class="line">	<span class="comment"># if manual, trigger search by pressing enter key or search button</span></span><br><span class="line">	<span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">	<span class="comment"># show top n results per article, show all results by setting to -1</span></span><br><span class="line">	<span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">	<span class="comment"># unescape html strings to the readable one</span></span><br><span class="line">	<span class="attr">unescape:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-share-plugin"><a href="#add-share-plugin" class="headerlink" title="add share plugin"></a>add share plugin</h2><ol>
-<li><p>get the module from GitHub</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-needmoreshare2 <span class="built_in">source</span>/lib/needsharebutton</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">needmoreshare2:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postbottom:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">bottomCenter</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br><span class="line">  <span class="attr">float:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">middleRight</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-google-analytics"><a href="#add-google-analytics" class="headerlink" title="add google analytics"></a>add google analytics</h2><ol>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">your</span> <span class="string">google</span> <span class="string">track</span> <span class="string">code</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-reward"><a href="#add-reward" class="headerlink" title="add reward"></a>add reward</h2><ol>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward</span></span><br><span class="line"><span class="comment"># If true, reward would be displayed in every article by default.</span></span><br><span class="line"><span class="comment"># And you can show or hide one article specially through add page variable `reward: true/false`.</span></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="attr">comment:</span> <span class="string">Thanks</span> <span class="string">For</span> <span class="string">Your</span> <span class="string">Donation!</span></span><br><span class="line">	<span class="attr">wechatpay:</span> <span class="string">/images/wechatpay.jpg</span></span><br><span class="line">	<span class="attr">alipay:</span> <span class="string">/images/alipay.jpg</span></span><br><span class="line">	<span class="comment">#bitcoin: /images/bitcoin.jpg</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="generate-a-permanent-post-address"><a href="#generate-a-permanent-post-address" class="headerlink" title="generate a permanent post address"></a>generate a permanent post address</h2><ol>
-<li><p>install plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the blog config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink_defaults:</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">	<span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">	<span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-comment-module-valine"><a href="#add-comment-module-valine" class="headerlink" title="add comment module (valine)"></a>add comment module (valine)</h2><ol>
-<li><p>sign up for a leancloud account  </p>
-</li>
-<li><p>create an application for your comment system  </p>
-</li>
-<li><p>copy AppID and AppKey from your dashboard  </p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module1.png" alt="hexo_comment_module1"></p>
-</li>
-<li><p>paste AppID and AppKey into your theme config file  </p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier, See: https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># leancloud-counter-security is not supported for now. When a visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors&#x27; for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># if false, comment count will only be displayed in post page, not in home page</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>create classes in your leancloud account to store your data  </p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module2.png" alt="hexo_comment_module2"></p>
-</li>
-<li><p><strong>[not required]</strong> you can change your valine lanuage (themes&#x2F;next&#x2F;layout&#x2F;_third-party&#x2F;comments&#x2F;valine.swig)  </p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#comments&#x27;</span>,</span><br><span class="line">    <span class="attr">lang</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">    <span class="attr">verify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">verify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">notify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">notify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">appId</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appid &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">appKey</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appkey &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;&#123;&#123; theme.valine.placeholder &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">avatar</span>: <span class="string">&#x27;&#123;&#123; theme.valine.avatar &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">meta</span>: guest,</span><br><span class="line">    <span class="attr">pageSize</span>: <span class="string">&#x27;&#123;&#123; theme.valine.pageSize &#125;&#125;&#x27;</span> || <span class="number">10</span>,</span><br><span class="line">    <span class="attr">visitor</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">visitor</span> &#125;&#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>[not required]</strong> you can also add a white list for security</p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module3.png" alt="hexo_comment_module3"></p>
-</li>
-</ol>
-<h2 id="use-image-plugin"><a href="#use-image-plugin" class="headerlink" title="use image plugin"></a>use image plugin</h2><ol>
-<li><p>install “hexo-asset-image” plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file (_config.yml)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if you use the abbrlink plugin to change your permalink attribute in your blog config file, you need to edit this plugin to fit your config (node_modules&#x2F;hexo-asset-image&#x2F;index.js). Then you add a code block into this javascript file.  </p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> link = data.<span class="property">permalink</span>;	</span><br><span class="line">link = link.<span class="title function_">replace</span>(<span class="string">&#x27;.html&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);  <span class="comment">//新增加，针对修改后的permalink</span></span><br><span class="line"><span class="keyword">var</span> beginPos = <span class="title function_">getPosition</span>(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Ok, you can generate your new static HTML file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-creative-commons-module-to-your-blog"><a href="#add-creative-commons-module-to-your-blog" class="headerlink" title="add creative commons module to your blog"></a>add creative commons module to your blog</h2><p>It is convenient and useful for a bloger to announce your blog copyright announcement. So, you can add this below to your posts or add this to your profile information page.</p>
-<ol>
-<li><p>update your theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
@@ -5542,6 +5671,33 @@
       </tags>
   </entry>
   <entry>
+    <title>How to Recover a Crashed Mysql Database</title>
+    <url>/posts/4cf6882d.html</url>
+    <content><![CDATA[<p><img src="/posts/4cf6882d/How-to-Recover-a-Crashed-Mysql-Database%5Ccrash.jpg" alt="crash"></p>
+<span id="more"></span>
+<p>Among the operation of Ambari, we may confront some annoying failure, such as a crashed MySQL database. So, we can run commands below to recover this kind of problem.</p>
+<ol>
+<li><p>Check the status of the crashed table.</p>
+ <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">check</span> <span class="keyword">table</span> [<span class="keyword">table</span> name]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Repair crashed table.</p>
+ <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">repaire <span class="keyword">table</span> [<span class="keyword">table</span> name]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>On the other hand, you can use commands below to repair whole crashed tables.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqlcheck -uroot -p --repair --all-databases</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">myisamchk --recover *.MYI</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Database</category>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Ambari</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Installing HDF on Ambari 2.7.1 + HDP 3.0.1</title>
     <url>/posts/8c49992b.html</url>
     <content><![CDATA[<p><img src="/posts/8c49992b/hdfandhdp.png" alt="hdfandhdp"></p>
@@ -5662,33 +5818,6 @@
       <tags>
         <tag>BigData</tag>
         <tag>NiFi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Recover a Crashed Mysql Database</title>
-    <url>/posts/4cf6882d.html</url>
-    <content><![CDATA[<p><img src="/posts/4cf6882d/How-to-Recover-a-Crashed-Mysql-Database%5Ccrash.jpg" alt="crash"></p>
-<span id="more"></span>
-<p>Among the operation of Ambari, we may confront some annoying failure, such as a crashed MySQL database. So, we can run commands below to recover this kind of problem.</p>
-<ol>
-<li><p>Check the status of the crashed table.</p>
- <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">check</span> <span class="keyword">table</span> [<span class="keyword">table</span> name]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Repair crashed table.</p>
- <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">repaire <span class="keyword">table</span> [<span class="keyword">table</span> name]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>On the other hand, you can use commands below to repair whole crashed tables.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqlcheck -uroot -p --repair --all-databases</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">myisamchk --recover *.MYI</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Database</category>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Ambari</tag>
-        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -5813,6 +5942,121 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Kerberos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Several Tricks for Using Hexo Efficiently</title>
+    <url>/posts/eacbb695.html</url>
+    <content><![CDATA[<p><img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Cgithub_hexo_blog.png" alt="github_hexo_blog">  </p>
+<h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><ol>
+<li><p>add a theme to your Hexo (eg. theme next)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file(_config.yml, not your theme config file)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>	
+<h2 id="add-RSS-plugin"><a href="#add-RSS-plugin" class="headerlink" title="add RSS plugin"></a>add RSS plugin</h2><ol>
+<li><p>install RSS tools by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file(_config.yml, not your theme config file)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feed:</span> <span class="comment"># RSS订阅插件</span></span><br><span class="line"> 		<span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line"> 		<span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line"> 		<span class="attr">limit:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">hexo-generate-feed</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your theme config file(theme&#x2F;_config.yml)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set RSS to false to disable feed link.</span></span><br><span class="line"><span class="comment"># Leave RSS as empty to use site&#x27;s feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.</span></span><br><span class="line"><span class="comment"># Set RSS to specific value if you have burned your feed already.</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="change-the-code-block-theme"><a href="#change-the-code-block-theme" class="headerlink" title="change the code block theme"></a>change the code block theme</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="record-the-number-of-viewers"><a href="#record-the-number-of-viewers" class="headerlink" title="record the number of viewers"></a>record the number of viewers</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Show Views/Visitors of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">eye</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="generate-the-excerpt"><a href="#generate-the-excerpt" class="headerlink" title="generate the excerpt"></a>generate the excerpt</h2><p>There are two methods for generating excerpts for the home page.</p>
+<ol>
+<li><p>update theme config file (theme&#x2F;next&#x2F;_config.yml)<br>It is not good for you when you are using markdown language because of the bad show effect.</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Automatically Excerpt. Not recommend.</span></span><br><span class="line"><span class="comment"># Use &lt;!-- more --&gt; in the post to control excerpt accurately.</span></span><br><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">300</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>add markdown code in your post to control excerpt accurately</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-search-plugin"><a href="#add-search-plugin" class="headerlink" title="add search plugin"></a>add search plugin</h2><ol>
+<li><p>install search plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the blog config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="comment"># if auto, trigger search by changing input</span></span><br><span class="line">	<span class="comment"># if manual, trigger search by pressing enter key or search button</span></span><br><span class="line">	<span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">	<span class="comment"># show top n results per article, show all results by setting to -1</span></span><br><span class="line">	<span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">	<span class="comment"># unescape html strings to the readable one</span></span><br><span class="line">	<span class="attr">unescape:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-share-plugin"><a href="#add-share-plugin" class="headerlink" title="add share plugin"></a>add share plugin</h2><ol>
+<li><p>get the module from GitHub</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-needmoreshare2 <span class="built_in">source</span>/lib/needsharebutton</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">needmoreshare2:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postbottom:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">bottomCenter</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br><span class="line">  <span class="attr">float:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">middleRight</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-google-analytics"><a href="#add-google-analytics" class="headerlink" title="add google analytics"></a>add google analytics</h2><ol>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">your</span> <span class="string">google</span> <span class="string">track</span> <span class="string">code</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-reward"><a href="#add-reward" class="headerlink" title="add reward"></a>add reward</h2><ol>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward</span></span><br><span class="line"><span class="comment"># If true, reward would be displayed in every article by default.</span></span><br><span class="line"><span class="comment"># And you can show or hide one article specially through add page variable `reward: true/false`.</span></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="attr">comment:</span> <span class="string">Thanks</span> <span class="string">For</span> <span class="string">Your</span> <span class="string">Donation!</span></span><br><span class="line">	<span class="attr">wechatpay:</span> <span class="string">/images/wechatpay.jpg</span></span><br><span class="line">	<span class="attr">alipay:</span> <span class="string">/images/alipay.jpg</span></span><br><span class="line">	<span class="comment">#bitcoin: /images/bitcoin.jpg</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="generate-a-permanent-post-address"><a href="#generate-a-permanent-post-address" class="headerlink" title="generate a permanent post address"></a>generate a permanent post address</h2><ol>
+<li><p>install plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the blog config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink_defaults:</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">	<span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">	<span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-comment-module-valine"><a href="#add-comment-module-valine" class="headerlink" title="add comment module (valine)"></a>add comment module (valine)</h2><ol>
+<li><p>sign up for a leancloud account  </p>
+</li>
+<li><p>create an application for your comment system  </p>
+</li>
+<li><p>copy AppID and AppKey from your dashboard  </p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module1.png" alt="hexo_comment_module1"></p>
+</li>
+<li><p>paste AppID and AppKey into your theme config file  </p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier, See: https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># leancloud-counter-security is not supported for now. When a visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors&#x27; for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># if false, comment count will only be displayed in post page, not in home page</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>create classes in your leancloud account to store your data  </p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module2.png" alt="hexo_comment_module2"></p>
+</li>
+<li><p><strong>[not required]</strong> you can change your valine lanuage (themes&#x2F;next&#x2F;layout&#x2F;_third-party&#x2F;comments&#x2F;valine.swig)  </p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#comments&#x27;</span>,</span><br><span class="line">    <span class="attr">lang</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">    <span class="attr">verify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">verify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">notify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">notify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">appId</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appid &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">appKey</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appkey &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;&#123;&#123; theme.valine.placeholder &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">avatar</span>: <span class="string">&#x27;&#123;&#123; theme.valine.avatar &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">meta</span>: guest,</span><br><span class="line">    <span class="attr">pageSize</span>: <span class="string">&#x27;&#123;&#123; theme.valine.pageSize &#125;&#125;&#x27;</span> || <span class="number">10</span>,</span><br><span class="line">    <span class="attr">visitor</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">visitor</span> &#125;&#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>[not required]</strong> you can also add a white list for security</p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module3.png" alt="hexo_comment_module3"></p>
+</li>
+</ol>
+<h2 id="use-image-plugin"><a href="#use-image-plugin" class="headerlink" title="use image plugin"></a>use image plugin</h2><ol>
+<li><p>install “hexo-asset-image” plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file (_config.yml)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if you use the abbrlink plugin to change your permalink attribute in your blog config file, you need to edit this plugin to fit your config (node_modules&#x2F;hexo-asset-image&#x2F;index.js). Then you add a code block into this javascript file.  </p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> link = data.<span class="property">permalink</span>;	</span><br><span class="line">link = link.<span class="title function_">replace</span>(<span class="string">&#x27;.html&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);  <span class="comment">//新增加，针对修改后的permalink</span></span><br><span class="line"><span class="keyword">var</span> beginPos = <span class="title function_">getPosition</span>(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ok, you can generate your new static HTML file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-creative-commons-module-to-your-blog"><a href="#add-creative-commons-module-to-your-blog" class="headerlink" title="add creative commons module to your blog"></a>add creative commons module to your blog</h2><p>It is convenient and useful for a bloger to announce your blog copyright announcement. So, you can add this below to your posts or add this to your profile information page.</p>
+<ol>
+<li><p>update your theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -6145,33 +6389,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Some terms in Big Data Ecosystem</title>
-    <url>/posts/aa930aca.html</url>
-    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
-<ul>
-<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
-</li>
-<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
-</li>
-<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>DMP</tag>
-        <tag>MDM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Step by Step Tutorial for Ambari Installation</title>
     <url>/posts/7f0f012a.html</url>
     <content><![CDATA[<p><img src="/posts/7f0f012a/features.png" alt="features"> </p>
@@ -6417,89 +6634,6 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tar command in Linux</title>
-    <url>/posts/d36bfb53.html</url>
-    <content><![CDATA[<p><img src="/posts/d36bfb53/Tar-command-in-Linux%5Ctar.png" alt="tar">  </p>
-<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
-<p>-C: extract files into a specific directory, not the current directory</p>
-<span id="more"></span>
-<ol>
-<li><p>Creating an uncompressed tar archive.  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Creating a compressed tar archive by using gzip.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files from archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting gzip tar archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files into a specific directory.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Displays or lists files in the archived file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
-    <url>/posts/87dabd80.html</url>
-    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
-<span id="more"></span>
-
-<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
-<p>Command below for using Hive CLI.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-
-<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
-<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
-
-<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
-<ol>
-<li>Zookeeper</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
-<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
-<blockquote>
-<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
-</blockquote>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
-<ol start="2">
-<li>Thrift Server</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
-<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
@@ -6829,41 +6963,41 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
+    <url>/posts/87dabd80.html</url>
+    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
 <span id="more"></span>
 
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
+<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
+<p>Command below for using Hive CLI.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+
+<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
+<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
+
+<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
 <ol>
-<li>Source</li>
+<li>Zookeeper</li>
 </ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
+<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
+<blockquote>
+<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
+</blockquote>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
 <ol start="2">
-<li>Channel</li>
+<li>Thrift Server</li>
 </ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
 
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
+<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
 ]]></content>
       <categories>
         <category>Back-end</category>
@@ -6872,8 +7006,7 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-        <tag>Flume</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
@@ -6932,6 +7065,33 @@ The authenticator which encrypted by TGS session key contains:
         <tag>Ambari</tag>
         <tag>Kafka</tag>
         <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Some terms in Big Data Ecosystem</title>
+    <url>/posts/aa930aca.html</url>
+    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
+<ul>
+<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
+</li>
+<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
+</li>
+<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>DMP</tag>
+        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -7027,6 +7187,54 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
+
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Using docker command to obtain dockers&#39; IP</title>
     <url>/posts/de75b356.html</url>
     <content><![CDATA[<p><img src="/posts/de75b356/Using-docker-command-to-obtain-dockers-IP%5Cdocker.jpg" alt="docker"></p>
@@ -7113,6 +7321,42 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>Ambari</tag>
         <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tar command in Linux</title>
+    <url>/posts/d36bfb53.html</url>
+    <content><![CDATA[<p><img src="/posts/d36bfb53/Tar-command-in-Linux%5Ctar.png" alt="tar">  </p>
+<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
+<p>-C: extract files into a specific directory, not the current directory</p>
+<span id="more"></span>
+<ol>
+<li><p>Creating an uncompressed tar archive.  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Creating a compressed tar archive by using gzip.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files from archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting gzip tar archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files into a specific directory.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Displays or lists files in the archived file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
 </search>
