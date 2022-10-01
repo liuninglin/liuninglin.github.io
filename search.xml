@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Amplify-POC</title>
+    <title>Amplify POC</title>
     <url>/posts/1998f291.html</url>
-    <content><![CDATA[<p><img src="/posts/1998f291/amplify_banner.jpeg" alt="amplify image"></p>
+    <content><![CDATA[<p><img src="/posts/1998f291/amplify_banner.png" alt="amplify image"></p>
 <p>This document is aimed to help you familiar with Amplify quickly. In addition, I’ll take you to go through the code structure and deployment architecture of my POC.</p>
 <h2 id="What-is-Amplify"><a href="#What-is-Amplify" class="headerlink" title="What is Amplify"></a>What is Amplify</h2><p>Amplify is an all-in-one platform for frontend developers to develop, test, and deploy the whole website or mobile app. The frontend developers only need to know vanilla JavaScript or React or Vue.js, the knowledge of RestAPI, and database management is not necessary for this platform cause Amplify Studio can help frontend developers to maintain these through the UI.</p>
 <span id="more"></span>
@@ -260,41 +260,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot start ambari services with 400 status code</title>
-    <url>/posts/7449623f.html</url>
-    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
-<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
-<span id="more"></span>
-<blockquote>
-<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
-</blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
-<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
-<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
-<p>So, update the table hostcomponentstate.</p>
-<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
-<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
-<ol>
-<li><p>Clicking the button “Stop All”.</p>
-</li>
-<li><p>Running the commands below.  </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
-<li><p>Powering off VMs.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Auto-start Services on Boot in Linux</title>
     <url>/posts/857f09d5.html</url>
     <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
@@ -347,6 +312,41 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
 
 <p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
+<ol>
+<li><p>Clicking the button “Stop All”.</p>
+</li>
+<li><p>Running the commands below.  </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
+<li><p>Powering off VMs.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot start ambari services with 400 status code</title>
+    <url>/posts/7449623f.html</url>
+    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
+<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
+<span id="more"></span>
+<blockquote>
+<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
+<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
+<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
+<p>So, update the table hostcomponentstate.</p>
+<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
+<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
 <ol>
 <li><p>Clicking the button “Stop All”.</p>
 </li>
@@ -579,121 +579,6 @@
 </li>
 <li><p>access to your github blog</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Several Tricks for Using Hexo Efficiently</title>
-    <url>/posts/eacbb695.html</url>
-    <content><![CDATA[<p><img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Cgithub_hexo_blog.png" alt="github_hexo_blog">  </p>
-<h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><ol>
-<li><p>add a theme to your Hexo (eg. theme next)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file(_config.yml, not your theme config file)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>	
-<h2 id="add-RSS-plugin"><a href="#add-RSS-plugin" class="headerlink" title="add RSS plugin"></a>add RSS plugin</h2><ol>
-<li><p>install RSS tools by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file(_config.yml, not your theme config file)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feed:</span> <span class="comment"># RSS订阅插件</span></span><br><span class="line"> 		<span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line"> 		<span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line"> 		<span class="attr">limit:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">hexo-generate-feed</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your theme config file(theme&#x2F;_config.yml)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set RSS to false to disable feed link.</span></span><br><span class="line"><span class="comment"># Leave RSS as empty to use site&#x27;s feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.</span></span><br><span class="line"><span class="comment"># Set RSS to specific value if you have burned your feed already.</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="change-the-code-block-theme"><a href="#change-the-code-block-theme" class="headerlink" title="change the code block theme"></a>change the code block theme</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="record-the-number-of-viewers"><a href="#record-the-number-of-viewers" class="headerlink" title="record the number of viewers"></a>record the number of viewers</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Show Views/Visitors of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">eye</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="generate-the-excerpt"><a href="#generate-the-excerpt" class="headerlink" title="generate the excerpt"></a>generate the excerpt</h2><p>There are two methods for generating excerpts for the home page.</p>
-<ol>
-<li><p>update theme config file (theme&#x2F;next&#x2F;_config.yml)<br>It is not good for you when you are using markdown language because of the bad show effect.</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Automatically Excerpt. Not recommend.</span></span><br><span class="line"><span class="comment"># Use &lt;!-- more --&gt; in the post to control excerpt accurately.</span></span><br><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">300</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>add markdown code in your post to control excerpt accurately</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-search-plugin"><a href="#add-search-plugin" class="headerlink" title="add search plugin"></a>add search plugin</h2><ol>
-<li><p>install search plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the blog config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="comment"># if auto, trigger search by changing input</span></span><br><span class="line">	<span class="comment"># if manual, trigger search by pressing enter key or search button</span></span><br><span class="line">	<span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">	<span class="comment"># show top n results per article, show all results by setting to -1</span></span><br><span class="line">	<span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">	<span class="comment"># unescape html strings to the readable one</span></span><br><span class="line">	<span class="attr">unescape:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-share-plugin"><a href="#add-share-plugin" class="headerlink" title="add share plugin"></a>add share plugin</h2><ol>
-<li><p>get the module from GitHub</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-needmoreshare2 <span class="built_in">source</span>/lib/needsharebutton</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">needmoreshare2:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postbottom:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">bottomCenter</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br><span class="line">  <span class="attr">float:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">middleRight</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-google-analytics"><a href="#add-google-analytics" class="headerlink" title="add google analytics"></a>add google analytics</h2><ol>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">your</span> <span class="string">google</span> <span class="string">track</span> <span class="string">code</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-reward"><a href="#add-reward" class="headerlink" title="add reward"></a>add reward</h2><ol>
-<li><p>update the theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward</span></span><br><span class="line"><span class="comment"># If true, reward would be displayed in every article by default.</span></span><br><span class="line"><span class="comment"># And you can show or hide one article specially through add page variable `reward: true/false`.</span></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="attr">comment:</span> <span class="string">Thanks</span> <span class="string">For</span> <span class="string">Your</span> <span class="string">Donation!</span></span><br><span class="line">	<span class="attr">wechatpay:</span> <span class="string">/images/wechatpay.jpg</span></span><br><span class="line">	<span class="attr">alipay:</span> <span class="string">/images/alipay.jpg</span></span><br><span class="line">	<span class="comment">#bitcoin: /images/bitcoin.jpg</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="generate-a-permanent-post-address"><a href="#generate-a-permanent-post-address" class="headerlink" title="generate a permanent post address"></a>generate a permanent post address</h2><ol>
-<li><p>install plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update the blog config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink_defaults:</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">	<span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">	<span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-comment-module-valine"><a href="#add-comment-module-valine" class="headerlink" title="add comment module (valine)"></a>add comment module (valine)</h2><ol>
-<li><p>sign up for a leancloud account  </p>
-</li>
-<li><p>create an application for your comment system  </p>
-</li>
-<li><p>copy AppID and AppKey from your dashboard  </p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module1.png" alt="hexo_comment_module1"></p>
-</li>
-<li><p>paste AppID and AppKey into your theme config file  </p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier, See: https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># leancloud-counter-security is not supported for now. When a visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors&#x27; for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># if false, comment count will only be displayed in post page, not in home page</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>create classes in your leancloud account to store your data  </p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module2.png" alt="hexo_comment_module2"></p>
-</li>
-<li><p><strong>[not required]</strong> you can change your valine lanuage (themes&#x2F;next&#x2F;layout&#x2F;_third-party&#x2F;comments&#x2F;valine.swig)  </p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#comments&#x27;</span>,</span><br><span class="line">    <span class="attr">lang</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">    <span class="attr">verify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">verify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">notify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">notify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">appId</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appid &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">appKey</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appkey &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;&#123;&#123; theme.valine.placeholder &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">avatar</span>: <span class="string">&#x27;&#123;&#123; theme.valine.avatar &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">meta</span>: guest,</span><br><span class="line">    <span class="attr">pageSize</span>: <span class="string">&#x27;&#123;&#123; theme.valine.pageSize &#125;&#125;&#x27;</span> || <span class="number">10</span>,</span><br><span class="line">    <span class="attr">visitor</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">visitor</span> &#125;&#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>[not required]</strong> you can also add a white list for security</p>
-<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module3.png" alt="hexo_comment_module3"></p>
-</li>
-</ol>
-<h2 id="use-image-plugin"><a href="#use-image-plugin" class="headerlink" title="use image plugin"></a>use image plugin</h2><ol>
-<li><p>install “hexo-asset-image” plugin</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>update your blog config file (_config.yml)</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>if you use the abbrlink plugin to change your permalink attribute in your blog config file, you need to edit this plugin to fit your config (node_modules&#x2F;hexo-asset-image&#x2F;index.js). Then you add a code block into this javascript file.  </p>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> link = data.<span class="property">permalink</span>;	</span><br><span class="line">link = link.<span class="title function_">replace</span>(<span class="string">&#x27;.html&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);  <span class="comment">//新增加，针对修改后的permalink</span></span><br><span class="line"><span class="keyword">var</span> beginPos = <span class="title function_">getPosition</span>(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Ok, you can generate your new static HTML file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="add-creative-commons-module-to-your-blog"><a href="#add-creative-commons-module-to-your-blog" class="headerlink" title="add creative commons module to your blog"></a>add creative commons module to your blog</h2><p>It is convenient and useful for a bloger to announce your blog copyright announcement. So, you can add this below to your posts or add this to your profile information page.</p>
-<ol>
-<li><p>update your theme config file</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
@@ -6058,87 +5943,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Linux Command - netstat</title>
-    <url>/posts/187005a0.html</url>
-    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
-<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
-</blockquote>
-<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
-<span id="more"></span>
-
-<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
-<ol>
-<li><p>-a</p>
-<p>Show all.</p>
-</li>
-<li><p>-n</p>
-<p>Show networks as numbers, not hostnames.</p>
-</li>
-<li><p>-p</p>
-<p>Show protocol.</p>
-</li>
-</ol>
-<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
-
-<p>And you also can use telnet to check specific port.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL Basic Operations for User Account Management</title>
-    <url>/posts/f4c81e09.html</url>
-    <content><![CDATA[<p><img src="/posts/f4c81e09/Mysql-Basic-operations-for-User-Account-Management%5Cmysql.jpg" alt="mysql">  </p>
-<ol>
-<li><p>Install MySQL server (not MySQL package)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Start and launch MySQL</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>
-<ol start="3">
-<li><p>Add users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CREATE USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p> The value of host:  </p>
-<ul>
-<li>%: connect to mysql server from any other machine    </li>
-<li>localhost: just local host  </li>
-<li>ip_address: specific ip address</li>
-</ul>
-</li>
-<li><p>Grant authority to users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES on [db_name].[db_table_name] TO [mysql_user_name]@[the_value_of_host] IDENTIFIED BY <span class="string">&#x27;[mysql_user_password]&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p> [all privileges] can be set with specific authority(“select,delete,update,create,drop”)</p>
-<p> [db_name] can be set with all databases(“*”)</p>
-<p> [db_table_name] can be set with all tables(“*”)</p>
-</li>
-<li><p>Update password.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Delete users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DROP USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
     <url>/posts/3f9aa226.html</url>
     <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
@@ -6187,6 +5991,202 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Shanghai</tag>
         <tag>life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Several Tricks for Using Hexo Efficiently</title>
+    <url>/posts/eacbb695.html</url>
+    <content><![CDATA[<p><img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Cgithub_hexo_blog.png" alt="github_hexo_blog">  </p>
+<h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><ol>
+<li><p>add a theme to your Hexo (eg. theme next)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file(_config.yml, not your theme config file)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>	
+<h2 id="add-RSS-plugin"><a href="#add-RSS-plugin" class="headerlink" title="add RSS plugin"></a>add RSS plugin</h2><ol>
+<li><p>install RSS tools by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file(_config.yml, not your theme config file)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">feed:</span> <span class="comment"># RSS订阅插件</span></span><br><span class="line"> 		<span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line"> 		<span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line"> 		<span class="attr">limit:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">plugins:</span> <span class="string">hexo-generate-feed</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your theme config file(theme&#x2F;_config.yml)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Set RSS to false to disable feed link.</span></span><br><span class="line"><span class="comment"># Leave RSS as empty to use site&#x27;s feed link, and install hexo-generator-feed: `npm install hexo-generator-feed --save`.</span></span><br><span class="line"><span class="comment"># Set RSS to specific value if you have burned your feed already.</span></span><br><span class="line"><span class="attr">rss:</span> <span class="string">/atom.xml</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="change-the-code-block-theme"><a href="#change-the-code-block-theme" class="headerlink" title="change the code block theme"></a>change the code block theme</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">night</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="record-the-number-of-viewers"><a href="#record-the-number-of-viewers" class="headerlink" title="record the number of viewers"></a>record the number of viewers</h2><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Show Views/Visitors of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">eye</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="generate-the-excerpt"><a href="#generate-the-excerpt" class="headerlink" title="generate the excerpt"></a>generate the excerpt</h2><p>There are two methods for generating excerpts for the home page.</p>
+<ol>
+<li><p>update theme config file (theme&#x2F;next&#x2F;_config.yml)<br>It is not good for you when you are using markdown language because of the bad show effect.</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Automatically Excerpt. Not recommend.</span></span><br><span class="line"><span class="comment"># Use &lt;!-- more --&gt; in the post to control excerpt accurately.</span></span><br><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">300</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>add markdown code in your post to control excerpt accurately</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-search-plugin"><a href="#add-search-plugin" class="headerlink" title="add search plugin"></a>add search plugin</h2><ol>
+<li><p>install search plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the blog config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="comment"># if auto, trigger search by changing input</span></span><br><span class="line">	<span class="comment"># if manual, trigger search by pressing enter key or search button</span></span><br><span class="line">	<span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">	<span class="comment"># show top n results per article, show all results by setting to -1</span></span><br><span class="line">	<span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">	<span class="comment"># unescape html strings to the readable one</span></span><br><span class="line">	<span class="attr">unescape:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-share-plugin"><a href="#add-share-plugin" class="headerlink" title="add share plugin"></a>add share plugin</h2><ol>
+<li><p>get the module from GitHub</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-needmoreshare2 <span class="built_in">source</span>/lib/needsharebutton</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">needmoreshare2:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postbottom:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">bottomCenter</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br><span class="line">  <span class="attr">float:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">options:</span></span><br><span class="line">      <span class="attr">iconStyle:</span> <span class="string">box</span></span><br><span class="line">      <span class="attr">boxForm:</span> <span class="string">horizontal</span></span><br><span class="line">      <span class="attr">position:</span> <span class="string">middleRight</span></span><br><span class="line">      <span class="attr">networks:</span> <span class="string">Weibo,Wechat,Twitter,Facebook</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-google-analytics"><a href="#add-google-analytics" class="headerlink" title="add google analytics"></a>add google analytics</h2><ol>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">your</span> <span class="string">google</span> <span class="string">track</span> <span class="string">code</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-reward"><a href="#add-reward" class="headerlink" title="add reward"></a>add reward</h2><ol>
+<li><p>update the theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward</span></span><br><span class="line"><span class="comment"># If true, reward would be displayed in every article by default.</span></span><br><span class="line"><span class="comment"># And you can show or hide one article specially through add page variable `reward: true/false`.</span></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="attr">comment:</span> <span class="string">Thanks</span> <span class="string">For</span> <span class="string">Your</span> <span class="string">Donation!</span></span><br><span class="line">	<span class="attr">wechatpay:</span> <span class="string">/images/wechatpay.jpg</span></span><br><span class="line">	<span class="attr">alipay:</span> <span class="string">/images/alipay.jpg</span></span><br><span class="line">	<span class="comment">#bitcoin: /images/bitcoin.jpg</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="generate-a-permanent-post-address"><a href="#generate-a-permanent-post-address" class="headerlink" title="generate a permanent post address"></a>generate a permanent post address</h2><ol>
+<li><p>install plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update the blog config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink_defaults:</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">	<span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">	<span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-comment-module-valine"><a href="#add-comment-module-valine" class="headerlink" title="add comment module (valine)"></a>add comment module (valine)</h2><ol>
+<li><p>sign up for a leancloud account  </p>
+</li>
+<li><p>create an application for your comment system  </p>
+</li>
+<li><p>copy AppID and AppKey from your dashboard  </p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module1.png" alt="hexo_comment_module1"></p>
+</li>
+<li><p>paste AppID and AppKey into your theme config file  </p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.</span></span><br><span class="line">  <span class="attr">appid:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appid</span></span><br><span class="line">  <span class="attr">appkey:</span>  <span class="string">xxxxxxxxxx</span> <span class="comment"># your leancloud application appkey</span></span><br><span class="line">  <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment"># mail notifier, See: https://github.com/xCss/Valine/wiki</span></span><br><span class="line">  <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment"># Verification code</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment"># comment box placeholder</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment"># gravatar style</span></span><br><span class="line">  <span class="attr">guest_info:</span> <span class="string">nick,mail</span> <span class="comment"># custom comment header</span></span><br><span class="line">  <span class="attr">pageSize:</span> <span class="number">10</span> <span class="comment"># pagination size</span></span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span> <span class="comment"># leancloud-counter-security is not supported for now. When a visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors&#x27; for counter compatibility. Article reading statistic https://valine.js.org/visitor.html</span></span><br><span class="line">  <span class="attr">comment_count:</span> <span class="literal">true</span> <span class="comment"># if false, comment count will only be displayed in post page, not in home page</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>create classes in your leancloud account to store your data  </p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module2.png" alt="hexo_comment_module2"></p>
+</li>
+<li><p><strong>[not required]</strong> you can change your valine lanuage (themes&#x2F;next&#x2F;layout&#x2F;_third-party&#x2F;comments&#x2F;valine.swig)  </p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Valine</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#comments&#x27;</span>,</span><br><span class="line">    <span class="attr">lang</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">    <span class="attr">verify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">verify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">notify</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">notify</span> &#125;&#125;,</span><br><span class="line">    <span class="attr">appId</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appid &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">appKey</span>: <span class="string">&#x27;&#123;&#123; theme.valine.appkey &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">placeholder</span>: <span class="string">&#x27;&#123;&#123; theme.valine.placeholder &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">avatar</span>: <span class="string">&#x27;&#123;&#123; theme.valine.avatar &#125;&#125;&#x27;</span>,</span><br><span class="line">    <span class="attr">meta</span>: guest,</span><br><span class="line">    <span class="attr">pageSize</span>: <span class="string">&#x27;&#123;&#123; theme.valine.pageSize &#125;&#125;&#x27;</span> || <span class="number">10</span>,</span><br><span class="line">    <span class="attr">visitor</span>: &#123;&#123; theme.<span class="property">valine</span>.<span class="property">visitor</span> &#125;&#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>[not required]</strong> you can also add a white list for security</p>
+<p> <img src="/posts/eacbb695/Hexo-Some-tricks-for-using-hexo-efficiently%5Chexo_comment_module3.png" alt="hexo_comment_module3"></p>
+</li>
+</ol>
+<h2 id="use-image-plugin"><a href="#use-image-plugin" class="headerlink" title="use image plugin"></a>use image plugin</h2><ol>
+<li><p>install “hexo-asset-image” plugin</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>update your blog config file (_config.yml)</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if you use the abbrlink plugin to change your permalink attribute in your blog config file, you need to edit this plugin to fit your config (node_modules&#x2F;hexo-asset-image&#x2F;index.js). Then you add a code block into this javascript file.  </p>
+ <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> link = data.<span class="property">permalink</span>;	</span><br><span class="line">link = link.<span class="title function_">replace</span>(<span class="string">&#x27;.html&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);  <span class="comment">//新增加，针对修改后的permalink</span></span><br><span class="line"><span class="keyword">var</span> beginPos = <span class="title function_">getPosition</span>(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ok, you can generate your new static HTML file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="add-creative-commons-module-to-your-blog"><a href="#add-creative-commons-module-to-your-blog" class="headerlink" title="add creative commons module to your blog"></a>add creative commons module to your blog</h2><p>It is convenient and useful for a bloger to announce your blog copyright announcement. So, you can add this below to your posts or add this to your profile information page.</p>
+<ol>
+<li><p>update your theme config file</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># https://creativecommons.org/share-your-work/licensing-types-examples</span></span><br><span class="line"><span class="comment"># Available values: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL Basic Operations for User Account Management</title>
+    <url>/posts/f4c81e09.html</url>
+    <content><![CDATA[<p><img src="/posts/f4c81e09/Mysql-Basic-operations-for-User-Account-Management%5Cmysql.jpg" alt="mysql">  </p>
+<ol>
+<li><p>Install MySQL server (not MySQL package)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start and launch MySQL</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="3">
+<li><p>Add users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CREATE USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p> The value of host:  </p>
+<ul>
+<li>%: connect to mysql server from any other machine    </li>
+<li>localhost: just local host  </li>
+<li>ip_address: specific ip address</li>
+</ul>
+</li>
+<li><p>Grant authority to users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES on [db_name].[db_table_name] TO [mysql_user_name]@[the_value_of_host] IDENTIFIED BY <span class="string">&#x27;[mysql_user_password]&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p> [all privileges] can be set with specific authority(“select,delete,update,create,drop”)</p>
+<p> [db_name] can be set with all databases(“*”)</p>
+<p> [db_table_name] can be set with all tables(“*”)</p>
+</li>
+<li><p>Update password.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Delete users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DROP USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux Command - netstat</title>
+    <url>/posts/187005a0.html</url>
+    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
+</blockquote>
+<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
+<span id="more"></span>
+
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
+<ol>
+<li><p>-a</p>
+<p>Show all.</p>
+</li>
+<li><p>-n</p>
+<p>Show networks as numbers, not hostnames.</p>
+</li>
+<li><p>-p</p>
+<p>Show protocol.</p>
+</li>
+</ol>
+<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
+
+<p>And you also can use telnet to check specific port.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -6266,115 +6266,20 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Several Pivotal Conceptions about Hive</title>
-    <url>/posts/449d41fb.html</url>
-    <content><![CDATA[<p><img src="/posts/449d41fb/Hive-feature-2.jpg" alt="Image result for Hive feature"></p>
-<h3 id="What-is-Apache-Hive"><a href="#What-is-Apache-Hive" class="headerlink" title="What is Apache Hive?"></a>What is Apache Hive?</h3><p>As the data grew in size, there was also the scarcity of Java developers who can write complex MapReduce jobs for Hadoop. Hence the advent of Hive comes which is created on top of Hadoop itself. Hive provides a SQL like a language termed HiveQL interface for users to extract data from a Hadoop system. With the simplicity provided by Hive to transform simple SQL queries into Hadoop’s MapReduce jobs, and runs them against a Hadoop cluster.</p>
+    <title>Some terms in Big Data Ecosystem</title>
+    <url>/posts/aa930aca.html</url>
+    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
+<ul>
+<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
+</li>
+<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
+</li>
+<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
+</li>
+</ul>
 <span id="more"></span>
-
-<p>Apache Hive is well suited for Data warehousing applications in which case the data is structured, static and also formatted. As there are certain design constraints on Hive, it does not provide row-wise updates and inserts (which is coined as the biggest disadvantage of using Hive). As most Hive queries turn out into Map to Reduce jobs these queries will have higher latency due to start up overhead.</p>
-<p>Based on these details, Hive is <strong>NOT</strong> a</p>
 <ul>
-<li>Relational database</li>
-<li>Design for OLTP (stands for Online Transaction Processing)</li>
-<li>Language for real-time queries and row-level updates</li>
-</ul>
-<h3 id="Features-of-Hive"><a href="#Features-of-Hive" class="headerlink" title="Features of Hive"></a>Features of Hive</h3><p>With the basic understanding of what Apache Hive is, let us now take a look at all the features that are provided with this component of the Hadoop ecosystem:</p>
-<ul>
-<li>Hive stores the schema details in a database and processes the data into HDFS</li>
-<li>Hive is designed for OLAP (stands for Online Analytics Processing)</li>
-<li>Hive provides SQL like language for querying data, named as HiveQL or HQL (do not misinterpret this with HQL from Hibernate, which stands for Hibernate Query Language).</li>
-<li>Hive is a very fast, scalable and extensible component within the Hadoop ecosystem.</li>
-</ul>
-<h3 id="External-Table"><a href="#External-Table" class="headerlink" title="External Table"></a>External Table</h3><p>If there is data that is already existing in the HDFS cluster of Hadoop then an external Hive table is created to describe the data. These tables are called External tables, because they are going to be residing in the path specified by the LOCATION properties instead of the default warehouse directory (as described in the above paragraph).</p>
-<p>When the data is stored in the external tables and when it is dropped, the metadata table is deleted but then the data is kept as is. This means that Hive evidently ignores the data that is presently residing in the path specified by LOCATION property and is left untouched forever. If you want to delete such data, then use the command to achieve the same:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs –rmr ‘tablename’</span><br></pre></td></tr></table></figure>
-
-<p>For example, we can add <strong>EXTERNAL</strong> keyword for specifying the external table.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Internal-or-Managed-Table"><a href="#Internal-or-Managed-Table" class="headerlink" title="Internal or Managed Table"></a>Internal or Managed Table</h3><p>The tables that are created with the Hadoop Hive’s context, is very much similar to tables that are created on any of the RDBMS systems. Each of the tables that get created is associated with a directory configured within the ${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml in the Hadoop HDFS cluster.</p>
-<p>By default, on a Linux machine, it is this path <strong>&#x2F;user&#x2F;hive&#x2F;warehouse</strong> in HDFS. If there is a <strong>&#x2F;user&#x2F;hive&#x2F;warehouse&#x2F;match</strong> created by Hive in HDFS for a match table. All the data for the table is recorded in the same folder as mentioned above and hence such tables are called <strong>INTERNAL</strong> or <strong>MANAGED</strong> tables.</p>
-<p>When the data resides in the internal tables, then Hive takes the full responsibility of maintaining the life-cycle of the data and the table in itself. Hence it is evident that the data is removed the moment when the internal tables are dropped.</p>
-<p>By default Hive creates managed tables such as SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Partitioning-of-Table"><a href="#Partitioning-of-Table" class="headerlink" title="Partitioning of Table"></a>Partitioning of Table</h3><p>Hive stores tables in partitions. Partitions are used to divide the table into related parts. Partitions make data querying more efficient.</p>
-<p>For example, using SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br><span class="line">partitioned <span class="keyword">by</span> (<span class="type">date</span> string)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Bucketing-of-Table"><a href="#Bucketing-of-Table" class="headerlink" title="Bucketing of Table"></a>Bucketing of Table</h3><p>As we all know, Partition helps in increasing efficiency when performing a query on a table. Instead of scanning the whole table, it will only scan for the partitioned set and does not scan or operate on the unpartitioned sets, which helps us to provide results in lesser time and the details will be displayed very quickly because of Hive Partition.</p>
-<p>Now, let’s assume a condition that there is a huge dataset. At times, even after partitioning on a particular field or fields, the partitioned file size doesn’t match with the actual expectation and remains huge and we want to manage the partition results into different parts. To overcome this problem of partitioning, Hive provides Bucketing concept, which allows the user to divide table data sets into more manageable parts.			</p>
-<p>The Bucketing concept is based on Hash function, which depends on the type of the bucketing column. Records which are bucketed by the same column will always be saved in the same bucket.</p>
-<p>In Hive Partition, each partition will be created as directory. But in Hive Buckets, each bucket will be created as file. Bucketing can also be done even without partitioning on Hive tables.</p>
-<p>With the help of <strong>CLUSTERED BY</strong> clause and optional <strong>SORTED BY</strong> clause in <strong>CREATE TABLE</strong> statement we can create bucketed tables. </p>
-<p>We can create a bucketed_user table with above-given requirement with the help of the below HiveQL.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bucketed_user(</span><br><span class="line">firstname <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  lastname  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  address   STRING,</span><br><span class="line">  city <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">state  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  post      STRING,</span><br><span class="line">  phone1    <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  phone2    STRING,</span><br><span class="line">  email     STRING,</span><br><span class="line">  web       STRING</span><br><span class="line">  )</span><br><span class="line">COMMENT ‘A bucketed sorted <span class="keyword">user</span> <span class="keyword">table</span>’</span><br><span class="line">  PARTITIONED <span class="keyword">BY</span> (country <span class="type">VARCHAR</span>(<span class="number">64</span>))</span><br><span class="line">CLUSTERED <span class="keyword">BY</span> (state) SORTED <span class="keyword">BY</span> (city) <span class="keyword">INTO</span> <span class="number">32</span> BUCKETS</span><br><span class="line">  STORED <span class="keyword">AS</span> SEQUENCEFILE;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Row-Format-Delimited-x2F-SerDe"><a href="#Row-Format-Delimited-x2F-SerDe" class="headerlink" title="Row Format (Delimited &#x2F; SerDe)"></a>Row Format (Delimited &#x2F; SerDe)</h3><h4 id="SerDe"><a href="#SerDe" class="headerlink" title="SerDe"></a>SerDe</h4><p>Basically, SerDe is a short name for Serializer&#x2F;Deserializer.</p>
-<ul>
-<li><p><strong>Deserializer</strong></p>
-<p>The Hive deserializer converts record (string or binary) into a Java object that Hive can process.</p>
-<p>HDFS files –&gt; InputFileFormat –&gt; &lt;key, value&gt; –&gt; Deserializer –&gt; Row object</p>
-</li>
-<li><p><strong>Serializer</strong></p>
-<p>Now, the Hive serializer will take this Java object, convert it into suitable format that can be stored into HDFS.</p>
-<p>Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileFormat –&gt; HDFS files</p>
-</li>
-</ul>
-<p>So, basically, a SerDe is responsible for converting the record bytes into something that can be used by Hive. Hive comes with several SerDe like JSon SerDe for JSon files, CSV SerDe for CSV files, etc.</p>
-<p>For example, using JsonSerDe:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT SERDE</span><br><span class="line"><span class="string">&#x27;org.apache.hive.hcatalog.data.JsonSerDe&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>For more specific SerDes, we can check the official site: </p>
-<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe</a></p>
-<h4 id="Row-Format"><a href="#Row-Format" class="headerlink" title="Row Format"></a>Row Format</h4><p>You can create tables with a custom SerDe or using a native SerDe. A native SerDe is used if <strong>ROW FORMAT</strong> is not specified or <strong>ROW FORMAT DELIMITED</strong> is specified.<br>Use the <strong>SERDE</strong> clause to create a table with a custom SerDe. </p>
-<p>Here is an example. </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>ROW FORMAT DELIMITED</strong>: This line is telling Hive to expect the file to contain one row per line. So basically, we are telling Hive that when it finds a newline character that means is a new record.</p>
-<h3 id="Fields-Terminated"><a href="#Fields-Terminated" class="headerlink" title="Fields Terminated"></a>Fields Terminated</h3><p>For example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>FIELDS TERMINATED BY ‘,’</strong>: This is really similar to the one above, but instead of meaning rows this one means columns, this way Hive knows what delimiter you are using in your files to separate each column. If none is set the default will be used which is ctrl-A.</p>
-<h3 id="Storage-Format"><a href="#Storage-Format" class="headerlink" title="Storage Format"></a>Storage Format</h3><p>Hive supports built-in and custom-developed file formats. </p>
-<ul>
-<li><p><strong>STORED AS TEXTFILE</strong></p>
-<p>Stored as plain text files. TEXTFILE is the default file format, unless the configuration parameter <strong>hive.default.fileformat</strong> has a different setting.</p>
-</li>
-<li><p><strong>STORED AS SEQUENCEFILE</strong></p>
-<p>Stored as compressed Sequence File.</p>
-</li>
-<li><p><strong>STORED AS AVRO</strong></p>
-<p>Stored as Avro format.</p>
-</li>
-<li><p><strong>STORED AS JSONFILE</strong></p>
-<p>Stored as Json file format.</p>
-</li>
-<li><p><strong>STORED AS ORC</strong></p>
-<p>Stored as Optimized Row Columnar (ORC) file format.</p>
-</li>
-</ul>
-<p>For example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>STORED AS TEXTFILE:</strong> This is to tell Hive what type of file to expect.</p>
-<h3 id="Import-CSV-File"><a href="#Import-CSV-File" class="headerlink" title="Import CSV File"></a>Import CSV File</h3><ul>
-<li><p><strong>Step 1</strong> : </p>
-<p>If we want to import data from external CSV file which using comma to separate columns, we can use the <strong>CREATE TABLE</strong> statement SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name</span><br><span class="line">(</span><br><span class="line">    id string,</span><br><span class="line">    name string,</span><br><span class="line">    age string</span><br><span class="line">)</span><br><span class="line"><span class="type">row</span> format serde</span><br><span class="line"><span class="string">&#x27;org.apache.hadoop.hive.serde2.OpenCSVSerde&#x27;</span></span><br><span class="line"><span class="keyword">with</span></span><br><span class="line">SERDEPROPERTIES</span><br><span class="line">(&quot;separatorChar&quot;<span class="operator">=</span>&quot;,&quot;,&quot;quotechar&quot;<span class="operator">=</span>&quot;\&quot;&quot;)</span><br><span class="line">STORED AS TEXTFILE</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Step 2</strong> :  </p>
-<p>Loading data from CSV file of HDFS.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">load data local inpath &#x27;/home/hive/table_name.csv&#x27; overwrite into table table_name;</span><br></pre></td></tr></table></figure></li>
+<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
 </ul>
 ]]></content>
       <categories>
@@ -6383,7 +6288,8 @@ The authenticator which encrypted by TGS session key contains:
       </categories>
       <tags>
         <tag>BigData</tag>
-        <tag>Hive</tag>
+        <tag>DMP</tag>
+        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -6961,39 +6867,219 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Tar command in Linux</title>
-    <url>/posts/d36bfb53.html</url>
-    <content><![CDATA[<p><img src="/posts/d36bfb53/Tar-command-in-Linux%5Ctar.png" alt="tar">  </p>
-<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
-<p>-C: extract files into a specific directory, not the current directory</p>
+    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
+    <url>/posts/87dabd80.html</url>
+    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
 <span id="more"></span>
+
+<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
+<p>Command below for using Hive CLI.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+
+<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
+<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
+
+<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
 <ol>
-<li><p>Creating an uncompressed tar archive.  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Creating a compressed tar archive by using gzip.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files from archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting gzip tar archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files into a specific directory.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Displays or lists files in the archived file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
+<li>Zookeeper</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
+<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
+<blockquote>
+<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
+</blockquote>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
+<ol start="2">
+<li>Thrift Server</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
+<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
 ]]></content>
       <categories>
-        <category>Operation</category>
-        <category>Linux</category>
+        <category>Back-end</category>
+        <category>BigData</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
+
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Several Pivotal Conceptions about Hive</title>
+    <url>/posts/449d41fb.html</url>
+    <content><![CDATA[<p><img src="/posts/449d41fb/Hive-feature-2.jpg" alt="Image result for Hive feature"></p>
+<h3 id="What-is-Apache-Hive"><a href="#What-is-Apache-Hive" class="headerlink" title="What is Apache Hive?"></a>What is Apache Hive?</h3><p>As the data grew in size, there was also the scarcity of Java developers who can write complex MapReduce jobs for Hadoop. Hence the advent of Hive comes which is created on top of Hadoop itself. Hive provides a SQL like a language termed HiveQL interface for users to extract data from a Hadoop system. With the simplicity provided by Hive to transform simple SQL queries into Hadoop’s MapReduce jobs, and runs them against a Hadoop cluster.</p>
+<span id="more"></span>
+
+<p>Apache Hive is well suited for Data warehousing applications in which case the data is structured, static and also formatted. As there are certain design constraints on Hive, it does not provide row-wise updates and inserts (which is coined as the biggest disadvantage of using Hive). As most Hive queries turn out into Map to Reduce jobs these queries will have higher latency due to start up overhead.</p>
+<p>Based on these details, Hive is <strong>NOT</strong> a</p>
+<ul>
+<li>Relational database</li>
+<li>Design for OLTP (stands for Online Transaction Processing)</li>
+<li>Language for real-time queries and row-level updates</li>
+</ul>
+<h3 id="Features-of-Hive"><a href="#Features-of-Hive" class="headerlink" title="Features of Hive"></a>Features of Hive</h3><p>With the basic understanding of what Apache Hive is, let us now take a look at all the features that are provided with this component of the Hadoop ecosystem:</p>
+<ul>
+<li>Hive stores the schema details in a database and processes the data into HDFS</li>
+<li>Hive is designed for OLAP (stands for Online Analytics Processing)</li>
+<li>Hive provides SQL like language for querying data, named as HiveQL or HQL (do not misinterpret this with HQL from Hibernate, which stands for Hibernate Query Language).</li>
+<li>Hive is a very fast, scalable and extensible component within the Hadoop ecosystem.</li>
+</ul>
+<h3 id="External-Table"><a href="#External-Table" class="headerlink" title="External Table"></a>External Table</h3><p>If there is data that is already existing in the HDFS cluster of Hadoop then an external Hive table is created to describe the data. These tables are called External tables, because they are going to be residing in the path specified by the LOCATION properties instead of the default warehouse directory (as described in the above paragraph).</p>
+<p>When the data is stored in the external tables and when it is dropped, the metadata table is deleted but then the data is kept as is. This means that Hive evidently ignores the data that is presently residing in the path specified by LOCATION property and is left untouched forever. If you want to delete such data, then use the command to achieve the same:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs –rmr ‘tablename’</span><br></pre></td></tr></table></figure>
+
+<p>For example, we can add <strong>EXTERNAL</strong> keyword for specifying the external table.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Internal-or-Managed-Table"><a href="#Internal-or-Managed-Table" class="headerlink" title="Internal or Managed Table"></a>Internal or Managed Table</h3><p>The tables that are created with the Hadoop Hive’s context, is very much similar to tables that are created on any of the RDBMS systems. Each of the tables that get created is associated with a directory configured within the ${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml in the Hadoop HDFS cluster.</p>
+<p>By default, on a Linux machine, it is this path <strong>&#x2F;user&#x2F;hive&#x2F;warehouse</strong> in HDFS. If there is a <strong>&#x2F;user&#x2F;hive&#x2F;warehouse&#x2F;match</strong> created by Hive in HDFS for a match table. All the data for the table is recorded in the same folder as mentioned above and hence such tables are called <strong>INTERNAL</strong> or <strong>MANAGED</strong> tables.</p>
+<p>When the data resides in the internal tables, then Hive takes the full responsibility of maintaining the life-cycle of the data and the table in itself. Hence it is evident that the data is removed the moment when the internal tables are dropped.</p>
+<p>By default Hive creates managed tables such as SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Partitioning-of-Table"><a href="#Partitioning-of-Table" class="headerlink" title="Partitioning of Table"></a>Partitioning of Table</h3><p>Hive stores tables in partitions. Partitions are used to divide the table into related parts. Partitions make data querying more efficient.</p>
+<p>For example, using SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br><span class="line">partitioned <span class="keyword">by</span> (<span class="type">date</span> string)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Bucketing-of-Table"><a href="#Bucketing-of-Table" class="headerlink" title="Bucketing of Table"></a>Bucketing of Table</h3><p>As we all know, Partition helps in increasing efficiency when performing a query on a table. Instead of scanning the whole table, it will only scan for the partitioned set and does not scan or operate on the unpartitioned sets, which helps us to provide results in lesser time and the details will be displayed very quickly because of Hive Partition.</p>
+<p>Now, let’s assume a condition that there is a huge dataset. At times, even after partitioning on a particular field or fields, the partitioned file size doesn’t match with the actual expectation and remains huge and we want to manage the partition results into different parts. To overcome this problem of partitioning, Hive provides Bucketing concept, which allows the user to divide table data sets into more manageable parts.			</p>
+<p>The Bucketing concept is based on Hash function, which depends on the type of the bucketing column. Records which are bucketed by the same column will always be saved in the same bucket.</p>
+<p>In Hive Partition, each partition will be created as directory. But in Hive Buckets, each bucket will be created as file. Bucketing can also be done even without partitioning on Hive tables.</p>
+<p>With the help of <strong>CLUSTERED BY</strong> clause and optional <strong>SORTED BY</strong> clause in <strong>CREATE TABLE</strong> statement we can create bucketed tables. </p>
+<p>We can create a bucketed_user table with above-given requirement with the help of the below HiveQL.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bucketed_user(</span><br><span class="line">firstname <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  lastname  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  address   STRING,</span><br><span class="line">  city <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">state  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  post      STRING,</span><br><span class="line">  phone1    <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  phone2    STRING,</span><br><span class="line">  email     STRING,</span><br><span class="line">  web       STRING</span><br><span class="line">  )</span><br><span class="line">COMMENT ‘A bucketed sorted <span class="keyword">user</span> <span class="keyword">table</span>’</span><br><span class="line">  PARTITIONED <span class="keyword">BY</span> (country <span class="type">VARCHAR</span>(<span class="number">64</span>))</span><br><span class="line">CLUSTERED <span class="keyword">BY</span> (state) SORTED <span class="keyword">BY</span> (city) <span class="keyword">INTO</span> <span class="number">32</span> BUCKETS</span><br><span class="line">  STORED <span class="keyword">AS</span> SEQUENCEFILE;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Row-Format-Delimited-x2F-SerDe"><a href="#Row-Format-Delimited-x2F-SerDe" class="headerlink" title="Row Format (Delimited &#x2F; SerDe)"></a>Row Format (Delimited &#x2F; SerDe)</h3><h4 id="SerDe"><a href="#SerDe" class="headerlink" title="SerDe"></a>SerDe</h4><p>Basically, SerDe is a short name for Serializer&#x2F;Deserializer.</p>
+<ul>
+<li><p><strong>Deserializer</strong></p>
+<p>The Hive deserializer converts record (string or binary) into a Java object that Hive can process.</p>
+<p>HDFS files –&gt; InputFileFormat –&gt; &lt;key, value&gt; –&gt; Deserializer –&gt; Row object</p>
+</li>
+<li><p><strong>Serializer</strong></p>
+<p>Now, the Hive serializer will take this Java object, convert it into suitable format that can be stored into HDFS.</p>
+<p>Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileFormat –&gt; HDFS files</p>
+</li>
+</ul>
+<p>So, basically, a SerDe is responsible for converting the record bytes into something that can be used by Hive. Hive comes with several SerDe like JSon SerDe for JSon files, CSV SerDe for CSV files, etc.</p>
+<p>For example, using JsonSerDe:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT SERDE</span><br><span class="line"><span class="string">&#x27;org.apache.hive.hcatalog.data.JsonSerDe&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>For more specific SerDes, we can check the official site: </p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe</a></p>
+<h4 id="Row-Format"><a href="#Row-Format" class="headerlink" title="Row Format"></a>Row Format</h4><p>You can create tables with a custom SerDe or using a native SerDe. A native SerDe is used if <strong>ROW FORMAT</strong> is not specified or <strong>ROW FORMAT DELIMITED</strong> is specified.<br>Use the <strong>SERDE</strong> clause to create a table with a custom SerDe. </p>
+<p>Here is an example. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>ROW FORMAT DELIMITED</strong>: This line is telling Hive to expect the file to contain one row per line. So basically, we are telling Hive that when it finds a newline character that means is a new record.</p>
+<h3 id="Fields-Terminated"><a href="#Fields-Terminated" class="headerlink" title="Fields Terminated"></a>Fields Terminated</h3><p>For example:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>FIELDS TERMINATED BY ‘,’</strong>: This is really similar to the one above, but instead of meaning rows this one means columns, this way Hive knows what delimiter you are using in your files to separate each column. If none is set the default will be used which is ctrl-A.</p>
+<h3 id="Storage-Format"><a href="#Storage-Format" class="headerlink" title="Storage Format"></a>Storage Format</h3><p>Hive supports built-in and custom-developed file formats. </p>
+<ul>
+<li><p><strong>STORED AS TEXTFILE</strong></p>
+<p>Stored as plain text files. TEXTFILE is the default file format, unless the configuration parameter <strong>hive.default.fileformat</strong> has a different setting.</p>
+</li>
+<li><p><strong>STORED AS SEQUENCEFILE</strong></p>
+<p>Stored as compressed Sequence File.</p>
+</li>
+<li><p><strong>STORED AS AVRO</strong></p>
+<p>Stored as Avro format.</p>
+</li>
+<li><p><strong>STORED AS JSONFILE</strong></p>
+<p>Stored as Json file format.</p>
+</li>
+<li><p><strong>STORED AS ORC</strong></p>
+<p>Stored as Optimized Row Columnar (ORC) file format.</p>
+</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>STORED AS TEXTFILE:</strong> This is to tell Hive what type of file to expect.</p>
+<h3 id="Import-CSV-File"><a href="#Import-CSV-File" class="headerlink" title="Import CSV File"></a>Import CSV File</h3><ul>
+<li><p><strong>Step 1</strong> : </p>
+<p>If we want to import data from external CSV file which using comma to separate columns, we can use the <strong>CREATE TABLE</strong> statement SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name</span><br><span class="line">(</span><br><span class="line">    id string,</span><br><span class="line">    name string,</span><br><span class="line">    age string</span><br><span class="line">)</span><br><span class="line"><span class="type">row</span> format serde</span><br><span class="line"><span class="string">&#x27;org.apache.hadoop.hive.serde2.OpenCSVSerde&#x27;</span></span><br><span class="line"><span class="keyword">with</span></span><br><span class="line">SERDEPROPERTIES</span><br><span class="line">(&quot;separatorChar&quot;<span class="operator">=</span>&quot;,&quot;,&quot;quotechar&quot;<span class="operator">=</span>&quot;\&quot;&quot;)</span><br><span class="line">STORED AS TEXTFILE</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2</strong> :  </p>
+<p>Loading data from CSV file of HDFS.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">load data local inpath &#x27;/home/hive/table_name.csv&#x27; overwrite into table table_name;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
@@ -7147,143 +7233,39 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Using docker command to obtain dockers&#39; IP</title>
-    <url>/posts/de75b356.html</url>
-    <content><![CDATA[<p><img src="/posts/de75b356/Using-docker-command-to-obtain-dockers-IP%5Cdocker.jpg" alt="docker"></p>
-<p><strong>check specific container’s ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
-
-<p><strong>check all containers’ ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+    <title>Tar command in Linux</title>
+    <url>/posts/d36bfb53.html</url>
+    <content><![CDATA[<p><img src="/posts/d36bfb53/Tar-command-in-Linux%5Ctar.png" alt="tar">  </p>
+<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
+<p>-C: extract files into a specific directory, not the current directory</p>
+<span id="more"></span>
+<ol>
+<li><p>Creating an uncompressed tar archive.  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Creating a compressed tar archive by using gzip.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files from archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting gzip tar archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files into a specific directory.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Displays or lists files in the archived file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <categories>
         <category>Operation</category>
-        <category>Docker</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
-<span id="more"></span>
-
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
-<ol>
-<li>Source</li>
-</ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
-<ol start="2">
-<li>Channel</li>
-</ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-        <tag>Flume</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
-    <url>/posts/87dabd80.html</url>
-    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
-<span id="more"></span>
-
-<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
-<p>Command below for using Hive CLI.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-
-<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
-<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
-
-<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
-<ol>
-<li>Zookeeper</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
-<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
-<blockquote>
-<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
-</blockquote>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
-<ol start="2">
-<li>Thrift Server</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
-<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Some terms in Big Data Ecosystem</title>
-    <url>/posts/aa930aca.html</url>
-    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
-<ul>
-<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
-</li>
-<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
-</li>
-<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>DMP</tag>
-        <tag>MDM</tag>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -7355,6 +7337,24 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>Ambari</tag>
         <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using docker command to obtain dockers&#39; IP</title>
+    <url>/posts/de75b356.html</url>
+    <content><![CDATA[<p><img src="/posts/de75b356/Using-docker-command-to-obtain-dockers-IP%5Cdocker.jpg" alt="docker"></p>
+<p><strong>check specific container’s ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
+
+<p><strong>check all containers’ ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
 </search>
