@@ -1,56 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Attention for Using Markdown code block</title>
-    <url>/posts/d2fb4425.html</url>
-    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
-<span id="more"></span>  
-<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
-]]></content>
-      <categories>
-        <category>Language</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cannot Start Namenode with Safemode Error</title>
-    <url>/posts/ab80d8c6.html</url>
-    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
-<span id="more"></span>
-<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
-<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
-<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
-<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
-
-<p>Using the command below to get the state of the namenode</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
-
-<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
-<ol>
-<li><p>Clicking the button “Stop All”.</p>
-</li>
-<li><p>Running the commands below.  </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
-<li><p>Powering off VMs.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Amplify POC</title>
     <url>/posts/1998f291.html</url>
     <content><![CDATA[<p><img src="/posts/1998f291/amplify_banner.png" alt="amplify image"></p>
@@ -294,39 +244,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot start ambari services with 400 status code</title>
-    <url>/posts/7449623f.html</url>
-    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
-<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
-<span id="more"></span>
-<blockquote>
-<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
-</blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
-<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
-<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
-<p>So, update the table hostcomponentstate.</p>
-<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
-<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
-<ol>
-<li><p>Clicking the button “Stop All”.</p>
-</li>
-<li><p>Running the commands below.  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line"></span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Powering off VMs.</p>
-</li>
-</ol>
+    <title>Attention for Using Markdown code block</title>
+    <url>/posts/d2fb4425.html</url>
+    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
+<span id="more"></span>  
+<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
 ]]></content>
       <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
+        <category>Language</category>
+        <category>Markdown</category>
       </categories>
       <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
+        <tag>Markdown</tag>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -365,6 +296,75 @@
       <tags>
         <tag>Linux</tag>
         <tag>Linux Command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot Start Namenode with Safemode Error</title>
+    <url>/posts/ab80d8c6.html</url>
+    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
+<span id="more"></span>
+<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
+<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
+<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
+<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
+
+<p>Using the command below to get the state of the namenode</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
+
+<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
+<ol>
+<li><p>Clicking the button “Stop All”.</p>
+</li>
+<li><p>Running the commands below.  </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
+<li><p>Powering off VMs.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot start ambari services with 400 status code</title>
+    <url>/posts/7449623f.html</url>
+    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
+<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
+<span id="more"></span>
+<blockquote>
+<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
+<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
+<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
+<p>So, update the table hostcomponentstate.</p>
+<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
+<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
+<ol>
+<li><p>Clicking the button “Stop All”.</p>
+</li>
+<li><p>Running the commands below.  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line"></span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Powering off VMs.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
       </tags>
   </entry>
   <entry>
@@ -449,147 +449,6 @@
       </categories>
       <tags>
         <tag>BigData</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Enable Kerberos on Ambari</title>
-    <url>/posts/3f0454be.html</url>
-    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
-<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
-<li><p>Install a new version of the KDC server</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>
-<ol start="2">
-<li><p>Update the KDC server configuration file</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “realms”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “domain_realm”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
-<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
-<p>Set up the KDC server to auto-start on boot.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
-<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
-<ol>
-<li><p>Create a KDC admin</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
-<li><p>Restart the kadmin process</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
-<ol>
-<li><p>Download the specific version of the JCE file</p>
-<p> For Oracle JDK 1.8:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
-<p> For Oracle JDK 1.7:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
-<li><p>Add the JCE file to the JDK installation direction</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
-<li>Enter into the configuration of the kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
-<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
-<ol start="2">
-<li>Choose the type of KDC</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
-<ol start="3">
-<li>Configure the Kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
-<ol start="4">
-<li>Install and test the Kerberos client</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
-<ol start="5">
-<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
-<ol start="6">
-<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
-<ol start="7">
-<li>Stop services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
-<ol start="8">
-<li>Kerberos cluster</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
-<ol start="9">
-<li>Start and test services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Hexo]Create a blog with hexo in github</title>
-    <url>/posts/fe740d97.html</url>
-    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
-<ol>
-<li><p>copy local ssh public key to github  </p>
-</li>
-<li><p>install npm, git</p>
-</li>
-<li><p>install hexo by npm  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>init hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
- <span id="more"></span>
-</li>
-<li><p>install other softwares by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>edit file “_config.yml” and write your git address</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>install hexo deployment tool</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>generate static pages by hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>deploy static pages to github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>using local tool to pre-check your blog</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>access to your github blog</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -880,6 +739,147 @@
       <tags>
         <tag>Ambari</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Hexo]Create a blog with hexo in github</title>
+    <url>/posts/fe740d97.html</url>
+    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
+<ol>
+<li><p>copy local ssh public key to github  </p>
+</li>
+<li><p>install npm, git</p>
+</li>
+<li><p>install hexo by npm  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>init hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+</li>
+<li><p>install other softwares by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>edit file “_config.yml” and write your git address</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>install hexo deployment tool</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>generate static pages by hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>deploy static pages to github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>using local tool to pre-check your blog</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>access to your github blog</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Enable Kerberos on Ambari</title>
+    <url>/posts/3f0454be.html</url>
+    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
+<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
+<li><p>Install a new version of the KDC server</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p>Update the KDC server configuration file</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “realms”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “domain_realm”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
+<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
+<p>Set up the KDC server to auto-start on boot.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
+<ol>
+<li><p>Create a KDC admin</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
+<li><p>Restart the kadmin process</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
+<ol>
+<li><p>Download the specific version of the JCE file</p>
+<p> For Oracle JDK 1.8:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
+<p> For Oracle JDK 1.7:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
+<li><p>Add the JCE file to the JDK installation direction</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
+<li>Enter into the configuration of the kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
+<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
+<ol start="2">
+<li>Choose the type of KDC</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
+<ol start="3">
+<li>Configure the Kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
+<ol start="4">
+<li>Install and test the Kerberos client</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
+<ol start="5">
+<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
+<ol start="6">
+<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
+<ol start="7">
+<li>Stop services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
+<ol start="8">
+<li>Kerberos cluster</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
+<ol start="9">
+<li>Start and test services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
       </tags>
   </entry>
   <entry>
@@ -5866,130 +5866,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Kerberos Authentication Explained</title>
-    <url>/posts/bfaac82a.html</url>
-    <content><![CDATA[<p><img src="/posts/bfaac82a/kerberos.png" alt="kerberos"></p>
-<h2 id="What-is-Kerberos"><a href="#What-is-Kerberos" class="headerlink" title="What is Kerberos"></a>What is Kerberos</h2><p>In Greek mythology, Kerberos is a creature that is a three-headed dog that guards the gate toward the underworld. In a nutshell, it’s a security guardian.<br>Back to our network world, Kerberos is a computer network authorization protocol that allows clients and servers to communicate in a secure manner (symmetric key cryptography). It is designed by MIT. </p>
-<span id="more"></span>
-
-<h2 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h2><p>Kerberos is a protocol which uses within the client-server model. Before we explore the authorization process, we ought to know some terms in Kerberos.</p>
-<ul>
-<li><p>KDC (Key Distribution Center)<br>  Which issues the TGT to the client and contains TGS and AS.</p>
-</li>
-<li><p>AS (Authorization Server)<br>  Which forwards the username to a KDC.			</p>
-</li>
-<li><p>TGS (Ticket-granting Service&#x2F;Server)<br>  A service that can generate TGT.</p>
-</li>
-<li><p>TGT (Ticket-granting Ticket)<br>  A data segment that is time-stamped and encrypted by using the TGS secret key and returns to the client.</p>
-</li>
-<li><p>principal<br>  A service node which guards by Kerberos.</p>
-</li>
-<li><p>SS (Service Server)<br>  Also called a principal that provides specific services for clients.</p>
-</li>
-<li><p>SPN (Service Principal Name)<br>  The literal meaning of this word.</p>
-</li>
-<li><p>Realm<br>  Which encompasses all services that you can access.</p>
-</li>
-</ul>
-<h2 id="Principal"><a href="#Principal" class="headerlink" title="Principal"></a>Principal</h2><p>When requiring access to a service or host, there are four components that you need to keep back in your mind.</p>
-<ul>
-<li>AS</li>
-<li>TGS</li>
-<li>SS</li>
-<li>Client</li>
-</ul>
-<p>So, let’s begin to cross this mysterious jungle.</p>
-<p><img src="/posts/bfaac82a/Kerberos-Authentication-Explained%5Ckerberos_authentication_process.png" alt="kerberos_authentication_process"></p>
-<h3 id="Process-1-Getting-TGT"><a href="#Process-1-Getting-TGT" class="headerlink" title="Process 1: Getting TGT"></a>Process 1: Getting TGT</h3><ol>
-<li><p>The client sends the plaintext to AS.<br> The plaintext contains:</p>
-<ul>
-<li>name&#x2F;ID</li>
-<li>timestamp</li>
-</ul>
-</li>
-<li><p>AS verifies timestamp, then lookups client by client’s username to ensure that the client is a legal principle.<br> If the time gap between the client and AS is upper than 5min, the client will be refused by  AS.</p>
-</li>
-<li><p>AS generates a TGT and a TGS session key which used for communicating with TGS.</p>
-</li>
-<li><p>AS sends two messages (TGT and TGS session key) back to the client.<br> The client secret key is created by the client within the registration process (Using command “addprinc”).</p>
-<p> TGT which encrypted by TGS secret key (client cannot decrypt TGT) contains:</p>
-<ul>
-<li>your name&#x2F;ID</li>
-<li>the TGS name&#x2F;ID</li>
-<li>timestamp</li>
-<li>your network address</li>
-<li>lifetime of TGT</li>
-<li>TGT session key</li>
-</ul>
-<p> Info package which encrypted by client secret key which KDC owning it contains:</p>
-<ul>
-<li>TGS name&#x2F;ID</li>
-<li>timestamp</li>
-<li>lifetime</li>
-<li>TGS session key</li>
-</ul>
-</li>
-<li><p>The client fetches TGT and TGS session key which can be obtained by decrypting info package.</p>
-</li>
-</ol>
-<h3 id="Process-2-Requesting-access-to-a-specific-service-principal"><a href="#Process-2-Requesting-access-to-a-specific-service-principal" class="headerlink" title="Process 2: Requesting access to a specific service(principal)"></a>Process 2: Requesting access to a specific service(principal)</h3><p>In this step, you just communicate with TGS.<br>6. The client sends the plaintext request, the authenticator and TGT to TGS.  </p>
-<pre><code>The plaintext contains:  
-- service name/ID  
-- lifetime of the ticket for the service  
-
-The authenticator which encrypted by TGS session key contains:  
-- your name/ID  
-- timestamp  
-</code></pre>
-<ol start="7">
-<li><p>TGS verifies if the service exists.</p>
-</li>
-<li><p>TGS decrypts TGT and the authenticator, then comparing properties.<br> TGS can use the TGS secret key to decrypt TGT. So TGS can obtain the TGT session key which can decrypt the authenticator. After that TGS needs to compare the information which is TGT provided by AS to the information which is the authenticator created by the client.</p>
-</li>
-<li><p>TGS sends the service session key and the service ticket.<br> The service ticket which encrypted by service secret key contains:</p>
-<ul>
-<li>your name&#x2F;ID</li>
-<li>service name&#x2F;ID</li>
-<li>your network address</li>
-<li>timestamp</li>
-<li>lifetime of this service ticket</li>
-<li>service session key</li>
-</ul>
-<p> Info package which encrypted by TGS session key contains:</p>
-<ul>
-<li>service name&#x2F;ID</li>
-<li>timestamp</li>
-<li>lifetime of the service ticket</li>
-<li>the service session key</li>
-</ul>
-</li>
-<li><p>The client fetches the service ticket and the service session key which can be obtained by decrypting the info package.</p>
-</li>
-</ol>
-<h3 id="Process-3-Communicating-with-the-service"><a href="#Process-3-Communicating-with-the-service" class="headerlink" title="Process 3: Communicating with the service"></a>Process 3: Communicating with the service</h3><p>From now, you just communicate with the service.<br>11. The client sends the authenticator and the service ticket to the service server.<br>    The authenticator encrypted by the service session key contains:<br>    - your name&#x2F;ID<br>    - timestamp</p>
-<ol start="12">
-<li><p>The service decrypts the service ticket and the authenticator, then compares properties.<br>The service server can use the service secret key to decrypt the service ticket. So the service server can obtain the service session key which can decrypt the authenticator. After that, the service server needs to compare the information which is the service ticket provided by TGS to the information which is the authenticator created by the client.</p>
-</li>
-<li><p>The service sends the authenticator to the client in order to confirm its identity.<br>The authenticator encrypted by the service session key contains:</p>
-<ul>
-<li>the service name&#x2F;ID</li>
-<li>timestamp</li>
-</ul>
-</li>
-<li><p>The client decrypts the authenticator and knows it has been authenticated to use the service by cached the service ticket.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Kerberos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Introduction of NiFi</title>
     <url>/posts/60c88280.html</url>
     <content><![CDATA[<p><img src="/posts/60c88280/nifi-logo-horizontal.png" alt="img"></p>
@@ -6061,60 +5937,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Linux Command - netstat</title>
-    <url>/posts/187005a0.html</url>
-    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
-<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
-</blockquote>
-<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
-<span id="more"></span>
-
-<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
-<ol>
-<li><p>-a</p>
-<p>Show all.</p>
-</li>
-<li><p>-n</p>
-<p>Show networks as numbers, not hostnames.</p>
-</li>
-<li><p>-p</p>
-<p>Show protocol.</p>
-</li>
-</ol>
-<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
-
-<p>And you also can use telnet to check specific port.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Odyssey</title>
-    <url>/posts/56e69a1d.html</url>
-    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness.</p>
-<span id="more"></span>
-
-<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.  </p>
-<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
-]]></content>
-      <categories>
-        <category>Life log</category>
-      </categories>
-      <tags>
-        <tag>Shanghai</tag>
-        <tag>life</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL Basic Operations for User Account Management</title>
     <url>/posts/f4c81e09.html</url>
     <content><![CDATA[<p><img src="/posts/f4c81e09/mysql.jpg" alt="mysql">  </p>
@@ -6156,6 +5978,57 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Linux</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
+    <url>/posts/3f9aa226.html</url>
+    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
+<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
+<span id="more"></span>
+
+<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
+<blockquote>
+<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
+</blockquote>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
+<li><p>Configuring Firefox</p>
+<p> Open Firefox and type the “about:config” in the address bar.</p>
+<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
+<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
+</li>
+<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
+<blockquote>
+<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Odyssey</title>
+    <url>/posts/56e69a1d.html</url>
+    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness.</p>
+<span id="more"></span>
+
+<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.  </p>
+<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
+]]></content>
+      <categories>
+        <category>Life log</category>
+      </categories>
+      <tags>
+        <tag>Shanghai</tag>
+        <tag>life</tag>
       </tags>
   </entry>
   <entry>
@@ -6235,64 +6108,40 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Some terms in Big Data Ecosystem</title>
-    <url>/posts/aa930aca.html</url>
-    <content><![CDATA[<p><img src="/posts/aa930aca/biddata.jpg" alt="bigdata"></p>
-<ul>
-<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
-</li>
-<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
-</li>
-<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>DMP</tag>
-        <tag>MDM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
-    <url>/posts/3f9aa226.html</url>
-    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
-<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
+    <title>Linux Command - netstat</title>
+    <url>/posts/187005a0.html</url>
+    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
+</blockquote>
+<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
 <span id="more"></span>
 
-<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
-<blockquote>
-<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
-</blockquote>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
-<li><p>Configuring Firefox</p>
-<p> Open Firefox and type the “about:config” in the address bar.</p>
-<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
-<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
+<ol>
+<li><p>-a</p>
+<p>Show all.</p>
 </li>
-<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
+<li><p>-n</p>
+<p>Show networks as numbers, not hostnames.</p>
+</li>
+<li><p>-p</p>
+<p>Show protocol.</p>
+</li>
 </ol>
-<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
-<blockquote>
-<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
-</blockquote>
+<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
+
+<p>And you also can use telnet to check specific port.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
+        <category>Operation</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -6414,6 +6263,33 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Some terms in Big Data Ecosystem</title>
+    <url>/posts/aa930aca.html</url>
+    <content><![CDATA[<p><img src="/posts/aa930aca/biddata.jpg" alt="bigdata"></p>
+<ul>
+<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
+</li>
+<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
+</li>
+<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>DMP</tag>
+        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -6665,6 +6541,42 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
+    <title>Tar command in Linux</title>
+    <url>/posts/d36bfb53.html</url>
+    <content><![CDATA[<p><img src="/posts/d36bfb53/tar.png" alt="tar">  </p>
+<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
+<p>-C: extract files into a specific directory, not the current directory</p>
+<span id="more"></span>
+<ol>
+<li><p>Creating an uncompressed tar archive.  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Creating a compressed tar archive by using gzip.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files from archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting gzip tar archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files into a specific directory.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Displays or lists files in the archived file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>The Two Ways of Connecting Hive For Developing or Testing</title>
     <url>/posts/87dabd80.html</url>
     <content><![CDATA[<p><img src="/posts/87dabd80/hive.jpg" alt="hive"></p>
@@ -6712,41 +6624,119 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+    <title>Kerberos Authentication Explained</title>
+    <url>/posts/bfaac82a.html</url>
+    <content><![CDATA[<p><img src="/posts/bfaac82a/kerberos.png" alt="kerberos"></p>
+<h2 id="What-is-Kerberos"><a href="#What-is-Kerberos" class="headerlink" title="What is Kerberos"></a>What is Kerberos</h2><p>In Greek mythology, Kerberos is a creature that is a three-headed dog that guards the gate toward the underworld. In a nutshell, it’s a security guardian.<br>Back to our network world, Kerberos is a computer network authorization protocol that allows clients and servers to communicate in a secure manner (symmetric key cryptography). It is designed by MIT. </p>
 <span id="more"></span>
 
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
-<ol>
-<li>Source</li>
+<h2 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h2><p>Kerberos is a protocol which uses within the client-server model. Before we explore the authorization process, we ought to know some terms in Kerberos.</p>
+<ul>
+<li><p>KDC (Key Distribution Center)<br>  Which issues the TGT to the client and contains TGS and AS.</p>
+</li>
+<li><p>AS (Authorization Server)<br>  Which forwards the username to a KDC.			</p>
+</li>
+<li><p>TGS (Ticket-granting Service&#x2F;Server)<br>  A service that can generate TGT.</p>
+</li>
+<li><p>TGT (Ticket-granting Ticket)<br>  A data segment that is time-stamped and encrypted by using the TGS secret key and returns to the client.</p>
+</li>
+<li><p>principal<br>  A service node which guards by Kerberos.</p>
+</li>
+<li><p>SS (Service Server)<br>  Also called a principal that provides specific services for clients.</p>
+</li>
+<li><p>SPN (Service Principal Name)<br>  The literal meaning of this word.</p>
+</li>
+<li><p>Realm<br>  Which encompasses all services that you can access.</p>
+</li>
+</ul>
+<h2 id="Principal"><a href="#Principal" class="headerlink" title="Principal"></a>Principal</h2><p>When requiring access to a service or host, there are four components that you need to keep back in your mind.</p>
+<ul>
+<li>AS</li>
+<li>TGS</li>
+<li>SS</li>
+<li>Client</li>
+</ul>
+<p>So, let’s begin to cross this mysterious jungle.</p>
+<p><img src="/posts/bfaac82a/Kerberos-Authentication-Explained%5Ckerberos_authentication_process.png" alt="kerberos_authentication_process"></p>
+<h3 id="Process-1-Getting-TGT"><a href="#Process-1-Getting-TGT" class="headerlink" title="Process 1: Getting TGT"></a>Process 1: Getting TGT</h3><ol>
+<li><p>The client sends the plaintext to AS.<br> The plaintext contains:</p>
+<ul>
+<li>name&#x2F;ID</li>
+<li>timestamp</li>
+</ul>
+</li>
+<li><p>AS verifies timestamp, then lookups client by client’s username to ensure that the client is a legal principle.<br> If the time gap between the client and AS is upper than 5min, the client will be refused by  AS.</p>
+</li>
+<li><p>AS generates a TGT and a TGS session key which used for communicating with TGS.</p>
+</li>
+<li><p>AS sends two messages (TGT and TGS session key) back to the client.<br> The client secret key is created by the client within the registration process (Using command “addprinc”).</p>
+<p> TGT which encrypted by TGS secret key (client cannot decrypt TGT) contains:</p>
+<ul>
+<li>your name&#x2F;ID</li>
+<li>the TGS name&#x2F;ID</li>
+<li>timestamp</li>
+<li>your network address</li>
+<li>lifetime of TGT</li>
+<li>TGT session key</li>
+</ul>
+<p> Info package which encrypted by client secret key which KDC owning it contains:</p>
+<ul>
+<li>TGS name&#x2F;ID</li>
+<li>timestamp</li>
+<li>lifetime</li>
+<li>TGS session key</li>
+</ul>
+</li>
+<li><p>The client fetches TGT and TGS session key which can be obtained by decrypting info package.</p>
+</li>
 </ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
-<ol start="2">
-<li>Channel</li>
-</ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Process-2-Requesting-access-to-a-specific-service-principal"><a href="#Process-2-Requesting-access-to-a-specific-service-principal" class="headerlink" title="Process 2: Requesting access to a specific service(principal)"></a>Process 2: Requesting access to a specific service(principal)</h3><p>In this step, you just communicate with TGS.<br>6. The client sends the plaintext request, the authenticator and TGT to TGS.  </p>
+<pre><code>The plaintext contains:  
+- service name/ID  
+- lifetime of the ticket for the service  
 
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+The authenticator which encrypted by TGS session key contains:  
+- your name/ID  
+- timestamp  
+</code></pre>
+<ol start="7">
+<li><p>TGS verifies if the service exists.</p>
+</li>
+<li><p>TGS decrypts TGT and the authenticator, then comparing properties.<br> TGS can use the TGS secret key to decrypt TGT. So TGS can obtain the TGT session key which can decrypt the authenticator. After that TGS needs to compare the information which is TGT provided by AS to the information which is the authenticator created by the client.</p>
+</li>
+<li><p>TGS sends the service session key and the service ticket.<br> The service ticket which encrypted by service secret key contains:</p>
+<ul>
+<li>your name&#x2F;ID</li>
+<li>service name&#x2F;ID</li>
+<li>your network address</li>
+<li>timestamp</li>
+<li>lifetime of this service ticket</li>
+<li>service session key</li>
+</ul>
+<p> Info package which encrypted by TGS session key contains:</p>
+<ul>
+<li>service name&#x2F;ID</li>
+<li>timestamp</li>
+<li>lifetime of the service ticket</li>
+<li>the service session key</li>
+</ul>
+</li>
+<li><p>The client fetches the service ticket and the service session key which can be obtained by decrypting the info package.</p>
+</li>
+</ol>
+<h3 id="Process-3-Communicating-with-the-service"><a href="#Process-3-Communicating-with-the-service" class="headerlink" title="Process 3: Communicating with the service"></a>Process 3: Communicating with the service</h3><p>From now, you just communicate with the service.<br>11. The client sends the authenticator and the service ticket to the service server.<br>    The authenticator encrypted by the service session key contains:<br>    - your name&#x2F;ID<br>    - timestamp</p>
+<ol start="12">
+<li><p>The service decrypts the service ticket and the authenticator, then compares properties.<br>The service server can use the service secret key to decrypt the service ticket. So the service server can obtain the service session key which can decrypt the authenticator. After that, the service server needs to compare the information which is the service ticket provided by TGS to the information which is the authenticator created by the client.</p>
+</li>
+<li><p>The service sends the authenticator to the client in order to confirm its identity.<br>The authenticator encrypted by the service session key contains:</p>
+<ul>
+<li>the service name&#x2F;ID</li>
+<li>timestamp</li>
+</ul>
+</li>
+<li><p>The client decrypts the authenticator and knows it has been authenticated to use the service by cached the service ticket.</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Back-end</category>
@@ -6754,213 +6744,7 @@ The authenticator which encrypted by TGS session key contains:
       </categories>
       <tags>
         <tag>BigData</tag>
-        <tag>Ambari</tag>
         <tag>Kerberos</tag>
-        <tag>Flume</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tar command in Linux</title>
-    <url>/posts/d36bfb53.html</url>
-    <content><![CDATA[<p><img src="/posts/d36bfb53/tar.png" alt="tar">  </p>
-<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
-<p>-C: extract files into a specific directory, not the current directory</p>
-<span id="more"></span>
-<ol>
-<li><p>Creating an uncompressed tar archive.  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Creating a compressed tar archive by using gzip.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files from archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting gzip tar archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files into a specific directory.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Displays or lists files in the archived file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Flume to transfer data from Kafka to HDFS in Ambari(2.4.2) with Kerberos</title>
-    <url>/posts/dc7e5002.html</url>
-    <content><![CDATA[<p><img src="/posts/dc7e5002/flume+kafka.png" alt="flume+kafka"></p>
-<p>Firstly, you don’t need to read the following post if your Flume upper than 1.5.2. You can complete your configuration file by following official documents.**</p>
-<span id="more"></span>
-
-<h2 id="Versions-of-components"><a href="#Versions-of-components" class="headerlink" title="Versions of components"></a>Versions of components</h2><ul>
-<li>Ambari: 2.4.2  </li>
-<li>HDP: 2.4.3   <ul>
-<li>HDFS: 2.7.1.2.4</li>
-<li>Kafka: 0.9.0.2.4  </li>
-<li>Flume: 1.5.2.2.4</li>
-</ul>
-</li>
-</ul>
-<h2 id="Unpredictable-problem"><a href="#Unpredictable-problem" class="headerlink" title="Unpredictable problem"></a>Unpredictable problem</h2><p>Assume that using Kafka to receive data from a topic, then store data to HDFS. It is obviously a good choice using Kafka source, memory channel, and HDFS sink. Nevertheless, it’s not easy like that after searching <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/ds_flume/FlumeUserGuide.html">User Guide(1.5.2)</a>. </p>
-<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Cflume_kafka_source.png" alt="flume_kafka_source.png"></p>
-<p>After reading the contents above, it is pitiful that Kafka source not supporting Kerberos environment because of no properties for specifying principle and keytab file path. So why Flume 1.5.2 not supporting Kafka source? OK. Let’s check out the library within Flume (&#x2F;user&#x2F;hdp&#x2F;2.4.3.0-227&#x2F;flume&#x2F;lib). There are some libs specifying Kafka(0.8.2).</p>
-<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Cflume_kafka_version.png" alt="flume_kafka_version"></p>
-<p>Well, it’s so weird that Ambari-2.4.2 using Kafka-0.9.0, but Flume-1.5.2 in Ambari-2.4.2 not using Kafka-0.9.0 instead of using Kafka-0.8.2. I don’t know why, but I also found <a href="https://community.hortonworks.com/questions/6332/how-to-read-from-a-kafka-topic-using-spark-streami.html">similary problem</a> after googling. <a href="https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/">Kafka starts to support Kerberos authorization after version 0.9.</a> So it’s obvious that we can’t use Kafka source in Flume in Ambari-2.4.2 with Kerberos. </p>
-<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Ckafka_kerberos.png" alt="kafka_start_to_support_kerberos"></p>
-<p>From this moment, we got stuck by this annoying version of conflict. After complaining, we also need to solve this problem. But, how?<br>Although Kafka-0.8.2 not supporting Kerberos, it ought to create a custom Kafka source. Appending Kerberos authorization code within your custom Kafka source that is a reasonable solution for this situation.</p>
-<h2 id="Reasonable-solution"><a href="#Reasonable-solution" class="headerlink" title="Reasonable solution"></a>Reasonable solution</h2><h3 id="Creating-custom-Kafka-0-9-0-source"><a href="#Creating-custom-Kafka-0-9-0-source" class="headerlink" title="Creating custom Kafka(0.9.0) source"></a>Creating custom Kafka(0.9.0) source</h3><p>Writing your custom Kafka source which inheriting class AbstractSource<br>is just like a Kafka consumer.  </p>
-<p><strong>Attention: The dependencies of Kafka need to use the version of 0.9.0.</strong></p>
-<p>Java codes paste below.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.johnny.flume.source.kafka;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.flume.Context;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.Event;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.EventDeliveryException;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.PollableSource;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.conf.Configurable;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.event.EventBuilder;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.source.AbstractSource;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.CommonClientConfigs;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecord;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecords;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.KafkaConsumer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomKafkaSource</span> <span class="keyword">extends</span> <span class="title class_">AbstractSource</span> <span class="keyword">implements</span> <span class="title class_">Configurable</span>, PollableSource &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> KafkaConsumer&lt;<span class="type">byte</span>[], String&gt; consumer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Status <span class="title function_">process</span><span class="params">()</span> <span class="keyword">throws</span> EventDeliveryException &#123;</span><br><span class="line"></span><br><span class="line">        List&lt;Event&gt; eventList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Event&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ConsumerRecords&lt;<span class="type">byte</span>[], String&gt; records = consumer.poll(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">            Event event;</span><br><span class="line">            Map&lt;String, String&gt; header;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (ConsumerRecord&lt;<span class="type">byte</span>[], String&gt; record : records) &#123;</span><br><span class="line">                header = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, String&gt;();</span><br><span class="line">                header.put(<span class="string">&quot;timestamp&quot;</span>, String.valueOf(System.currentTimeMillis()));</span><br><span class="line"></span><br><span class="line">                event = EventBuilder.withBody(record.value(), Charset.forName(<span class="string">&quot;UTF-8&quot;</span>), header);</span><br><span class="line">                eventList.add(event);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> Status.BACKOFF;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        getChannelProcessor().processEventBatch(eventList);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Status.READY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(Context context)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        properties.put(<span class="string">&quot;zookeeper.connect&quot;</span>, context.getString(<span class="string">&quot;zk&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;group.id&quot;</span>, context.getString(<span class="string">&quot;groupId&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;auto.offset.reset&quot;</span>, <span class="string">&quot;earliest&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;bootstrap.servers&quot;</span>, context.getString(<span class="string">&quot;bootstrapServers&quot;</span>));</span><br><span class="line">        properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, <span class="string">&quot;SASL_PLAINTEXT&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;value.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;key.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, <span class="string">&quot;true&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">this</span>.consumer = <span class="keyword">new</span> <span class="title class_">KafkaConsumer</span>&lt;<span class="type">byte</span>[], String&gt;(properties);</span><br><span class="line">        <span class="built_in">this</span>.consumer.subscribe(Arrays.asList(context.getString(<span class="string">&quot;topics&quot;</span>).split(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">stop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Using the code “context.getString()” can get specific property value from your configuration file.</p>
-<h3 id="Generating-jar-package"><a href="#Generating-jar-package" class="headerlink" title="Generating jar package"></a>Generating jar package</h3><p>Utilizing your build automation tool - such as Maven, Gradle and etc - to generate your custom Kafka source jar.</p>
-<h3 id="Replacing-Kafka-lib-and-Adding-custom-Kafka-source-jar"><a href="#Replacing-Kafka-lib-and-Adding-custom-Kafka-source-jar" class="headerlink" title="Replacing Kafka lib and Adding custom Kafka source jar"></a>Replacing Kafka lib and Adding custom Kafka source jar</h3><p>In this step, you ought to download a Kafka jar package (the version is 0.9.0), then copy the file “kafka-clients-0.9.0.0.jar” and the file that custom Kafka source jar to your lib path of Flume(&#x2F;usr&#x2F;hdp&#x2F;2.4.3.0-227&#x2F;flume&#x2F;lib). After that, you also need to delete the old version of Kafka client jar(kafka-clients-0.8.2.0.jar).</p>
-<h3 id="Other-preparation-for-the-final-point"><a href="#Other-preparation-for-the-final-point" class="headerlink" title="Other preparation for the final point"></a>Other preparation for the final point</h3><ol>
-<li>Creating a Kafka topic and ensuring that it’s working.</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/kafka.service.keytab kafka/bigdata.com@CONNEXT.COM</span><br><span class="line"></span><br><span class="line">cd /usr/hdp/2.4.3.0-227/kafka/</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --create --zookeeper bigdata.com:2181 --replication-factor 1 --partitions 1 --topic flume-kafka</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --list --zookeeper bigdata.com:2181</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --describe --zookeeper bigdata.com:2181 --topic flume-kafka</span><br><span class="line"></span><br><span class="line">bin/kafka-console-producer.sh --topic flume-kafka --broker-list bigdata.com:6667 --security-protocol SASL_PLAINTEXT</span><br><span class="line"></span><br><span class="line">bin/kafka-console-consumer.sh --topic flume-kafka --zookeeper bigdata.com:2181 --from-beginning --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Creating your storage folder in your HDFS for saving data.</li>
-</ol>
-<h3 id="Editing-your-flume-configuration-file"><a href="#Editing-your-flume-configuration-file" class="headerlink" title="Editing your flume configuration file"></a>Editing your flume configuration file</h3><p>Finally, it’s time to reach the peak. Just follow the configuration code below.</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">amk.sources</span> <span class="string">=</span> <span class="string">k</span></span><br><span class="line"><span class="string">amk.sinks</span> <span class="string">=</span> <span class="string">h</span></span><br><span class="line"><span class="string">amk.channels</span> <span class="string">=</span> <span class="string">m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Sources ####</span></span><br><span class="line"><span class="string">amk.sources.k.type</span> <span class="string">=</span> <span class="string">com.johnny.flume.source.kafka.CustomKafkaSource</span></span><br><span class="line"><span class="string">amk.sources.k.zk</span> <span class="string">=</span> <span class="string">bigdata.com:2181</span></span><br><span class="line"><span class="string">amk.sources.k.groupId</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br><span class="line"><span class="string">amk.sources.k.bootstrapServers</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sources.k.topics</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Sinks ####</span></span><br><span class="line"><span class="string">amk.sinks.h.type</span> <span class="string">=</span> <span class="string">hdfs</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.fileType</span> <span class="string">=</span> <span class="string">DataStream</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.path</span> <span class="string">=</span> <span class="string">/johnny/flume/events/%y-%m-%d</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.filePrefix</span> <span class="string">=</span> <span class="string">events</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.fileSuffix</span> <span class="string">=</span> <span class="string">.log</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.round</span> <span class="string">=</span> <span class="literal">true</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.roundValue</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.roundUnit</span> <span class="string">=</span> <span class="string">minute</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.useLocalTimeStamp</span> <span class="string">=</span> <span class="literal">true</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.kerberosPrincipal</span> <span class="string">=</span> <span class="string">hdfs-bigdata@CONNEXT.COM</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.kerberosKeytab</span> <span class="string">=</span> <span class="string">/etc/security/keytabs/hdfs.headless.keytab</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Channels ####</span></span><br><span class="line"><span class="string">amk.channels.m.type</span> <span class="string">=</span> <span class="string">memory</span></span><br><span class="line"></span><br><span class="line"><span class="string">amk.sources.k.channels</span> <span class="string">=</span> <span class="string">m</span></span><br><span class="line"><span class="string">amk.sinks.h.channel</span> <span class="string">=</span> <span class="string">m</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Others-need-to-notice"><a href="#Others-need-to-notice" class="headerlink" title="Others need to notice"></a>Others need to notice</h2><p>Similarly, we also ought to write a custom Kafka sink in Flume(1.5.2) if we need it.<br>The java code pastes below. </p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.johnny.flume.sink.kafka;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.flume.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.conf.Configurable;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.sink.AbstractSink;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.CommonClientConfigs;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.KafkaProducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerRecord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomKafkaSink</span> <span class="keyword">extends</span> <span class="title class_">AbstractSink</span> <span class="keyword">implements</span> <span class="title class_">Configurable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> KafkaProducer&lt;String, String&gt; producer;</span><br><span class="line">    <span class="keyword">public</span> String topic;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Status <span class="title function_">process</span><span class="params">()</span> <span class="keyword">throws</span> EventDeliveryException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Status</span> <span class="variable">status</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Channel</span> <span class="variable">ch</span> <span class="operator">=</span> getChannel();</span><br><span class="line">        <span class="type">Transaction</span> <span class="variable">txn</span> <span class="operator">=</span> ch.getTransaction();</span><br><span class="line">        txn.begin();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">Event</span> <span class="variable">event</span> <span class="operator">=</span> ch.take();</span><br><span class="line">            <span class="keyword">if</span> (event == <span class="literal">null</span>) &#123;</span><br><span class="line">                status = Status.BACKOFF;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">byte</span>[] byte_message = event.getBody();</span><br><span class="line">            <span class="comment">//生产者</span></span><br><span class="line">            ProducerRecord&lt;String, String&gt; record = <span class="keyword">new</span> <span class="title class_">ProducerRecord</span>&lt;&gt;(<span class="built_in">this</span>.topic, <span class="keyword">new</span> <span class="title class_">String</span>(byte_message));</span><br><span class="line">            producer.send(record);</span><br><span class="line"></span><br><span class="line">            txn.commit();</span><br><span class="line">            status = Status.READY;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable t) &#123;</span><br><span class="line">            txn.rollback();</span><br><span class="line">            status = Status.BACKOFF;</span><br><span class="line">            <span class="keyword">if</span> (t <span class="keyword">instanceof</span> Error) &#123;</span><br><span class="line">                <span class="keyword">throw</span> (Error) t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            txn.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(Context context)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        properties.put(<span class="string">&quot;bootstrap.servers&quot;</span>, context.getString(<span class="string">&quot;bootstrapServers&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;metadata.broker.list&quot;</span>, context.getString(<span class="string">&quot;brokerList&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;serializer.class&quot;</span>, <span class="string">&quot;kafka.serializer.StringEncoder&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;request.required.acks&quot;</span>, context.getString(<span class="string">&quot;acks&quot;</span>));</span><br><span class="line">        properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, <span class="string">&quot;SASL_PLAINTEXT&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">this</span>.producer = <span class="keyword">new</span> <span class="title class_">KafkaProducer</span>&lt;String, String&gt;(properties);</span><br><span class="line">        <span class="built_in">this</span>.topic = context.getString(<span class="string">&quot;topic&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>The related configuration file pastes below.</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#### Sinks ####</span></span><br><span class="line"><span class="string">amk.sinks.k.type</span> <span class="string">=</span> <span class="string">com.johnny.flume.sink.kafka.CustomKafkaSink</span></span><br><span class="line"><span class="string">amk.sinks.k.bootstrapServers</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sinks.k.brokerList</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sinks.k.acks</span> <span class="string">=</span> <span class="number">1</span></span><br><span class="line"><span class="string">amk.sinks.k.topic</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kafka</tag>
-        <tag>Flume</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Github + Travis + Heroku + Slack for team development</title>
-    <url>/posts/3d8e0aef.html</url>
-    <content><![CDATA[<p><img src="/posts/3d8e0aef/image-20210919192821128.png" alt="image-20210919192821128"></p>
-<p>Traditionally, using Gitlab + Jenkins + K8s + Docker may better for some e-commerce systems development. But you need to put more time to configure and maintain this setup. This is not easy and some unfortunate issues may comes frequently. </p>
-<span id="more"></span>
-
-<p>For small development team, espcially for Django development, we need some quick and easy CI&#x2F;CD to help the small team to get out of thee burdensome maintainance. </p>
-<p>Here, I tried some online tools below to ahiceve this goal.</p>
-<p>Django</p>
-<ul>
-<li>Quick development</li>
-<li>Some basic function without configuration, out-of-box</li>
-<li>Quick to learn</li>
-</ul>
-<p>Github</p>
-<ul>
-<li>Code Repository </li>
-<li>Set a clear commit rule and branch management</li>
-</ul>
-<p>Travis</p>
-<ul>
-<li>Linting, testing and CI</li>
-<li>Easy connect with Github</li>
-</ul>
-<p>Heroku</p>
-<ul>
-<li>CD</li>
-<li>Easy connect with Github</li>
-</ul>
-<p>Slack</p>
-<ul>
-<li>Team Communication</li>
-<li>Get notification after CI&#x2F;CD</li>
-</ul>
-<h3 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h3><p>​	Github -&gt; Travis -&gt; Heroku -&gt; Slack</p>
-<p>​	After you push your code to the Github, Travis will automatically run CI process and test your codes. After that, Heroku can fetch your codes from a specific git branch for CD. Finally, the notification can send to Slack for notifying the result of CI&#x2F;CD.</p>
-<h3 id="Travis-Configuration"><a href="#Travis-Configuration" class="headerlink" title="Travis Configuration"></a>Travis Configuration</h3><ol>
-<li><p>Connect with Github (follow the steps in Travis)</p>
-</li>
-<li><p>Travis configuration file (.travis.yml)</p>
-<ul>
-<li>For specifying the development language, the commands for CI, and the script</li>
-<li>Put this file in the root of your Django project</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">python</span></span><br><span class="line"><span class="attr">python:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.6</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">-r</span> <span class="string">requirements.txt</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span> <span class="string">manage.py</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PIP install list file (requirements.txt)</p>
-<ul>
-<li>Put this file in the root of your Django project</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">django&gt;=2.0.11</span><br><span class="line">psycopg2</span><br><span class="line">psycopg2-binary</span><br><span class="line">dj-database-url==0.5.0</span><br><span class="line">gunicorn</span><br><span class="line">whitenoise</span><br><span class="line">django-heroku</span><br><span class="line">pytz</span><br><span class="line">sqlparse</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="Heroku-Configuraion"><a href="#Heroku-Configuraion" class="headerlink" title="Heroku Configuraion"></a>Heroku Configuraion</h3><ol>
-<li><p>Connect with Github (you can specify the git branch for code hook monitored)</p>
-</li>
-<li><p>Heroku configuration file (Procfile)</p>
-<ul>
-<li>For specifying the web server (Gunicorn)</li>
-<li>Put this file in the root of your Django project</li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">web:</span> <span class="string">gunicorn</span> <span class="string">webapps.wsgi</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="Some-possible-issues"><a href="#Some-possible-issues" class="headerlink" title="Some possible issues"></a>Some possible issues</h3><h4 id="Failed-to-deploy-for-collectstatic-directory"><a href="#Failed-to-deploy-for-collectstatic-directory" class="headerlink" title="Failed to deploy for collectstatic directory"></a>Failed to deploy for collectstatic directory</h4><p><img src="/posts/3d8e0aef/image-20210919190053772.png" alt="image-20210919190053772"></p>
-<p>Two options for resolving </p>
-<ol>
-<li><p>Disable collectstatic</p>
-<p>run heroku command:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">heroku config:set DISABLE_COLLECTSTATIC=1 </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Configure collectstatic in “settings.py”</p>
-<ol>
-<li>configure settings.py</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Static files (CSS, JavaScript, Images)</span></span><br><span class="line"><span class="comment"># https://docs.djangoproject.com/en/1.9/howto/static-files/</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;staticfiles&#x27;</span>)</span><br><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extra places for collectstatic to find static files.</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;static&#x27;</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>create static directory in the root of your project (not to create collectstatic folder, this will create automatically by heroku)</li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>Django</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Django</tag>
-        <tag>CI/CD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using docker command to obtain dockers&#39; IP</title>
-    <url>/posts/de75b356.html</url>
-    <content><![CDATA[<p><img src="/posts/de75b356/docker.jpg" alt="docker"></p>
-<p><strong>check specific container’s ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
-
-<p><strong>check all containers’ ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -7287,6 +7071,222 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
+
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Flume to transfer data from Kafka to HDFS in Ambari(2.4.2) with Kerberos</title>
+    <url>/posts/dc7e5002.html</url>
+    <content><![CDATA[<p><img src="/posts/dc7e5002/flume+kafka.png" alt="flume+kafka"></p>
+<p>Firstly, you don’t need to read the following post if your Flume upper than 1.5.2. You can complete your configuration file by following official documents.**</p>
+<span id="more"></span>
+
+<h2 id="Versions-of-components"><a href="#Versions-of-components" class="headerlink" title="Versions of components"></a>Versions of components</h2><ul>
+<li>Ambari: 2.4.2  </li>
+<li>HDP: 2.4.3   <ul>
+<li>HDFS: 2.7.1.2.4</li>
+<li>Kafka: 0.9.0.2.4  </li>
+<li>Flume: 1.5.2.2.4</li>
+</ul>
+</li>
+</ul>
+<h2 id="Unpredictable-problem"><a href="#Unpredictable-problem" class="headerlink" title="Unpredictable problem"></a>Unpredictable problem</h2><p>Assume that using Kafka to receive data from a topic, then store data to HDFS. It is obviously a good choice using Kafka source, memory channel, and HDFS sink. Nevertheless, it’s not easy like that after searching <a href="https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.5/ds_flume/FlumeUserGuide.html">User Guide(1.5.2)</a>. </p>
+<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Cflume_kafka_source.png" alt="flume_kafka_source.png"></p>
+<p>After reading the contents above, it is pitiful that Kafka source not supporting Kerberos environment because of no properties for specifying principle and keytab file path. So why Flume 1.5.2 not supporting Kafka source? OK. Let’s check out the library within Flume (&#x2F;user&#x2F;hdp&#x2F;2.4.3.0-227&#x2F;flume&#x2F;lib). There are some libs specifying Kafka(0.8.2).</p>
+<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Cflume_kafka_version.png" alt="flume_kafka_version"></p>
+<p>Well, it’s so weird that Ambari-2.4.2 using Kafka-0.9.0, but Flume-1.5.2 in Ambari-2.4.2 not using Kafka-0.9.0 instead of using Kafka-0.8.2. I don’t know why, but I also found <a href="https://community.hortonworks.com/questions/6332/how-to-read-from-a-kafka-topic-using-spark-streami.html">similary problem</a> after googling. <a href="https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/">Kafka starts to support Kerberos authorization after version 0.9.</a> So it’s obvious that we can’t use Kafka source in Flume in Ambari-2.4.2 with Kerberos. </p>
+<p><img src="/posts/dc7e5002/Using-Flume-to-transfer-data-from-Kafka-to-HDFS-in-Ambari-2-4-2-with-Kerberos%5Ckafka_kerberos.png" alt="kafka_start_to_support_kerberos"></p>
+<p>From this moment, we got stuck by this annoying version of conflict. After complaining, we also need to solve this problem. But, how?<br>Although Kafka-0.8.2 not supporting Kerberos, it ought to create a custom Kafka source. Appending Kerberos authorization code within your custom Kafka source that is a reasonable solution for this situation.</p>
+<h2 id="Reasonable-solution"><a href="#Reasonable-solution" class="headerlink" title="Reasonable solution"></a>Reasonable solution</h2><h3 id="Creating-custom-Kafka-0-9-0-source"><a href="#Creating-custom-Kafka-0-9-0-source" class="headerlink" title="Creating custom Kafka(0.9.0) source"></a>Creating custom Kafka(0.9.0) source</h3><p>Writing your custom Kafka source which inheriting class AbstractSource<br>is just like a Kafka consumer.  </p>
+<p><strong>Attention: The dependencies of Kafka need to use the version of 0.9.0.</strong></p>
+<p>Java codes paste below.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.johnny.flume.source.kafka;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.flume.Context;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.Event;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.EventDeliveryException;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.PollableSource;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.conf.Configurable;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.event.EventBuilder;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.source.AbstractSource;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.CommonClientConfigs;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerConfig;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecord;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.ConsumerRecords;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.consumer.KafkaConsumer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomKafkaSource</span> <span class="keyword">extends</span> <span class="title class_">AbstractSource</span> <span class="keyword">implements</span> <span class="title class_">Configurable</span>, PollableSource &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> KafkaConsumer&lt;<span class="type">byte</span>[], String&gt; consumer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Status <span class="title function_">process</span><span class="params">()</span> <span class="keyword">throws</span> EventDeliveryException &#123;</span><br><span class="line"></span><br><span class="line">        List&lt;Event&gt; eventList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Event&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ConsumerRecords&lt;<span class="type">byte</span>[], String&gt; records = consumer.poll(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">            Event event;</span><br><span class="line">            Map&lt;String, String&gt; header;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (ConsumerRecord&lt;<span class="type">byte</span>[], String&gt; record : records) &#123;</span><br><span class="line">                header = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, String&gt;();</span><br><span class="line">                header.put(<span class="string">&quot;timestamp&quot;</span>, String.valueOf(System.currentTimeMillis()));</span><br><span class="line"></span><br><span class="line">                event = EventBuilder.withBody(record.value(), Charset.forName(<span class="string">&quot;UTF-8&quot;</span>), header);</span><br><span class="line">                eventList.add(event);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> Status.BACKOFF;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        getChannelProcessor().processEventBatch(eventList);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Status.READY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(Context context)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        properties.put(<span class="string">&quot;zookeeper.connect&quot;</span>, context.getString(<span class="string">&quot;zk&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;group.id&quot;</span>, context.getString(<span class="string">&quot;groupId&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;auto.offset.reset&quot;</span>, <span class="string">&quot;earliest&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;bootstrap.servers&quot;</span>, context.getString(<span class="string">&quot;bootstrapServers&quot;</span>));</span><br><span class="line">        properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, <span class="string">&quot;SASL_PLAINTEXT&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;value.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;key.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, <span class="string">&quot;true&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">this</span>.consumer = <span class="keyword">new</span> <span class="title class_">KafkaConsumer</span>&lt;<span class="type">byte</span>[], String&gt;(properties);</span><br><span class="line">        <span class="built_in">this</span>.consumer.subscribe(Arrays.asList(context.getString(<span class="string">&quot;topics&quot;</span>).split(<span class="string">&quot;,&quot;</span>)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">stop</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Using the code “context.getString()” can get specific property value from your configuration file.</p>
+<h3 id="Generating-jar-package"><a href="#Generating-jar-package" class="headerlink" title="Generating jar package"></a>Generating jar package</h3><p>Utilizing your build automation tool - such as Maven, Gradle and etc - to generate your custom Kafka source jar.</p>
+<h3 id="Replacing-Kafka-lib-and-Adding-custom-Kafka-source-jar"><a href="#Replacing-Kafka-lib-and-Adding-custom-Kafka-source-jar" class="headerlink" title="Replacing Kafka lib and Adding custom Kafka source jar"></a>Replacing Kafka lib and Adding custom Kafka source jar</h3><p>In this step, you ought to download a Kafka jar package (the version is 0.9.0), then copy the file “kafka-clients-0.9.0.0.jar” and the file that custom Kafka source jar to your lib path of Flume(&#x2F;usr&#x2F;hdp&#x2F;2.4.3.0-227&#x2F;flume&#x2F;lib). After that, you also need to delete the old version of Kafka client jar(kafka-clients-0.8.2.0.jar).</p>
+<h3 id="Other-preparation-for-the-final-point"><a href="#Other-preparation-for-the-final-point" class="headerlink" title="Other preparation for the final point"></a>Other preparation for the final point</h3><ol>
+<li>Creating a Kafka topic and ensuring that it’s working.</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/kafka.service.keytab kafka/bigdata.com@CONNEXT.COM</span><br><span class="line"></span><br><span class="line">cd /usr/hdp/2.4.3.0-227/kafka/</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --create --zookeeper bigdata.com:2181 --replication-factor 1 --partitions 1 --topic flume-kafka</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --list --zookeeper bigdata.com:2181</span><br><span class="line"></span><br><span class="line">bin/kafka-topics.sh --describe --zookeeper bigdata.com:2181 --topic flume-kafka</span><br><span class="line"></span><br><span class="line">bin/kafka-console-producer.sh --topic flume-kafka --broker-list bigdata.com:6667 --security-protocol SASL_PLAINTEXT</span><br><span class="line"></span><br><span class="line">bin/kafka-console-consumer.sh --topic flume-kafka --zookeeper bigdata.com:2181 --from-beginning --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Creating your storage folder in your HDFS for saving data.</li>
+</ol>
+<h3 id="Editing-your-flume-configuration-file"><a href="#Editing-your-flume-configuration-file" class="headerlink" title="Editing your flume configuration file"></a>Editing your flume configuration file</h3><p>Finally, it’s time to reach the peak. Just follow the configuration code below.</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">amk.sources</span> <span class="string">=</span> <span class="string">k</span></span><br><span class="line"><span class="string">amk.sinks</span> <span class="string">=</span> <span class="string">h</span></span><br><span class="line"><span class="string">amk.channels</span> <span class="string">=</span> <span class="string">m</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Sources ####</span></span><br><span class="line"><span class="string">amk.sources.k.type</span> <span class="string">=</span> <span class="string">com.johnny.flume.source.kafka.CustomKafkaSource</span></span><br><span class="line"><span class="string">amk.sources.k.zk</span> <span class="string">=</span> <span class="string">bigdata.com:2181</span></span><br><span class="line"><span class="string">amk.sources.k.groupId</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br><span class="line"><span class="string">amk.sources.k.bootstrapServers</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sources.k.topics</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Sinks ####</span></span><br><span class="line"><span class="string">amk.sinks.h.type</span> <span class="string">=</span> <span class="string">hdfs</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.fileType</span> <span class="string">=</span> <span class="string">DataStream</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.path</span> <span class="string">=</span> <span class="string">/johnny/flume/events/%y-%m-%d</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.filePrefix</span> <span class="string">=</span> <span class="string">events</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.fileSuffix</span> <span class="string">=</span> <span class="string">.log</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.round</span> <span class="string">=</span> <span class="literal">true</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.roundValue</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.roundUnit</span> <span class="string">=</span> <span class="string">minute</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.useLocalTimeStamp</span> <span class="string">=</span> <span class="literal">true</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.kerberosPrincipal</span> <span class="string">=</span> <span class="string">hdfs-bigdata@CONNEXT.COM</span></span><br><span class="line"><span class="string">amk.sinks.h.hdfs.kerberosKeytab</span> <span class="string">=</span> <span class="string">/etc/security/keytabs/hdfs.headless.keytab</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### Channels ####</span></span><br><span class="line"><span class="string">amk.channels.m.type</span> <span class="string">=</span> <span class="string">memory</span></span><br><span class="line"></span><br><span class="line"><span class="string">amk.sources.k.channels</span> <span class="string">=</span> <span class="string">m</span></span><br><span class="line"><span class="string">amk.sinks.h.channel</span> <span class="string">=</span> <span class="string">m</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Others-need-to-notice"><a href="#Others-need-to-notice" class="headerlink" title="Others need to notice"></a>Others need to notice</h2><p>Similarly, we also ought to write a custom Kafka sink in Flume(1.5.2) if we need it.<br>The java code pastes below. </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.johnny.flume.sink.kafka;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.flume.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.conf.Configurable;</span><br><span class="line"><span class="keyword">import</span> org.apache.flume.sink.AbstractSink;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.CommonClientConfigs;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.KafkaProducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.kafka.clients.producer.ProducerRecord;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomKafkaSink</span> <span class="keyword">extends</span> <span class="title class_">AbstractSink</span> <span class="keyword">implements</span> <span class="title class_">Configurable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> KafkaProducer&lt;String, String&gt; producer;</span><br><span class="line">    <span class="keyword">public</span> String topic;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Status <span class="title function_">process</span><span class="params">()</span> <span class="keyword">throws</span> EventDeliveryException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Status</span> <span class="variable">status</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Channel</span> <span class="variable">ch</span> <span class="operator">=</span> getChannel();</span><br><span class="line">        <span class="type">Transaction</span> <span class="variable">txn</span> <span class="operator">=</span> ch.getTransaction();</span><br><span class="line">        txn.begin();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">Event</span> <span class="variable">event</span> <span class="operator">=</span> ch.take();</span><br><span class="line">            <span class="keyword">if</span> (event == <span class="literal">null</span>) &#123;</span><br><span class="line">                status = Status.BACKOFF;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">byte</span>[] byte_message = event.getBody();</span><br><span class="line">            <span class="comment">//生产者</span></span><br><span class="line">            ProducerRecord&lt;String, String&gt; record = <span class="keyword">new</span> <span class="title class_">ProducerRecord</span>&lt;&gt;(<span class="built_in">this</span>.topic, <span class="keyword">new</span> <span class="title class_">String</span>(byte_message));</span><br><span class="line">            producer.send(record);</span><br><span class="line"></span><br><span class="line">            txn.commit();</span><br><span class="line">            status = Status.READY;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable t) &#123;</span><br><span class="line">            txn.rollback();</span><br><span class="line">            status = Status.BACKOFF;</span><br><span class="line">            <span class="keyword">if</span> (t <span class="keyword">instanceof</span> Error) &#123;</span><br><span class="line">                <span class="keyword">throw</span> (Error) t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            txn.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(Context context)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Properties</span> <span class="variable">properties</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        properties.put(<span class="string">&quot;bootstrap.servers&quot;</span>, context.getString(<span class="string">&quot;bootstrapServers&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;metadata.broker.list&quot;</span>, context.getString(<span class="string">&quot;brokerList&quot;</span>));</span><br><span class="line">        properties.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;serializer.class&quot;</span>, <span class="string">&quot;kafka.serializer.StringEncoder&quot;</span>);</span><br><span class="line">        properties.put(<span class="string">&quot;request.required.acks&quot;</span>, context.getString(<span class="string">&quot;acks&quot;</span>));</span><br><span class="line">        properties.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, <span class="string">&quot;SASL_PLAINTEXT&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">this</span>.producer = <span class="keyword">new</span> <span class="title class_">KafkaProducer</span>&lt;String, String&gt;(properties);</span><br><span class="line">        <span class="built_in">this</span>.topic = context.getString(<span class="string">&quot;topic&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>The related configuration file pastes below.</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#### Sinks ####</span></span><br><span class="line"><span class="string">amk.sinks.k.type</span> <span class="string">=</span> <span class="string">com.johnny.flume.sink.kafka.CustomKafkaSink</span></span><br><span class="line"><span class="string">amk.sinks.k.bootstrapServers</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sinks.k.brokerList</span> <span class="string">=</span> <span class="string">bigdata.com:6667</span></span><br><span class="line"><span class="string">amk.sinks.k.acks</span> <span class="string">=</span> <span class="number">1</span></span><br><span class="line"><span class="string">amk.sinks.k.topic</span> <span class="string">=</span> <span class="string">flume-kafka</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kafka</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Github + Travis + Heroku + Slack for team development</title>
+    <url>/posts/3d8e0aef.html</url>
+    <content><![CDATA[<p><img src="/posts/3d8e0aef/image-20210919192821128.png" alt="image-20210919192821128"></p>
+<p>Traditionally, using Gitlab + Jenkins + K8s + Docker may better for some e-commerce systems development. But you need to put more time to configure and maintain this setup. This is not easy and some unfortunate issues may comes frequently. </p>
+<span id="more"></span>
+
+<p>For small development team, espcially for Django development, we need some quick and easy CI&#x2F;CD to help the small team to get out of thee burdensome maintainance. </p>
+<p>Here, I tried some online tools below to ahiceve this goal.</p>
+<p>Django</p>
+<ul>
+<li>Quick development</li>
+<li>Some basic function without configuration, out-of-box</li>
+<li>Quick to learn</li>
+</ul>
+<p>Github</p>
+<ul>
+<li>Code Repository </li>
+<li>Set a clear commit rule and branch management</li>
+</ul>
+<p>Travis</p>
+<ul>
+<li>Linting, testing and CI</li>
+<li>Easy connect with Github</li>
+</ul>
+<p>Heroku</p>
+<ul>
+<li>CD</li>
+<li>Easy connect with Github</li>
+</ul>
+<p>Slack</p>
+<ul>
+<li>Team Communication</li>
+<li>Get notification after CI&#x2F;CD</li>
+</ul>
+<h3 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h3><p>​	Github -&gt; Travis -&gt; Heroku -&gt; Slack</p>
+<p>​	After you push your code to the Github, Travis will automatically run CI process and test your codes. After that, Heroku can fetch your codes from a specific git branch for CD. Finally, the notification can send to Slack for notifying the result of CI&#x2F;CD.</p>
+<h3 id="Travis-Configuration"><a href="#Travis-Configuration" class="headerlink" title="Travis Configuration"></a>Travis Configuration</h3><ol>
+<li><p>Connect with Github (follow the steps in Travis)</p>
+</li>
+<li><p>Travis configuration file (.travis.yml)</p>
+<ul>
+<li>For specifying the development language, the commands for CI, and the script</li>
+<li>Put this file in the root of your Django project</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">python</span></span><br><span class="line"><span class="attr">python:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.6</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">pip</span> <span class="string">install</span> <span class="string">-r</span> <span class="string">requirements.txt</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">python</span> <span class="string">manage.py</span> <span class="string">test</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PIP install list file (requirements.txt)</p>
+<ul>
+<li>Put this file in the root of your Django project</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">django&gt;=2.0.11</span><br><span class="line">psycopg2</span><br><span class="line">psycopg2-binary</span><br><span class="line">dj-database-url==0.5.0</span><br><span class="line">gunicorn</span><br><span class="line">whitenoise</span><br><span class="line">django-heroku</span><br><span class="line">pytz</span><br><span class="line">sqlparse</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="Heroku-Configuraion"><a href="#Heroku-Configuraion" class="headerlink" title="Heroku Configuraion"></a>Heroku Configuraion</h3><ol>
+<li><p>Connect with Github (you can specify the git branch for code hook monitored)</p>
+</li>
+<li><p>Heroku configuration file (Procfile)</p>
+<ul>
+<li>For specifying the web server (Gunicorn)</li>
+<li>Put this file in the root of your Django project</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">web:</span> <span class="string">gunicorn</span> <span class="string">webapps.wsgi</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="Some-possible-issues"><a href="#Some-possible-issues" class="headerlink" title="Some possible issues"></a>Some possible issues</h3><h4 id="Failed-to-deploy-for-collectstatic-directory"><a href="#Failed-to-deploy-for-collectstatic-directory" class="headerlink" title="Failed to deploy for collectstatic directory"></a>Failed to deploy for collectstatic directory</h4><p><img src="/posts/3d8e0aef/image-20210919190053772.png" alt="image-20210919190053772"></p>
+<p>Two options for resolving </p>
+<ol>
+<li><p>Disable collectstatic</p>
+<p>run heroku command:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">heroku config:set DISABLE_COLLECTSTATIC=1 </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Configure collectstatic in “settings.py”</p>
+<ol>
+<li>configure settings.py</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Static files (CSS, JavaScript, Images)</span></span><br><span class="line"><span class="comment"># https://docs.djangoproject.com/en/1.9/howto/static-files/</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;staticfiles&#x27;</span>)</span><br><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extra places for collectstatic to find static files.</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;static&#x27;</span>),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>create static directory in the root of your project (not to create collectstatic folder, this will create automatically by heroku)</li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>Django</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Django</tag>
+        <tag>CI/CD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using docker command to obtain dockers&#39; IP</title>
+    <url>/posts/de75b356.html</url>
+    <content><![CDATA[<p><img src="/posts/de75b356/docker.jpg" alt="docker"></p>
+<p><strong>check specific container’s ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
+
+<p><strong>check all containers’ ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
