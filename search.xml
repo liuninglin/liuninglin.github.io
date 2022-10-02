@@ -244,41 +244,53 @@
       </tags>
   </entry>
   <entry>
-    <title>Auto-start Services on Boot in Linux</title>
-    <url>/posts/857f09d5.html</url>
-    <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
-<li><p>Show the list of services that start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add a service to auto-start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --add service_name</span><br><span class="line">chkconfig service_name on</span><br></pre></td></tr></table></figure>
+    <title>Attention for Using Markdown code block</title>
+    <url>/posts/d2fb4425.html</url>
+    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
+<span id="more"></span>  
+<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
+]]></content>
+      <categories>
+        <category>Language</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cannot Start Namenode with Safemode Error</title>
+    <url>/posts/ab80d8c6.html</url>
+    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
+<span id="more"></span>
+<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
+<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
+<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
+<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
 
- <span id="more"></span>
+<p>Using the command below to get the state of the namenode</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
+
+<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
+<ol>
+<li><p>Clicking the button “Stop All”.</p>
 </li>
-<li><p>Confirm script is added successfully</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list service_name</span><br></pre></td></tr></table></figure>
+<li><p>Running the commands below.  </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
+<li><p>Powering off VMs.</p>
 </li>
-<li><p>Disable an auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig service_name off</span><br><span class="line">chkconfig --del service_name</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h2><ol>
-<li><p>Add a service to auto-start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> service_name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Disable an auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> service_name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the status of auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status service_name</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Operation</category>
-        <category>Linux</category>
+        <category>Back-end</category>
+        <category>BigData</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
       </tags>
   </entry>
   <entry>
@@ -318,53 +330,41 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot Start Namenode with Safemode Error</title>
-    <url>/posts/ab80d8c6.html</url>
-    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
-<span id="more"></span>
-<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
-<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
-<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
-<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
-
-<p>Using the command below to get the state of the namenode</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
-
-<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
-<ol>
-<li><p>Clicking the button “Stop All”.</p>
+    <title>Auto-start Services on Boot in Linux</title>
+    <url>/posts/857f09d5.html</url>
+    <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
+<li><p>Show the list of services that start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Running the commands below.  </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent stop</span><br><span class="line">	</span><br><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure></li>
-<li><p>Powering off VMs.</p>
+<li><p>Add a service to auto-start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --add service_name</span><br><span class="line">chkconfig service_name on</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
 </li>
+<li><p>Confirm script is added successfully</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Disable an auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig service_name off</span><br><span class="line">chkconfig --del service_name</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h2><ol>
+<li><p>Add a service to auto-start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Disable an auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the status of auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status service_name</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
+        <category>Operation</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Attention for Using Markdown code block</title>
-    <url>/posts/d2fb4425.html</url>
-    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
-<span id="more"></span>  
-<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
-]]></content>
-      <categories>
-        <category>Language</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -545,54 +545,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[Hexo]Create a blog with hexo in github</title>
-    <url>/posts/fe740d97.html</url>
-    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
-<ol>
-<li><p>copy local ssh public key to github  </p>
-</li>
-<li><p>install npm, git</p>
-</li>
-<li><p>install hexo by npm  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>init hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
- <span id="more"></span>
-</li>
-<li><p>install other softwares by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>edit file “_config.yml” and write your git address</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>install hexo deployment tool</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>generate static pages by hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>deploy static pages to github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>using local tool to pre-check your blog</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>access to your github blog</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cheat Sheet for AWS SAA-02</title>
     <url>/posts/a60a7db0.html</url>
     <content><![CDATA[<p><img src="/posts/a60a7db0/image-20210919194848724.png" alt="image-20210919194848724"></p>
@@ -601,8 +553,7 @@
 </ol>
 <span id="more"></span>
 
-<p>##VPC</p>
-<ol>
+<h2 id="VPC"><a href="#VPC" class="headerlink" title="VPC"></a>VPC</h2><ol>
 <li><p>each account can create 5 VPC, and each vpc can create 200 subnets</p>
 </li>
 <li><p>private subnet &#x3D;&gt; NAT Gateway &#x3D;&gt; IGW</p>
@@ -734,8 +685,7 @@
 </ul>
 </li>
 </ol>
-<p>##EC2</p>
-<ol>
+<h2 id="EC2"><a href="#EC2" class="headerlink" title="EC2"></a>EC2</h2><ol>
 <li>Instance Type<ul>
 <li>R: more ram</li>
 <li>C: more CPU</li>
@@ -920,8 +870,7 @@
 <li><p>ASG supports a mix of On-Demand &amp; Spot instances, which helps design a cost-optimized solution without impacting the performance. You can choose the percentage of On-Demand &amp; Spot instances based on the application requirement (OnDemandPercentageAboveBaseCapacity)</p>
 </li>
 </ol>
-<p>##EBS</p>
-<ol>
+<h2 id="EBS"><a href="#EBS" class="headerlink" title="EBS"></a>EBS</h2><ol>
 <li>Storage Type<ul>
 <li>gp2: <ul>
 <li><strong>general purpose, max 16,000 IOPS, max 250 MB&#x2F;s throughput</strong></li>
@@ -1079,8 +1028,7 @@
 <li>Aurora Serverless</li>
 <li>API Gateway</li>
 </ul>
-<p>##S3</p>
-<ol>
+<h2 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h2><ol>
 <li><p>4 9’s avaialbility, and 11 9’s durability</p>
 </li>
 <li><p>S3 is a managed service and not part of VPC. So, VPC flow logs does not report traffic sent to the S3 bucket.</p>
@@ -1338,8 +1286,7 @@
 </ul>
 </li>
 </ol>
-<p>##Route 53</p>
-<ol>
+<h2 id="Route-53"><a href="#Route-53" class="headerlink" title="Route 53"></a>Route 53</h2><ol>
 <li><p><strong>is a global service, not regional</strong></p>
 </li>
 <li><p>is highly available and scalable DNS web service. You can use Route 53 perform three main functions</p>
@@ -1455,8 +1402,7 @@
 <li><p><strong>Route 53 is not inside the AWS backbone</strong></p>
 </li>
 </ol>
-<p>##ELB</p>
-<ol>
+<h2 id="ELB"><a href="#ELB" class="headerlink" title="ELB"></a>ELB</h2><ol>
 <li><p>An ELB must have at least two AZs, and <strong>ELB can’t cross region</strong></p>
 </li>
 <li><p>Types of ELB</p>
@@ -1646,8 +1592,7 @@
 </ul>
 </li>
 </ol>
-<p>##CloudFront</p>
-<ol>
+<h2 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h2><ol>
 <li><p>CDN</p>
 <p>For improving read performance, content is cached in the Edge Location</p>
 </li>
@@ -3216,7 +3161,9 @@
 </li>
 <li><p>If it takes more than a week to transfer over the network, use Snowball instead</p>
 <hr>
-<h3 id="Snowball-Edge"><a href="#Snowball-Edge" class="headerlink" title="Snowball Edge"></a>Snowball Edge</h3></li>
+</li>
+</ol>
+<h3 id="Snowball-Edge"><a href="#Snowball-Edge" class="headerlink" title="Snowball Edge"></a>Snowball Edge</h3><ol start="7">
 <li><p>Snowball Edge add computational capability to the device</p>
 </li>
 <li><p>100TB capacity with either</p>
@@ -3241,12 +3188,11 @@
 </li>
 <li><p>Two sizes: 100TB &amp; 100TB clustered</p>
 <hr>
-<p>###Snowmobile</p>
 </li>
-<li><p>Transfer 100PB per Snowmobile</p>
-</li>
-<li><p>It is a exabyte-scale migration</p>
-</li>
+</ol>
+<h3 id="Snowmobile"><a href="#Snowmobile" class="headerlink" title="Snowmobile"></a>Snowmobile</h3><ol start="14">
+<li>Transfer 100PB per Snowmobile</li>
+<li>It is a exabyte-scale migration</li>
 </ol>
 <h2 id="Redshift"><a href="#Redshift" class="headerlink" title="Redshift"></a>Redshift</h2><ol>
 <li><p>Fully managed Petabyte-size data warehouse</p>
@@ -3561,8 +3507,7 @@
 <li>Auto-scaling and integrated with Spot instances</li>
 <li>Use cases: data processing, ML, web indexing, big data…</li>
 </ol>
-<p>##Glue</p>
-<ol>
+<h2 id="Glue"><a href="#Glue" class="headerlink" title="Glue"></a>Glue</h2><ol>
 <li>Fully managed ETL (Extract, Transform &amp; Load) service</li>
 <li>Automating time consuming steps of data preparation for analytics</li>
 <li>Serverless, provisions Apache Spark</li>
@@ -3599,8 +3544,7 @@
 <li>Amazon MQ runs on a dedicated machine, can run in HA with failover</li>
 <li>Amazon MQ both has queue feature (SQS) and topic feature (SNS)</li>
 </ol>
-<h2 id="SQS-vs-SNS-vs-Kinesis"><a href="#SQS-vs-SNS-vs-Kinesis" class="headerlink" title="SQS vs SNS vs Kinesis"></a>SQS vs SNS vs Kinesis</h2><p>###SQS</p>
-<ul>
+<h2 id="SQS-vs-SNS-vs-Kinesis"><a href="#SQS-vs-SNS-vs-Kinesis" class="headerlink" title="SQS vs SNS vs Kinesis"></a>SQS vs SNS vs Kinesis</h2><h3 id="SQS-1"><a href="#SQS-1" class="headerlink" title="SQS"></a>SQS</h3><ul>
 <li>Consumer pull data</li>
 <li>Data is deleted after being consumed</li>
 <li>Can have as many consumers as we want</li>
@@ -3608,8 +3552,7 @@
 <li>No ordering guarantee (except FIFO features)</li>
 <li>Individual message delay capability</li>
 </ul>
-<p>###SNS</p>
-<ul>
+<h3 id="SNS-1"><a href="#SNS-1" class="headerlink" title="SNS"></a>SNS</h3><ul>
 <li>Push data to many subscribers</li>
 <li>Up to 10,000,000 subscribers</li>
 <li>Data is not persisted (lost if not delivered)</li>
@@ -3618,8 +3561,7 @@
 <li>No need to provision throughput</li>
 <li>Integrates with SQS for fan-out architecture pattern</li>
 </ul>
-<p>###Kinesis</p>
-<ul>
+<h3 id="Kinesis-1"><a href="#Kinesis-1" class="headerlink" title="Kinesis"></a>Kinesis</h3><ul>
 <li>Consumers pull data</li>
 <li>As many consumers as we want</li>
 <li>Possibility to replay data</li>
@@ -3644,8 +3586,7 @@
 </ul>
 </li>
 </ol>
-<p>##Resource Groups - Tags</p>
-<ol>
+<h2 id="Resource-Groups-Tags"><a href="#Resource-Groups-Tags" class="headerlink" title="Resource Groups - Tags"></a>Resource Groups - Tags</h2><ol>
 <li>Free naming, common tags are<ul>
 <li>Name</li>
 <li>Environment</li>
@@ -3661,8 +3602,7 @@
 <li>Better to have too many tags than too few</li>
 <li>You can easily add tags to define which instances are the production instances and which ones are development instances. These tags can be used while controlling access via an IAM policy</li>
 </ol>
-<p>##Resource Access Manager (RAM)</p>
-<ol>
+<h2 id="Resource-Access-Manager-RAM"><a href="#Resource-Access-Manager-RAM" class="headerlink" title="Resource Access Manager (RAM)"></a>Resource Access Manager (RAM)</h2><ol>
 <li>Share AWS resources that you own with other AWS accounts</li>
 <li>Share with any account or within your organization</li>
 <li>Avoid resource duplication</li>
@@ -4018,20 +3958,17 @@
 </ul>
 </li>
 </ol>
-<h2 id="CloudWatch-vs-CloudTrail-vs-Config"><a href="#CloudWatch-vs-CloudTrail-vs-Config" class="headerlink" title="CloudWatch vs CloudTrail vs Config"></a>CloudWatch vs CloudTrail vs Config</h2><p>###CloudWatch</p>
-<ul>
+<h2 id="CloudWatch-vs-CloudTrail-vs-Config"><a href="#CloudWatch-vs-CloudTrail-vs-Config" class="headerlink" title="CloudWatch vs CloudTrail vs Config"></a>CloudWatch vs CloudTrail vs Config</h2><h3 id="CloudWatch-1"><a href="#CloudWatch-1" class="headerlink" title="CloudWatch"></a>CloudWatch</h3><ul>
 <li>Performance monitoring (metrics, CPU, network, etc…) &amp; dashboards</li>
 <li>Events &amp; Alerting</li>
 <li>Log Aggregation &amp; Analysis</li>
 </ul>
-<p>###CloudTrail</p>
-<ul>
+<h3 id="CloudTrail-1"><a href="#CloudTrail-1" class="headerlink" title="CloudTrail"></a>CloudTrail</h3><ul>
 <li>Record API calls made within your Account by everyone</li>
 <li>Can define trails for specific resources</li>
 <li><strong>Global Service</strong></li>
 </ul>
-<p>###Config</p>
-<ul>
+<h3 id="Config-1"><a href="#Config-1" class="headerlink" title="Config"></a>Config</h3><ul>
 <li>Record configuration changes</li>
 <li>Evaluate resources against compliance rules</li>
 <li>Get timeline of changes and compliance</li>
@@ -4106,13 +4043,11 @@
 <h2 id="Shield"><a href="#Shield" class="headerlink" title="Shield"></a>Shield</h2><ul>
 <li>It is a service to protect web applications against DDoS attacks</li>
 </ul>
-<p>###AWS Shield Standard</p>
-<ul>
+<h3 id="AWS-Shield-Standard"><a href="#AWS-Shield-Standard" class="headerlink" title="AWS Shield Standard"></a>AWS Shield Standard</h3><ul>
 <li>Free service that is activated for every AWS customer</li>
 <li>Provides protection from attacks such as SYN&#x2F;UDP Floods, Reflection attacks and other layer 3 &#x2F; layer 4 attacks</li>
 </ul>
-<p>###AWS Shield Advanced</p>
-<ul>
+<h3 id="AWS-Shield-Advanced"><a href="#AWS-Shield-Advanced" class="headerlink" title="AWS Shield Advanced"></a>AWS Shield Advanced</h3><ul>
 <li>Optional DDoS mitigation service ($3,000 per month per organization)</li>
 <li>Protect against more sophisticated attack on Amazon EC2, ELB, CloudFront, Global Accelerator, and Route 53</li>
 <li>24&#x2F;7 access to AWS DDoS response team (DRP)</li>
@@ -4734,8 +4669,7 @@
 <p><img src="/posts/a60a7db0/image-20210529140801950.png" alt="image-20210529140801950"></p>
 </li>
 </ul>
-<p>##Classic Solution Architecture</p>
-<ol>
+<h2 id="Classic-Solution-Architecture"><a href="#Classic-Solution-Architecture" class="headerlink" title="Classic Solution Architecture"></a>Classic Solution Architecture</h2><ol>
 <li><p>Stateless Web App</p>
 <ul>
 <li><img src="/posts/a60a7db0/image-20210529142846543.png" alt="image-20210529142846543"></li>
@@ -5110,8 +5044,7 @@
 </ul>
 </li>
 </ul>
-<p>##Well Architected Tool</p>
-<ol>
+<h2 id="Well-Architected-Tool"><a href="#Well-Architected-Tool" class="headerlink" title="Well Architected Tool"></a>Well Architected Tool</h2><ol>
 <li>Operation Excellence<ul>
 <li>Includes the ability to run and monitor systems to deliver business value and to continually supporting processes and procedures</li>
 <li>Design Principles<ul>
@@ -5416,8 +5349,7 @@
 <li><strong>X-Ray collects data, analysis and debug of microservice application.</strong></li>
 <li>X-Ray helps to analyze and debug modern applications. It will also collect the trace about the request from each of the applications. It also records the traces. After recording, <strong>it can create a view service map that can be seen to trace data latency and analyze the issues.</strong> This can help to find any unusual behavior to identify any root cause.</li>
 </ol>
-<p>##AWS Batch</p>
-<ol>
+<h2 id="AWS-Batch"><a href="#AWS-Batch" class="headerlink" title="AWS Batch"></a>AWS Batch</h2><ol>
 <li>Batch helps you to run batch computing workloads on the AWS Cloud. </li>
 <li><strong>Batch simplifies running batch jobs across multiple AZs within a Region.</strong> You can create Batch compute environments within a new or existing VPC. After a compute environment is up and associated with a job queue, you can define job definitions that specify which Docker container images to run your jobs. Container images are stored in and pulled from container registries, which may exist within or outside of your AWS infrastructure.</li>
 <li>Components<ul>
@@ -5506,8 +5438,7 @@
 </ul>
 </li>
 </ol>
-<p>##CodePipeline</p>
-<ol>
+<h2 id="CodePipeline"><a href="#CodePipeline" class="headerlink" title="CodePipeline"></a>CodePipeline</h2><ol>
 <li>To automatically trigger pipeline with changes in the source S3 bucket, CloudWatch Events rule &amp; CloudTrail trail must be applied. When there is a change in the S3 bucket, events are filtered using CloudTrail &amp; then CloudWatch events are used to trigger the start of the pipeline. This default method is faster and periodic checks should be disabled to have events-based triggering of CodePipeline.</li>
 <li>Webhooks are used to trigger pipeline the source is GitHub repository</li>
 <li>Periodic checks are not a faster way to trigger CodePipeline</li>
@@ -5521,6 +5452,54 @@
         <tag>AWS</tag>
         <tag>AWS-SAA</tag>
         <tag>Architect</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Hexo]Create a blog with hexo in github</title>
+    <url>/posts/fe740d97.html</url>
+    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
+<ol>
+<li><p>copy local ssh public key to github  </p>
+</li>
+<li><p>install npm, git</p>
+</li>
+<li><p>install hexo by npm  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>init hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+</li>
+<li><p>install other softwares by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>edit file “_config.yml” and write your git address</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>install hexo deployment tool</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>generate static pages by hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>deploy static pages to github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>using local tool to pre-check your blog</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>access to your github blog</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
@@ -6061,37 +6040,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>MIO Internship</title>
-    <url>/posts/658d19d2.html</url>
-    <content><![CDATA[<p><img src="/posts/658d19d2/dinner_photo.jpeg" alt="MIO internship"></p>
-<p>I have really enjoyed working with IT team at MIO last two months. Through this internship, I have been able to learn not only what the US working style is like, but also some real AWS projects. Now, I’m sure to continue brushing up on my AWS skills to find a full-time role.</p>
-<p>Thank you all guys helped me and supported me! I hope you all the best!</p>
-]]></content>
-      <categories>
-        <category>Life log</category>
-      </categories>
-      <tags>
-        <tag>life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Odyssey</title>
-    <url>/posts/56e69a1d.html</url>
-    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness.</p>
-<span id="more"></span>
-
-<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.  </p>
-<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
-]]></content>
-      <categories>
-        <category>Life log</category>
-      </categories>
-      <tags>
-        <tag>life</tag>
-        <tag>Shanghai</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux Command - netstat</title>
     <url>/posts/187005a0.html</url>
     <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
@@ -6126,6 +6074,54 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Linux</tag>
         <tag>Linux Command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MIO Internship</title>
+    <url>/posts/658d19d2.html</url>
+    <content><![CDATA[<p><img src="/posts/658d19d2/dinner_photo.jpeg" alt="MIO internship"></p>
+<p>I have really enjoyed working with IT team at MIO last two months. Through this internship, I have been able to learn not only what the US working style is like, but also some real AWS projects. Now, I’m sure to continue brushing up on my AWS skills to find a full-time role.</p>
+<p>Thank you all guys helped me and supported me! I hope you all the best!</p>
+]]></content>
+      <categories>
+        <category>Life log</category>
+      </categories>
+      <tags>
+        <tag>life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
+    <url>/posts/3f9aa226.html</url>
+    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
+<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
+<span id="more"></span>
+
+<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
+<blockquote>
+<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
+</blockquote>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
+<li><p>Configuring Firefox</p>
+<p> Open Firefox and type the “about:config” in the address bar.</p>
+<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
+<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
+</li>
+<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
+<blockquote>
+<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
       </tags>
   </entry>
   <entry>
@@ -6170,6 +6166,23 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Linux</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Odyssey</title>
+    <url>/posts/56e69a1d.html</url>
+    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness.</p>
+<span id="more"></span>
+
+<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.  </p>
+<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
+]]></content>
+      <categories>
+        <category>Life log</category>
+      </categories>
+      <tags>
+        <tag>life</tag>
+        <tag>Shanghai</tag>
       </tags>
   </entry>
   <entry>
@@ -6246,40 +6259,6 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>Ambari</tag>
         <tag>Kafka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
-    <url>/posts/3f9aa226.html</url>
-    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
-<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
-<span id="more"></span>
-
-<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
-<blockquote>
-<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
-</blockquote>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
-<li><p>Configuring Firefox</p>
-<p> Open Firefox and type the “about:config” in the address bar.</p>
-<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
-<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
-</li>
-<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
-<blockquote>
-<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
       </tags>
   </entry>
   <entry>
@@ -6428,6 +6407,42 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>DMP</tag>
         <tag>MDM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tar command in Linux</title>
+    <url>/posts/d36bfb53.html</url>
+    <content><![CDATA[<p><img src="/posts/d36bfb53/tar.png" alt="tar">  </p>
+<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
+<p>-C: extract files into a specific directory, not the current directory</p>
+<span id="more"></span>
+<ol>
+<li><p>Creating an uncompressed tar archive.  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Creating a compressed tar archive by using gzip.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files from archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting gzip tar archive.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Extracting files into a specific directory.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Displays or lists files in the archived file.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -6676,42 +6691,6 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tar command in Linux</title>
-    <url>/posts/d36bfb53.html</url>
-    <content><![CDATA[<p><img src="/posts/d36bfb53/tar.png" alt="tar">  </p>
-<p>options:<br>-c: create the archive<br>-x: extract the archive<br>-f: create or extract with the specific archive filename<br>-t: displays or lists files in an archived file<br>-v: display info<br>-z: using gzip</p>
-<p>-C: extract files into a specific directory, not the current directory</p>
-<span id="more"></span>
-<ol>
-<li><p>Creating an uncompressed tar archive.  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvf file.tar directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Creating a compressed tar archive by using gzip.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -cvzf file.tar.gz directory</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files from archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting gzip tar archive.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvzf file.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Extracting files into a specific directory.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xvf file.tar -C /var/html/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Displays or lists files in the archived file.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -tvf file.tar</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -7041,6 +7020,101 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
+    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
+    <url>/posts/87dabd80.html</url>
+    <content><![CDATA[<p><img src="/posts/87dabd80/hive.jpg" alt="hive"></p>
+<span id="more"></span>
+
+<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
+<p>Command below for using Hive CLI.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+
+<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
+<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
+
+<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
+<ol>
+<li>Zookeeper</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
+<p><img src="/posts/87dabd80/hive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
+<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
+<blockquote>
+<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
+</blockquote>
+<p><img src="/posts/87dabd80/hive-connect-zookeeper.png" alt="zookeeper"></p>
+<ol start="2">
+<li>Thrift Server</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
+<p><img src="/posts/87dabd80/hive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
+<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
+<p><img src="/posts/87dabd80/hive-connect-thrift.png" alt="thrift"></p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
+
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Using Flume to transfer data from Kafka to HDFS in Ambari(2.4.2) with Kerberos</title>
     <url>/posts/dc7e5002.html</url>
     <content><![CDATA[<p><img src="/posts/dc7e5002/flume+kafka.png" alt="flume+kafka"></p>
@@ -7209,53 +7283,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
-    <url>/posts/87dabd80.html</url>
-    <content><![CDATA[<p><img src="/posts/87dabd80/hive.jpg" alt="hive"></p>
-<span id="more"></span>
-
-<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
-<p>Command below for using Hive CLI.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-
-<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
-<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
-
-<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
-<ol>
-<li>Zookeeper</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
-<p><img src="/posts/87dabd80/hive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
-<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
-<blockquote>
-<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
-</blockquote>
-<p><img src="/posts/87dabd80/hive-connect-zookeeper.png" alt="zookeeper"></p>
-<ol start="2">
-<li>Thrift Server</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
-<p><img src="/posts/87dabd80/hive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
-<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
-<p><img src="/posts/87dabd80/hive-connect-thrift.png" alt="thrift"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Using spark-submit to submit a Spark application in Kerberos environment</title>
     <url>/posts/b0e85a85.html</url>
     <content><![CDATA[<p><img src="/posts/b0e85a85/spark.jpg" alt="spark"></p>
@@ -7324,54 +7351,6 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>Ambari</tag>
         <tag>Spark</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
-<span id="more"></span>
-
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
-<ol>
-<li>Source</li>
-</ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
-<ol start="2">
-<li>Channel</li>
-</ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-        <tag>Flume</tag>
       </tags>
   </entry>
 </search>
