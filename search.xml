@@ -261,44 +261,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Auto-start Services on Boot in Linux</title>
-    <url>/posts/857f09d5.html</url>
-    <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
-<li><p>Show the list of services that start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add a service to auto-start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --add service_name</span><br><span class="line">chkconfig service_name on</span><br></pre></td></tr></table></figure>
-
- <span id="more"></span>
-</li>
-<li><p>Confirm script is added successfully</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list service_name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Disable an auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig service_name off</span><br><span class="line">chkconfig --del service_name</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h2><ol>
-<li><p>Add a service to auto-start on boot.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> service_name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Disable an auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> service_name</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the status of auto-start service.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status service_name</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cannot Start Namenode with Safemode Error</title>
     <url>/posts/ab80d8c6.html</url>
     <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
@@ -449,6 +411,332 @@
       </categories>
       <tags>
         <tag>BigData</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[Hexo]Create a blog with hexo in github</title>
+    <url>/posts/fe740d97.html</url>
+    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
+<ol>
+<li><p>copy local ssh public key to github  </p>
+</li>
+<li><p>install npm, git</p>
+</li>
+<li><p>install hexo by npm  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>init hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+</li>
+<li><p>install other softwares by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>edit file “_config.yml” and write your git address</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>install hexo deployment tool</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>generate static pages by hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>deploy static pages to github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>using local tool to pre-check your blog</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>access to your github blog</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hive-based Enterprise Data Warehouse(EDW)</title>
+    <url>/posts/3465d938.html</url>
+    <content><![CDATA[<p><img src="/posts/3465d938/810x430-hadoop-vs-data-warehouse.jpg" alt="Image result for Hive-based EDW"></p>
+<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol>
+<li><p>Establishing a complete Hadoop ecosystem such as using Ambari.</p>
+<p>For how to establish a complete Hadoop ecosystem by Ambari, you can check the posts - “Step by Step Tutorial for Ambari Installation” or “Tutorial for Latest Ambari(2.7.1)”.</p>
+</li>
+<li><p>Installing Hive for enterprise data warehouse (EDW).</p>
+</li>
+<li><p>Offering visual Hive query tools such as Hue.</p>
+</li>
+<li><p>Installing NiFi for processing data flow itinerantly.</p>
+</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="Technical-Architecture"><a href="#Technical-Architecture" class="headerlink" title="Technical Architecture"></a>Technical Architecture</h2><p>![Cloud-based EDW](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;Cloud-based EDW.jpg)</p>
+<h2 id="Business-Requirements"><a href="#Business-Requirements" class="headerlink" title="Business Requirements"></a>Business Requirements</h2><ol>
+<li>Sync order data from external MySQL database into Hive daily</li>
+<li>Compute order amount by orderID daily</li>
+<li>Compute total order amount daily</li>
+<li>Sync total order amount to external MySQL database daily</li>
+</ol>
+<h2 id="Preparations"><a href="#Preparations" class="headerlink" title="Preparations"></a>Preparations</h2><ol>
+<li>Creating databases and tables for Hive of Hadoop ecosystem and MySQL of the external database separately.</li>
+<li>Inserting several order data into the external MySQL database for syncing.</li>
+</ol>
+<h2 id="Design-of-a-series-of-NiFi-flow"><a href="#Design-of-a-series-of-NiFi-flow" class="headerlink" title="Design of a series of NiFi flow"></a>Design of a series of NiFi flow</h2><p>![2019-12-06 at 13.27](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 13.27.png)</p>
+<p>Firstly, we can create a processor group to package overall processors for easy management.</p>
+<p>![2019-12-06 at 10.00](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.00.png)</p>
+<p>Based on business requirements, I split requirements into main three tasks - syncing data from the external database, computing and analyzing data and syncing data to the external database.  </p>
+<p>![2019-12-06 at 10.01](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.01.png)</p>
+<p>The image above shows the main four NiFi processor groups which contain a series of NiFi processor and I will illustrate all four NiFi processor groups separately.</p>
+<h4 id="NiFi-Group-1-Group-SynOrdersFromMySQL"><a href="#NiFi-Group-1-Group-SynOrdersFromMySQL" class="headerlink" title="NiFi Group 1 : Group_SynOrdersFromMySQL"></a>NiFi Group 1 : Group_SynOrdersFromMySQL</h4><p>![2019-12-06 at 10.07](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.07.png)</p>
+<p>This flow which consists of processor ReplaceText, processor PutHive3QL, processor ExecuteSQL, and processor PutHive3Streaming shows how to grab data from the external MySQL database. Before showing the configuration of each processor, I want to shows a chart to explain the tasks of this flow.</p>
+<p>![2019-12-06 at 10.21](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.21.png)</p>
+<p>Next, I will state the configuration of each processor in each task step by step.</p>
+<ol>
+<li><p>Dropping Hive table partition which belongs to that day.</p>
+<p>This task contains two processors - ReplaceText and PutHive3QL.</p>
+<ol>
+<li><p>Processor ReplaceText</p>
+<p>This processor can replace the identified text segment to an alternative one. But, why we need this processor in task 1? Because the next processor does not provide a SQL input source, so we need a container for loading SQL to the Hive processor.</p>
+<p>Adding drop SQL to blank “Replacement Value”.</p>
+<p>![2019-12-06 at 10.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.30.png)</p>
+<p>Drop SQL: </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> s_shop_sephora_order_delta_orc <span class="keyword">DROP</span> IF <span class="keyword">EXISTS</span> <span class="keyword">PARTITION</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Using built-in code <strong>${now():format(‘yyyyMMdd’)}</strong> to get current day code.</p>
+</li>
+<li><p>Processor PutHive3QL </p>
+<p>PutHive3QL can connect to Hive and execute SQL generated from the previous processor.</p>
+<p>![2019-12-06 at 10.38](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.38.png)</p>
+<p>Clicking the right arrow in the pic above to configure the Hive3ConnectionPool.</p>
+<p>If you do not have that connection pool, you need to create a new one.</p>
+<p>![2019-12-06 at 10.40](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.40.png)</p>
+<p>The configuration of this connection pool shows blow.</p>
+<p>![2019-12-06 at 10.40](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.40-5600059.png)</p>
+</li>
+</ol>
+</li>
+<li><p>Querying order data from the external database.</p>
+<p>Using processor ExecuteSQL and configuration shows below.</p>
+<p>![2019-12-06 at 10.51](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.51.png)</p>
+<p>And DBConnectionPool shows below.</p>
+<p>![2019-12-06 at 10.54](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.54.png)</p>
+<p>Querying SQL: </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test.sephora_order <span class="keyword">where</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Saving data to a specific Hive table.</p>
+<p>Using processor PutHive3Streaming for inserting dataset to a specific Hive table.</p>
+<p>![2019-12-06 at 10.56](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.56.png)</p>
+<p>Configuring AvroReader because of the type of the previous dataset.</p>
+<p>![2019-12-06 at 10.58](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.58.png)</p>
+</li>
+</ol>
+<p>Until now, we can test the whole flow for accuracy.</p>
+<h4 id="NiFi-Group-2-Group-ComputePaymentNumberByOrder"><a href="#NiFi-Group-2-Group-ComputePaymentNumberByOrder" class="headerlink" title="NiFi Group 2 : Group_ComputePaymentNumberByOrder"></a>NiFi Group 2 : Group_ComputePaymentNumberByOrder</h4><p>![2019-12-06 at 11.03](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.03.png)</p>
+<p>In this flow, we just use the processor to execute Hive SQL for computing data or analyzing data.</p>
+<ol>
+<li><p>Processor ReplaceText</p>
+<p>The same with the previous processor in the last task, this processor just used for storing SQL.</p>
+<p>![2019-12-06 at 11.08](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.08.png)</p>
+<p>Computing SQL:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> default.temp_order_result_orc <span class="keyword">partition</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>)</span><br><span class="line"><span class="keyword">select</span> order_num,province,city,region,address,(<span class="built_in">cast</span>(order_amount <span class="keyword">AS</span> <span class="type">FLOAT</span>) <span class="operator">+</span> <span class="number">1</span>) <span class="keyword">from</span> default.s_shop_sephora_order_delta_orc <span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Processor PutHive3QL</p>
+<p>![2019-12-06 at 11.11](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.11.png)</p>
+</li>
+</ol>
+<h4 id="NiFi-Group-3-Group-ConvergePaymentNumByOrder"><a href="#NiFi-Group-3-Group-ConvergePaymentNumByOrder" class="headerlink" title="NiFi Group 3 : Group_ConvergePaymentNumByOrder"></a>NiFi Group 3 : Group_ConvergePaymentNumByOrder</h4><p>![2019-12-06 at 11.12](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.12.png)</p>
+<p>In this step, we need to compute the total order amount.</p>
+<ol>
+<li><p>Processor ReplaceText</p>
+<p>The Configuration shows below.</p>
+<p>![2019-12-06 at 11.14](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.14.png)</p>
+<p>Computing SQL:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> t_order_convergence_orc <span class="keyword">partition</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>)</span><br><span class="line"><span class="keyword">select</span> order_num,<span class="built_in">sum</span>(total) <span class="keyword">from</span> temp_order_result_orc <span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> order_num;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Processor PutHive3QL</p>
+<p>The configuration shows below.</p>
+<p>![2019-12-06 at 11.15](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.15.png)</p>
+</li>
+</ol>
+<h4 id="NiFi-Group-4-Group-SynTotalPaymentNum2MySQL"><a href="#NiFi-Group-4-Group-SynTotalPaymentNum2MySQL" class="headerlink" title="NiFi Group 4 : Group_SynTotalPaymentNum2MySQL"></a>NiFi Group 4 : Group_SynTotalPaymentNum2MySQL</h4><p>This is the last step for this whole POC and the overview flow chart shows below.</p>
+<p>![2019-12-06 at 11.18](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.18.png)</p>
+<p>In this step, I split into five processors for querying result data from the Hive table and saving them to the specific external MySQL table. Next, I will state the function and the configuration of each processor respectively. </p>
+<ol>
+<li><p>Processor SelectHive3QL</p>
+<p>Querying analysis result data from the Hive table and qualifying output format “Avro”.</p>
+<p>![2019-12-06 at 11.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.30.png)</p>
+<p>![2019-12-06 at 11.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.30-5603039.png)</p>
+<p>Since we only have two output formats - Avro and CSV, we can convert Avro to SQL successively.</p>
+<p>Querying Data:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> order_num_str,total,<span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">as</span> update_time <span class="keyword">from</span> default.t_order_convergence_orc <span class="keyword">where</span> dt <span class="operator">=</span> <span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Processor SplitAvro</p>
+<p>In this processor, we need to split the Avro dataset because the next processors cannot process the dataset.</p>
+<p>![2019-12-06 at 11.45](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.45.png)</p>
+</li>
+<li><p>Processor ConvertAvroToJSON</p>
+<p>Before converting to SQL, we need to convert to JSON firstly.</p>
+<p>![2019-12-06 at 11.47](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.47.png)</p>
+</li>
+<li><p>Processor ConvertJSONToSQL</p>
+<p>Specifying table name of the external MySQL database in this processor.</p>
+<p>![2019-12-06 at 11.47](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.47-5604065.png)</p>
+</li>
+<li><p>Processor PutSQL</p>
+</li>
+</ol>
+<p>![2019-12-06 at 12.46](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 12.46.png)</p>
+<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>To sum up, we can use NiFi as a scheduling tool to process data itinerantly since NiFi provides abundant processors for distinct processing. </p>
+<p>For now, we can run and test this whole processor group. </p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Hive</tag>
+        <tag>NiFi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Enable Kerberos on Ambari</title>
+    <url>/posts/3f0454be.html</url>
+    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
+<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
+<li><p>Install a new version of the KDC server</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p>Update the KDC server configuration file</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “realms”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Update the item “domain_realm”</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
+<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
+<p>Set up the KDC server to auto-start on boot.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
+<ol>
+<li><p>Create a KDC admin</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
+<li><p>Restart the kadmin process</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
+<ol>
+<li><p>Download the specific version of the JCE file</p>
+<p> For Oracle JDK 1.8:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
+<p> For Oracle JDK 1.7:</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
+<li><p>Add the JCE file to the JDK installation direction</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
+<li>Enter into the configuration of the kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
+<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
+<ol start="2">
+<li>Choose the type of KDC</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
+<ol start="3">
+<li>Configure the Kerberos</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
+<ol start="4">
+<li>Install and test the Kerberos client</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
+<ol start="5">
+<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
+<ol start="6">
+<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
+</ol>
+<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
+<ol start="7">
+<li>Stop services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
+<ol start="8">
+<li>Kerberos cluster</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
+<ol start="9">
+<li>Start and test services</li>
+</ol>
+<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Auto-start Services on Boot in Linux</title>
+    <url>/posts/857f09d5.html</url>
+    <content><![CDATA[<h2 id="CentOS6"><a href="#CentOS6" class="headerlink" title="CentOS6"></a>CentOS6</h2><ol>
+<li><p>Show the list of services that start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add a service to auto-start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --add service_name</span><br><span class="line">chkconfig service_name on</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+</li>
+<li><p>Confirm script is added successfully</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig --list service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Disable an auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chkconfig service_name off</span><br><span class="line">chkconfig --del service_name</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="CentOS7"><a href="#CentOS7" class="headerlink" title="CentOS7"></a>CentOS7</h2><ol>
+<li><p>Add a service to auto-start on boot.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Disable an auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> service_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the status of auto-start service.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status service_name</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
       </tags>
   </entry>
   <entry>
@@ -5383,147 +5671,6 @@
       </tags>
   </entry>
   <entry>
-    <title>[Hexo]Create a blog with hexo in github</title>
-    <url>/posts/fe740d97.html</url>
-    <content><![CDATA[<p><img src="/posts/fe740d97/hexo.png" alt="hexo">  </p>
-<ol>
-<li><p>copy local ssh public key to github  </p>
-</li>
-<li><p>install npm, git</p>
-</li>
-<li><p>install hexo by npm  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>init hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
- <span id="more"></span>
-</li>
-<li><p>install other softwares by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>edit file “_config.yml” and write your git address</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">    <span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>install hexo deployment tool</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>generate static pages by hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>deploy static pages to github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>using local tool to pre-check your blog</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>access to your github blog</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Enable Kerberos on Ambari</title>
-    <url>/posts/3f0454be.html</url>
-    <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
-<h2 id="Install-a-new-MIT-KDC"><a href="#Install-a-new-MIT-KDC" class="headerlink" title="Install a new MIT KDC"></a>Install a new MIT KDC</h2><h3 id="Install-the-KDC-server"><a href="#Install-the-KDC-server" class="headerlink" title="Install the KDC server"></a>Install the KDC server</h3><ol>
-<li><p>Install a new version of the KDC server</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y krb5-server krb5-libs krb5-workstation</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>
-<ol start="2">
-<li><p>Update the KDC server configuration file</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /etc/krb5.conf</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Update the name of realms and ensure the value of “renew_lifetime” is “7d”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[libdefaults]</span><br><span class="line">default_realm = BIGDATA.COM</span><br><span class="line">dns_lookup_realm = false</span><br><span class="line">dns_lookup_kdc = false</span><br><span class="line">ticket_lifetime = 24h</span><br><span class="line">renew_lifetime = 7d</span><br><span class="line">forwardable = true</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “realms”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[realms]</span><br><span class="line">BIGDATA.COM = &#123;</span><br><span class="line">	kdc = master1.bigdata.com</span><br><span class="line">	admin_server = master1.bigdata.com</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>Update the item “domain_realm”</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[domain_realm]</span><br><span class="line">.bigdata.com = BIGDATA.COM</span><br><span class="line">bigdata.com = BIGDATA.COM</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<h3 id="Create-the-Kerberos-database"><a href="#Create-the-Kerberos-database" class="headerlink" title="Create the Kerberos database"></a>Create the Kerberos database</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kdb5_util create -s</span><br></pre></td></tr></table></figure>
-<h3 id="Start-the-KDC"><a href="#Start-the-KDC" class="headerlink" title="Start the KDC"></a>Start the KDC</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/krb5kdc start</span><br><span class="line">/etc/rc.d/init.d/kadmin start</span><br></pre></td></tr></table></figure>
-<p>Set up the KDC server to auto-start on boot.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chkconfig krb5kdc on</span><br><span class="line">chkconfig kadmin on</span><br></pre></td></tr></table></figure>
-<h3 id="Create-a-Kerberos-Admin"><a href="#Create-a-Kerberos-Admin" class="headerlink" title="Create a Kerberos Admin"></a>Create a Kerberos Admin</h3><p>You need to create an admin account, then provide this admin credentials for enabling Kerberos on Ambari.</p>
-<ol>
-<li><p>Create a KDC admin</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kadmin.local -q &quot;addprinc admin/admin&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>Ensure this admin account include the authorization to enter into the specific realms</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /var/kerberos/krb5kdc/kadm5.acl</span><br></pre></td></tr></table></figure>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*/admin@BIGDATA.COM *</span><br></pre></td></tr></table></figure></li>
-<li><p>Restart the kadmin process</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/etc/rc.d/init.d/kadmin restart</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Install-the-JCE"><a href="#Install-the-JCE" class="headerlink" title="Install the JCE"></a>Install the JCE</h2><p><strong>If you already use the JDK that contains the JCE, you ought to skip this step.</strong></p>
-<ol>
-<li><p>Download the specific version of the JCE file</p>
-<p> For Oracle JDK 1.8:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html</span><br></pre></td></tr></table></figure>
-<p> For Oracle JDK 1.7:</p>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html</span><br></pre></td></tr></table></figure></li>
-<li><p>Add the JCE file to the JDK installation direction</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$JAVA_HOME/jre/lib/security/</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Enabling-the-Kerberos"><a href="#Enabling-the-Kerberos" class="headerlink" title="Enabling the Kerberos"></a>Enabling the Kerberos</h2><ol>
-<li>Enter into the configuration of the kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/Enable-Kerberos-on-Ambarik1.png" alt="click the top of the website"></p>
-<p>  <img src="/posts/3f0454be/k2.png" alt="enable the kerberos"></p>
-<ol start="2">
-<li>Choose the type of KDC</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k3.png" alt="choose the type of the KDC"></p>
-<ol start="3">
-<li>Configure the Kerberos</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k4.png" alt="configure the kerberos"></p>
-<ol start="4">
-<li>Install and test the Kerberos client</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k5.png" alt="install and test the kerberos client"></p>
-<ol start="5">
-<li>Configure identities<br>  <strong>You can just click the button “next”.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k6.png" alt="configure identities"></p>
-<ol start="6">
-<li>Confirm Configuration<br>  <strong>You need to download the CSV file that contains a list of the principals and keytabs.</strong></li>
-</ol>
-<p>  <img src="/posts/3f0454be/k7.png" alt="confirm configuration"></p>
-<ol start="7">
-<li>Stop services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k8.png" alt="stop services"></p>
-<ol start="8">
-<li>Kerberos cluster</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k9.png" alt="kerberize cluster"></p>
-<ol start="9">
-<li>Start and test services</li>
-</ol>
-<p>  <img src="/posts/3f0454be/k10.png" alt="start and test services"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Several Tricks for Using Hexo Efficiently</title>
     <url>/posts/eacbb695.html</url>
     <content><![CDATA[<p><img src="/posts/eacbb695/github_hexo_blog.png" alt="github_hexo_blog">  </p>
@@ -5790,153 +5937,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hive-based Enterprise Data Warehouse(EDW)</title>
-    <url>/posts/3465d938.html</url>
-    <content><![CDATA[<p><img src="/posts/3465d938/810x430-hadoop-vs-data-warehouse.jpg" alt="Image result for Hive-based EDW"></p>
-<h2 id="Prerequisite"><a href="#Prerequisite" class="headerlink" title="Prerequisite"></a>Prerequisite</h2><ol>
-<li><p>Establishing a complete Hadoop ecosystem such as using Ambari.</p>
-<p>For how to establish a complete Hadoop ecosystem by Ambari, you can check the posts - “Step by Step Tutorial for Ambari Installation” or “Tutorial for Latest Ambari(2.7.1)”.</p>
-</li>
-<li><p>Installing Hive for enterprise data warehouse (EDW).</p>
-</li>
-<li><p>Offering visual Hive query tools such as Hue.</p>
-</li>
-<li><p>Installing NiFi for processing data flow itinerantly.</p>
-</li>
-</ol>
-<span id="more"></span>
-
-<h2 id="Technical-Architecture"><a href="#Technical-Architecture" class="headerlink" title="Technical Architecture"></a>Technical Architecture</h2><p>![Cloud-based EDW](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;Cloud-based EDW.jpg)</p>
-<h2 id="Business-Requirements"><a href="#Business-Requirements" class="headerlink" title="Business Requirements"></a>Business Requirements</h2><ol>
-<li>Sync order data from external MySQL database into Hive daily</li>
-<li>Compute order amount by orderID daily</li>
-<li>Compute total order amount daily</li>
-<li>Sync total order amount to external MySQL database daily</li>
-</ol>
-<h2 id="Preparations"><a href="#Preparations" class="headerlink" title="Preparations"></a>Preparations</h2><ol>
-<li>Creating databases and tables for Hive of Hadoop ecosystem and MySQL of the external database separately.</li>
-<li>Inserting several order data into the external MySQL database for syncing.</li>
-</ol>
-<h2 id="Design-of-a-series-of-NiFi-flow"><a href="#Design-of-a-series-of-NiFi-flow" class="headerlink" title="Design of a series of NiFi flow"></a>Design of a series of NiFi flow</h2><p>![2019-12-06 at 13.27](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 13.27.png)</p>
-<p>Firstly, we can create a processor group to package overall processors for easy management.</p>
-<p>![2019-12-06 at 10.00](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.00.png)</p>
-<p>Based on business requirements, I split requirements into main three tasks - syncing data from the external database, computing and analyzing data and syncing data to the external database.  </p>
-<p>![2019-12-06 at 10.01](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.01.png)</p>
-<p>The image above shows the main four NiFi processor groups which contain a series of NiFi processor and I will illustrate all four NiFi processor groups separately.</p>
-<h4 id="NiFi-Group-1-Group-SynOrdersFromMySQL"><a href="#NiFi-Group-1-Group-SynOrdersFromMySQL" class="headerlink" title="NiFi Group 1 : Group_SynOrdersFromMySQL"></a>NiFi Group 1 : Group_SynOrdersFromMySQL</h4><p>![2019-12-06 at 10.07](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.07.png)</p>
-<p>This flow which consists of processor ReplaceText, processor PutHive3QL, processor ExecuteSQL, and processor PutHive3Streaming shows how to grab data from the external MySQL database. Before showing the configuration of each processor, I want to shows a chart to explain the tasks of this flow.</p>
-<p>![2019-12-06 at 10.21](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.21.png)</p>
-<p>Next, I will state the configuration of each processor in each task step by step.</p>
-<ol>
-<li><p>Dropping Hive table partition which belongs to that day.</p>
-<p>This task contains two processors - ReplaceText and PutHive3QL.</p>
-<ol>
-<li><p>Processor ReplaceText</p>
-<p>This processor can replace the identified text segment to an alternative one. But, why we need this processor in task 1? Because the next processor does not provide a SQL input source, so we need a container for loading SQL to the Hive processor.</p>
-<p>Adding drop SQL to blank “Replacement Value”.</p>
-<p>![2019-12-06 at 10.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.30.png)</p>
-<p>Drop SQL: </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> s_shop_sephora_order_delta_orc <span class="keyword">DROP</span> IF <span class="keyword">EXISTS</span> <span class="keyword">PARTITION</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>Using built-in code <strong>${now():format(‘yyyyMMdd’)}</strong> to get current day code.</p>
-</li>
-<li><p>Processor PutHive3QL </p>
-<p>PutHive3QL can connect to Hive and execute SQL generated from the previous processor.</p>
-<p>![2019-12-06 at 10.38](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.38.png)</p>
-<p>Clicking the right arrow in the pic above to configure the Hive3ConnectionPool.</p>
-<p>If you do not have that connection pool, you need to create a new one.</p>
-<p>![2019-12-06 at 10.40](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.40.png)</p>
-<p>The configuration of this connection pool shows blow.</p>
-<p>![2019-12-06 at 10.40](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.40-5600059.png)</p>
-</li>
-</ol>
-</li>
-<li><p>Querying order data from the external database.</p>
-<p>Using processor ExecuteSQL and configuration shows below.</p>
-<p>![2019-12-06 at 10.51](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.51.png)</p>
-<p>And DBConnectionPool shows below.</p>
-<p>![2019-12-06 at 10.54](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.54.png)</p>
-<p>Querying SQL: </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test.sephora_order <span class="keyword">where</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Saving data to a specific Hive table.</p>
-<p>Using processor PutHive3Streaming for inserting dataset to a specific Hive table.</p>
-<p>![2019-12-06 at 10.56](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.56.png)</p>
-<p>Configuring AvroReader because of the type of the previous dataset.</p>
-<p>![2019-12-06 at 10.58](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 10.58.png)</p>
-</li>
-</ol>
-<p>Until now, we can test the whole flow for accuracy.</p>
-<h4 id="NiFi-Group-2-Group-ComputePaymentNumberByOrder"><a href="#NiFi-Group-2-Group-ComputePaymentNumberByOrder" class="headerlink" title="NiFi Group 2 : Group_ComputePaymentNumberByOrder"></a>NiFi Group 2 : Group_ComputePaymentNumberByOrder</h4><p>![2019-12-06 at 11.03](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.03.png)</p>
-<p>In this flow, we just use the processor to execute Hive SQL for computing data or analyzing data.</p>
-<ol>
-<li><p>Processor ReplaceText</p>
-<p>The same with the previous processor in the last task, this processor just used for storing SQL.</p>
-<p>![2019-12-06 at 11.08](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.08.png)</p>
-<p>Computing SQL:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> default.temp_order_result_orc <span class="keyword">partition</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>)</span><br><span class="line"><span class="keyword">select</span> order_num,province,city,region,address,(<span class="built_in">cast</span>(order_amount <span class="keyword">AS</span> <span class="type">FLOAT</span>) <span class="operator">+</span> <span class="number">1</span>) <span class="keyword">from</span> default.s_shop_sephora_order_delta_orc <span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Processor PutHive3QL</p>
-<p>![2019-12-06 at 11.11](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.11.png)</p>
-</li>
-</ol>
-<h4 id="NiFi-Group-3-Group-ConvergePaymentNumByOrder"><a href="#NiFi-Group-3-Group-ConvergePaymentNumByOrder" class="headerlink" title="NiFi Group 3 : Group_ConvergePaymentNumByOrder"></a>NiFi Group 3 : Group_ConvergePaymentNumByOrder</h4><p>![2019-12-06 at 11.12](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.12.png)</p>
-<p>In this step, we need to compute the total order amount.</p>
-<ol>
-<li><p>Processor ReplaceText</p>
-<p>The Configuration shows below.</p>
-<p>![2019-12-06 at 11.14](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.14.png)</p>
-<p>Computing SQL:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> overwrite <span class="keyword">table</span> t_order_convergence_orc <span class="keyword">partition</span>(dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span>)</span><br><span class="line"><span class="keyword">select</span> order_num,<span class="built_in">sum</span>(total) <span class="keyword">from</span> temp_order_result_orc <span class="keyword">where</span> dt<span class="operator">=</span><span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span> <span class="keyword">group</span> <span class="keyword">by</span> order_num;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Processor PutHive3QL</p>
-<p>The configuration shows below.</p>
-<p>![2019-12-06 at 11.15](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.15.png)</p>
-</li>
-</ol>
-<h4 id="NiFi-Group-4-Group-SynTotalPaymentNum2MySQL"><a href="#NiFi-Group-4-Group-SynTotalPaymentNum2MySQL" class="headerlink" title="NiFi Group 4 : Group_SynTotalPaymentNum2MySQL"></a>NiFi Group 4 : Group_SynTotalPaymentNum2MySQL</h4><p>This is the last step for this whole POC and the overview flow chart shows below.</p>
-<p>![2019-12-06 at 11.18](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.18.png)</p>
-<p>In this step, I split into five processors for querying result data from the Hive table and saving them to the specific external MySQL table. Next, I will state the function and the configuration of each processor respectively. </p>
-<ol>
-<li><p>Processor SelectHive3QL</p>
-<p>Querying analysis result data from the Hive table and qualifying output format “Avro”.</p>
-<p>![2019-12-06 at 11.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.30.png)</p>
-<p>![2019-12-06 at 11.30](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.30-5603039.png)</p>
-<p>Since we only have two output formats - Avro and CSV, we can convert Avro to SQL successively.</p>
-<p>Querying Data:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> order_num_str,total,<span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">as</span> update_time <span class="keyword">from</span> default.t_order_convergence_orc <span class="keyword">where</span> dt <span class="operator">=</span> <span class="string">&#x27;$&#123;now():format(&#x27;</span>yyyyMMdd<span class="string">&#x27;)&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Processor SplitAvro</p>
-<p>In this processor, we need to split the Avro dataset because the next processors cannot process the dataset.</p>
-<p>![2019-12-06 at 11.45](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.45.png)</p>
-</li>
-<li><p>Processor ConvertAvroToJSON</p>
-<p>Before converting to SQL, we need to convert to JSON firstly.</p>
-<p>![2019-12-06 at 11.47](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.47.png)</p>
-</li>
-<li><p>Processor ConvertJSONToSQL</p>
-<p>Specifying table name of the external MySQL database in this processor.</p>
-<p>![2019-12-06 at 11.47](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 11.47-5604065.png)</p>
-</li>
-<li><p>Processor PutSQL</p>
-</li>
-</ol>
-<p>![2019-12-06 at 12.46](Hive-based-Enterprise-Data-Warehouse-EDW&#x2F;2019-12-06 at 12.46.png)</p>
-<h4 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h4><p>To sum up, we can use NiFi as a scheduling tool to process data itinerantly since NiFi provides abundant processors for distinct processing. </p>
-<p>For now, we can run and test this whole processor group. </p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>NiFi</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Kerberos Authentication Explained</title>
     <url>/posts/bfaac82a.html</url>
     <content><![CDATA[<p><img src="/posts/bfaac82a/kerberos.png" alt="kerberos"></p>
@@ -6061,6 +6061,77 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
+    <title>Linux Command - netstat</title>
+    <url>/posts/187005a0.html</url>
+    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
+<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
+</blockquote>
+<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
+<span id="more"></span>
+
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
+<ol>
+<li><p>-a</p>
+<p>Show all.</p>
+</li>
+<li><p>-n</p>
+<p>Show networks as numbers, not hostnames.</p>
+</li>
+<li><p>-p</p>
+<p>Show protocol.</p>
+</li>
+</ol>
+<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
+
+<p>And you also can use telnet to check specific port.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux Command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
+    <url>/posts/3f9aa226.html</url>
+    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
+<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
+<span id="more"></span>
+
+<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
+<blockquote>
+<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
+</blockquote>
+<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
+<li><p>Configuring Firefox</p>
+<p> Open Firefox and type the “about:config” in the address bar.</p>
+<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
+<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
+</li>
+<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
+<blockquote>
+<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL Basic Operations for User Account Management</title>
     <url>/posts/f4c81e09.html</url>
     <content><![CDATA[<p><img src="/posts/f4c81e09/mysql.jpg" alt="mysql">  </p>
@@ -6119,143 +6190,6 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Shanghai</tag>
         <tag>life</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Running Kafka consumer and producer in Kerberos Authorization</title>
-    <url>/posts/2d304b2.html</url>
-    <content><![CDATA[<p><img src="/posts/2d304b2/kafka.jpeg" alt="kafka"></p>
-<span id="more"></span>
-
-
-
-<p>No! No! No! Not this guy, we are talking about Apache Kafka.</p>
-<p><img src="/posts/2d304b2/apachekafka.jpeg" alt="apachekafka"></p>
-<h2 id="What-is-Kafka"><a href="#What-is-Kafka" class="headerlink" title="What is Kafka"></a>What is Kafka</h2><blockquote>
-<p>Kafka is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.</p>
-</blockquote>
-<p>Feature:  </p>
-<ol>
-<li>Scalability  </li>
-<li>Fault-tolerant  </li>
-<li>Multi-source  </li>
-<li>Real-time streaming data</li>
-<li>Fast</li>
-</ol>
-<p>Versions of my Ambari components</p>
-<ul>
-<li>Ambari 2.7.1.0</li>
-<li>HDP 3.0.1.0  </li>
-<li>HDF 3.2.0.0</li>
-</ul>
-<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><h3 id="Update-configuration-properties"><a href="#Update-configuration-properties" class="headerlink" title="Update configuration properties"></a>Update configuration properties</h3><p>When you using Ambari to manage your Kafka, you don’t need to complete some annoying installation and configuration steps. But you still need to change or add some properties for Kerberos authorization.</p>
-<ol>
-<li><p>Change the property “listener” in the “Kafka Broker” tab.<br> Because of using Kerberos, the protocol of the listeners must be updated.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listeners = SASL_PLAINTEXT://localhost:6667</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Update the protocol of brokers’ security.<br> Change your brokers’ protocol (“security.inter.broker.protocol<br>“) in the “Advanced Kafka-broker” tab.</p>
-</li>
-<li><p>Add “KAFKA_OPTS” for the JAAS configuration file.<br> After enabling Kerberos, Ambari sets up a JAAS (Java Authorization and Authorization Service) login configuration file for the Kafka client. Settings in this file will be used for any client (consumer, producer) that connects to a Kerberos-enabled Kafka cluster.<br> You don’t need to change the content of the JAAS configuration file, you just need to add a command in the “kafka-env template” in the “Advanced Kafka-env” tab.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export KAFKA_PLAIN_PARAMS=&quot;-Djava.security.auth.login.config=/usr/hdp/3.0.1.0-187/kafka/conf/kafka_jaas.conf&quot;</span><br><span class="line">export KAFKA_OPTS=&quot;$KAFKA_PLAIN_PARAMS $KAFKA_OPTS&quot;</span><br></pre></td></tr></table></figure>
-
-<p> You definitely should change the location of your JAAS file.</p>
-</li>
-</ol>
-<h3 id="Create-a-Kafka-topic"><a href="#Create-a-Kafka-topic" class="headerlink" title="Create a Kafka topic"></a>Create a Kafka topic</h3><p>It is a key step that creating a Kafka topic before running a consumer and a producer.<br>Excepting the topic creation command, the other beneficial topic commands shown below.</p>
-<ol>
-<li><p>Creating</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --create --zookeeper ambari.com:2181 --replication-factor 1 --partitions 1 --topic flume-kafka</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Listing all topics</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --list --zookeeper ambari.com:2181</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Describing a specific topic</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --describe --zookeeper ambari.com:2181 --topic flume-kafka</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Running-a-Consumer-and-a-Producer"><a href="#Running-a-Consumer-and-a-Producer" class="headerlink" title="Running a Consumer and a Producer"></a>Running a Consumer and a Producer</h2><ol>
-<li><p>Initiating Kerberos authorization for Kafka client.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/kafka.service.keytab kafka/hostname@REALM.COM</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Running a consumer</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-console-consumer.sh --topic flume-kafka --zookeeper ambari.com:2181 --from-beginning --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
-<p> The security protocol must be specific.</p>
-</li>
-<li><p>Running a producer</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-console-producer.sh --topic flume-kafka --broker-list ambari.com:6667 --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
-<p> The security protocol must be specific.</p>
-</li>
-</ol>
-<p>So, now you can use the terminal tool to test your consumer and producer.</p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kafka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
-    <url>/posts/3f9aa226.html</url>
-    <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
-<p>Using your browser such as Firefox or Chrome to access your component services in Ambari with Kerberos Authorization may confront the error message above.</p>
-<span id="more"></span>
-
-<p>The Http status code 401 showing that lacking the authorization to access specific resources. So solving this error is to assign specific authorization for the resource that you need to access.</p>
-<blockquote>
-<p><a href="https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html">https://community.hortonworks.com/questions/212654/nifi-processor-connection-to-schema-registry-with.html</a></p>
-</blockquote>
-<h2 id="Firefox"><a href="#Firefox" class="headerlink" title="Firefox"></a>Firefox</h2><ol>
-<li><p>Configuring Firefox</p>
-<p> Open Firefox and type the “about:config” in the address bar.</p>
-<p> <img src="/posts/3f9aa226/401_webui_2.png" alt="401 webui"></p>
-<p> Specify the hostname of your Ambari cluster to the properties(“network.negotiate-auth.delegation-uris” and “network.negotiate-auth.trusted-uris”)</p>
-</li>
-<li><p>Typing Command “kinit”<br> Assigning authorization to specific service which you want to access.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [the file path of specific keytab file] [the principle of specific service]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="Other-Browsers"><a href="#Other-Browsers" class="headerlink" title="Other Browsers"></a>Other Browsers</h2><p>Accessing the website to get concrete solutions for specific browsers.</p>
-<blockquote>
-<p><a href="https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM">https://ping.force.com/Support/PingFederate/Integrations/How-to-configure-supported-browsers-for-Kerberos-NTLM</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Some terms in Big Data Ecosystem</title>
-    <url>/posts/aa930aca.html</url>
-    <content><![CDATA[<p><img src="/posts/aa930aca/biddata.jpg" alt="bigdata"></p>
-<ul>
-<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
-</li>
-<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
-</li>
-<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul>
-<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>DMP</tag>
-        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -6507,116 +6441,41 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Several Pivotal Conceptions about Hive</title>
-    <url>/posts/449d41fb.html</url>
-    <content><![CDATA[<p><img src="/posts/449d41fb/Hive-feature-2.jpg" alt="Image result for Hive feature"></p>
-<h3 id="What-is-Apache-Hive"><a href="#What-is-Apache-Hive" class="headerlink" title="What is Apache Hive?"></a>What is Apache Hive?</h3><p>As the data grew in size, there was also the scarcity of Java developers who can write complex MapReduce jobs for Hadoop. Hence the advent of Hive comes which is created on top of Hadoop itself. Hive provides a SQL like a language termed HiveQL interface for users to extract data from a Hadoop system. With the simplicity provided by Hive to transform simple SQL queries into Hadoop’s MapReduce jobs, and runs them against a Hadoop cluster.</p>
+    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
+    <url>/posts/87dabd80.html</url>
+    <content><![CDATA[<p><img src="/posts/87dabd80/hive.jpg" alt="hive"></p>
 <span id="more"></span>
 
-<p>Apache Hive is well suited for Data warehousing applications in which case the data is structured, static and also formatted. As there are certain design constraints on Hive, it does not provide row-wise updates and inserts (which is coined as the biggest disadvantage of using Hive). As most Hive queries turn out into Map to Reduce jobs these queries will have higher latency due to start up overhead.</p>
-<p>Based on these details, Hive is <strong>NOT</strong> a</p>
-<ul>
-<li>Relational database</li>
-<li>Design for OLTP (stands for Online Transaction Processing)</li>
-<li>Language for real-time queries and row-level updates</li>
-</ul>
-<h3 id="Features-of-Hive"><a href="#Features-of-Hive" class="headerlink" title="Features of Hive"></a>Features of Hive</h3><p>With the basic understanding of what Apache Hive is, let us now take a look at all the features that are provided with this component of the Hadoop ecosystem:</p>
-<ul>
-<li>Hive stores the schema details in a database and processes the data into HDFS</li>
-<li>Hive is designed for OLAP (stands for Online Analytics Processing)</li>
-<li>Hive provides SQL like language for querying data, named as HiveQL or HQL (do not misinterpret this with HQL from Hibernate, which stands for Hibernate Query Language).</li>
-<li>Hive is a very fast, scalable and extensible component within the Hadoop ecosystem.</li>
-</ul>
-<h3 id="External-Table"><a href="#External-Table" class="headerlink" title="External Table"></a>External Table</h3><p>If there is data that is already existing in the HDFS cluster of Hadoop then an external Hive table is created to describe the data. These tables are called External tables, because they are going to be residing in the path specified by the LOCATION properties instead of the default warehouse directory (as described in the above paragraph).</p>
-<p>When the data is stored in the external tables and when it is dropped, the metadata table is deleted but then the data is kept as is. This means that Hive evidently ignores the data that is presently residing in the path specified by LOCATION property and is left untouched forever. If you want to delete such data, then use the command to achieve the same:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs –rmr ‘tablename’</span><br></pre></td></tr></table></figure>
+<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
+<p>Command below for using Hive CLI.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
 
-<p>For example, we can add <strong>EXTERNAL</strong> keyword for specifying the external table.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
+<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
 
+<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
+<ol>
+<li>Zookeeper</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
 
+<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
+<p><img src="/posts/87dabd80/hive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
+<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
+<blockquote>
+<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
+</blockquote>
+<p><img src="/posts/87dabd80/hive-connect-zookeeper.png" alt="zookeeper"></p>
+<ol start="2">
+<li>Thrift Server</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
 
-<h3 id="Internal-or-Managed-Table"><a href="#Internal-or-Managed-Table" class="headerlink" title="Internal or Managed Table"></a>Internal or Managed Table</h3><p>The tables that are created with the Hadoop Hive’s context, is very much similar to tables that are created on any of the RDBMS systems. Each of the tables that get created is associated with a directory configured within the ${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml in the Hadoop HDFS cluster.</p>
-<p>By default, on a Linux machine, it is this path <strong>&#x2F;user&#x2F;hive&#x2F;warehouse</strong> in HDFS. If there is a <strong>&#x2F;user&#x2F;hive&#x2F;warehouse&#x2F;match</strong> created by Hive in HDFS for a match table. All the data for the table is recorded in the same folder as mentioned above and hence such tables are called <strong>INTERNAL</strong> or <strong>MANAGED</strong> tables.</p>
-<p>When the data resides in the internal tables, then Hive takes the full responsibility of maintaining the life-cycle of the data and the table in itself. Hence it is evident that the data is removed the moment when the internal tables are dropped.</p>
-<p>By default Hive creates managed tables such as SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Partitioning-of-Table"><a href="#Partitioning-of-Table" class="headerlink" title="Partitioning of Table"></a>Partitioning of Table</h3><p>Hive stores tables in partitions. Partitions are used to divide the table into related parts. Partitions make data querying more efficient.</p>
-<p>For example, using SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br><span class="line">partitioned <span class="keyword">by</span> (<span class="type">date</span> string)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Bucketing-of-Table"><a href="#Bucketing-of-Table" class="headerlink" title="Bucketing of Table"></a>Bucketing of Table</h3><p>As we all know, Partition helps in increasing efficiency when performing a query on a table. Instead of scanning the whole table, it will only scan for the partitioned set and does not scan or operate on the unpartitioned sets, which helps us to provide results in lesser time and the details will be displayed very quickly because of Hive Partition.</p>
-<p>Now, let’s assume a condition that there is a huge dataset. At times, even after partitioning on a particular field or fields, the partitioned file size doesn’t match with the actual expectation and remains huge and we want to manage the partition results into different parts. To overcome this problem of partitioning, Hive provides Bucketing concept, which allows the user to divide table data sets into more manageable parts.			</p>
-<p>The Bucketing concept is based on Hash function, which depends on the type of the bucketing column. Records which are bucketed by the same column will always be saved in the same bucket.</p>
-<p>In Hive Partition, each partition will be created as directory. But in Hive Buckets, each bucket will be created as file. Bucketing can also be done even without partitioning on Hive tables.</p>
-<p>With the help of <strong>CLUSTERED BY</strong> clause and optional <strong>SORTED BY</strong> clause in <strong>CREATE TABLE</strong> statement we can create bucketed tables. </p>
-<p>We can create a bucketed_user table with above-given requirement with the help of the below HiveQL.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bucketed_user(</span><br><span class="line">firstname <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  lastname  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  address   STRING,</span><br><span class="line">  city <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">state  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  post      STRING,</span><br><span class="line">  phone1    <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  phone2    STRING,</span><br><span class="line">  email     STRING,</span><br><span class="line">  web       STRING</span><br><span class="line">  )</span><br><span class="line">COMMENT ‘A bucketed sorted <span class="keyword">user</span> <span class="keyword">table</span>’</span><br><span class="line">  PARTITIONED <span class="keyword">BY</span> (country <span class="type">VARCHAR</span>(<span class="number">64</span>))</span><br><span class="line">CLUSTERED <span class="keyword">BY</span> (state) SORTED <span class="keyword">BY</span> (city) <span class="keyword">INTO</span> <span class="number">32</span> BUCKETS</span><br><span class="line">  STORED <span class="keyword">AS</span> SEQUENCEFILE;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Row-Format-Delimited-x2F-SerDe"><a href="#Row-Format-Delimited-x2F-SerDe" class="headerlink" title="Row Format (Delimited &#x2F; SerDe)"></a>Row Format (Delimited &#x2F; SerDe)</h3><h4 id="SerDe"><a href="#SerDe" class="headerlink" title="SerDe"></a>SerDe</h4><p>Basically, SerDe is a short name for Serializer&#x2F;Deserializer.</p>
-<ul>
-<li><p><strong>Deserializer</strong></p>
-<p>The Hive deserializer converts record (string or binary) into a Java object that Hive can process.</p>
-<p>HDFS files –&gt; InputFileFormat –&gt; &lt;key, value&gt; –&gt; Deserializer –&gt; Row object</p>
-</li>
-<li><p><strong>Serializer</strong></p>
-<p>Now, the Hive serializer will take this Java object, convert it into suitable format that can be stored into HDFS.</p>
-<p>Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileFormat –&gt; HDFS files</p>
-</li>
-</ul>
-<p>So, basically, a SerDe is responsible for converting the record bytes into something that can be used by Hive. Hive comes with several SerDe like JSon SerDe for JSon files, CSV SerDe for CSV files, etc.</p>
-<p>For example, using JsonSerDe:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT SERDE</span><br><span class="line"><span class="string">&#x27;org.apache.hive.hcatalog.data.JsonSerDe&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>For more specific SerDes, we can check the official site: </p>
-<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe</a></p>
-<h4 id="Row-Format"><a href="#Row-Format" class="headerlink" title="Row Format"></a>Row Format</h4><p>You can create tables with a custom SerDe or using a native SerDe. A native SerDe is used if <strong>ROW FORMAT</strong> is not specified or <strong>ROW FORMAT DELIMITED</strong> is specified.<br>Use the <strong>SERDE</strong> clause to create a table with a custom SerDe. </p>
-<p>Here is an example. </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>ROW FORMAT DELIMITED</strong>: This line is telling Hive to expect the file to contain one row per line. So basically, we are telling Hive that when it finds a newline character that means is a new record.</p>
-<h3 id="Fields-Terminated"><a href="#Fields-Terminated" class="headerlink" title="Fields Terminated"></a>Fields Terminated</h3><p>For example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>FIELDS TERMINATED BY ‘,’</strong>: This is really similar to the one above, but instead of meaning rows this one means columns, this way Hive knows what delimiter you are using in your files to separate each column. If none is set the default will be used which is ctrl-A.</p>
-<h3 id="Storage-Format"><a href="#Storage-Format" class="headerlink" title="Storage Format"></a>Storage Format</h3><p>Hive supports built-in and custom-developed file formats. </p>
-<ul>
-<li><p><strong>STORED AS TEXTFILE</strong></p>
-<p>Stored as plain text files. TEXTFILE is the default file format, unless the configuration parameter <strong>hive.default.fileformat</strong> has a different setting.</p>
-</li>
-<li><p><strong>STORED AS SEQUENCEFILE</strong></p>
-<p>Stored as compressed Sequence File.</p>
-</li>
-<li><p><strong>STORED AS AVRO</strong></p>
-<p>Stored as Avro format.</p>
-</li>
-<li><p><strong>STORED AS JSONFILE</strong></p>
-<p>Stored as Json file format.</p>
-</li>
-<li><p><strong>STORED AS ORC</strong></p>
-<p>Stored as Optimized Row Columnar (ORC) file format.</p>
-</li>
-</ul>
-<p>For example:</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
-
-<p><strong>STORED AS TEXTFILE:</strong> This is to tell Hive what type of file to expect.</p>
-<h3 id="Import-CSV-File"><a href="#Import-CSV-File" class="headerlink" title="Import CSV File"></a>Import CSV File</h3><ul>
-<li><p><strong>Step 1</strong> : </p>
-<p>If we want to import data from external CSV file which using comma to separate columns, we can use the <strong>CREATE TABLE</strong> statement SQL below.</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name</span><br><span class="line">(</span><br><span class="line">    id string,</span><br><span class="line">    name string,</span><br><span class="line">    age string</span><br><span class="line">)</span><br><span class="line"><span class="type">row</span> format serde</span><br><span class="line"><span class="string">&#x27;org.apache.hadoop.hive.serde2.OpenCSVSerde&#x27;</span></span><br><span class="line"><span class="keyword">with</span></span><br><span class="line">SERDEPROPERTIES</span><br><span class="line">(&quot;separatorChar&quot;<span class="operator">=</span>&quot;,&quot;,&quot;quotechar&quot;<span class="operator">=</span>&quot;\&quot;&quot;)</span><br><span class="line">STORED AS TEXTFILE</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Step 2</strong> :  </p>
-<p>Loading data from CSV file of HDFS.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">load data local inpath &#x27;/home/hive/table_name.csv&#x27; overwrite into table table_name;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
+<p><img src="/posts/87dabd80/hive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
+<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
+<p><img src="/posts/87dabd80/hive-connect-thrift.png" alt="thrift"></p>
 ]]></content>
       <categories>
         <category>Back-end</category>
@@ -6624,6 +6483,7 @@ The authenticator which encrypted by TGS session key contains:
       </categories>
       <tags>
         <tag>BigData</tag>
+        <tag>Ambari</tag>
         <tag>Hive</tag>
       </tags>
   </entry>
@@ -6661,6 +6521,82 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>Linux</tag>
         <tag>Linux Command</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Running Kafka consumer and producer in Kerberos Authorization</title>
+    <url>/posts/2d304b2.html</url>
+    <content><![CDATA[<p><img src="/posts/2d304b2/kafka.jpeg" alt="kafka"></p>
+<span id="more"></span>
+
+
+
+<p>No! No! No! Not this guy, we are talking about Apache Kafka.</p>
+<p><img src="/posts/2d304b2/apachekafka.jpeg" alt="apachekafka"></p>
+<h2 id="What-is-Kafka"><a href="#What-is-Kafka" class="headerlink" title="What is Kafka"></a>What is Kafka</h2><blockquote>
+<p>Kafka is used for building real-time data pipelines and streaming apps. It is horizontally scalable, fault-tolerant, wicked fast, and runs in production in thousands of companies.</p>
+</blockquote>
+<p>Feature:  </p>
+<ol>
+<li>Scalability  </li>
+<li>Fault-tolerant  </li>
+<li>Multi-source  </li>
+<li>Real-time streaming data</li>
+<li>Fast</li>
+</ol>
+<p>Versions of my Ambari components</p>
+<ul>
+<li>Ambari 2.7.1.0</li>
+<li>HDP 3.0.1.0  </li>
+<li>HDF 3.2.0.0</li>
+</ul>
+<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><h3 id="Update-configuration-properties"><a href="#Update-configuration-properties" class="headerlink" title="Update configuration properties"></a>Update configuration properties</h3><p>When you using Ambari to manage your Kafka, you don’t need to complete some annoying installation and configuration steps. But you still need to change or add some properties for Kerberos authorization.</p>
+<ol>
+<li><p>Change the property “listener” in the “Kafka Broker” tab.<br> Because of using Kerberos, the protocol of the listeners must be updated.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listeners = SASL_PLAINTEXT://localhost:6667</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Update the protocol of brokers’ security.<br> Change your brokers’ protocol (“security.inter.broker.protocol<br>“) in the “Advanced Kafka-broker” tab.</p>
+</li>
+<li><p>Add “KAFKA_OPTS” for the JAAS configuration file.<br> After enabling Kerberos, Ambari sets up a JAAS (Java Authorization and Authorization Service) login configuration file for the Kafka client. Settings in this file will be used for any client (consumer, producer) that connects to a Kerberos-enabled Kafka cluster.<br> You don’t need to change the content of the JAAS configuration file, you just need to add a command in the “kafka-env template” in the “Advanced Kafka-env” tab.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export KAFKA_PLAIN_PARAMS=&quot;-Djava.security.auth.login.config=/usr/hdp/3.0.1.0-187/kafka/conf/kafka_jaas.conf&quot;</span><br><span class="line">export KAFKA_OPTS=&quot;$KAFKA_PLAIN_PARAMS $KAFKA_OPTS&quot;</span><br></pre></td></tr></table></figure>
+
+<p> You definitely should change the location of your JAAS file.</p>
+</li>
+</ol>
+<h3 id="Create-a-Kafka-topic"><a href="#Create-a-Kafka-topic" class="headerlink" title="Create a Kafka topic"></a>Create a Kafka topic</h3><p>It is a key step that creating a Kafka topic before running a consumer and a producer.<br>Excepting the topic creation command, the other beneficial topic commands shown below.</p>
+<ol>
+<li><p>Creating</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --create --zookeeper ambari.com:2181 --replication-factor 1 --partitions 1 --topic flume-kafka</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Listing all topics</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --list --zookeeper ambari.com:2181</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Describing a specific topic</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-topics.sh --describe --zookeeper ambari.com:2181 --topic flume-kafka</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Running-a-Consumer-and-a-Producer"><a href="#Running-a-Consumer-and-a-Producer" class="headerlink" title="Running a Consumer and a Producer"></a>Running a Consumer and a Producer</h2><ol>
+<li><p>Initiating Kerberos authorization for Kafka client.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/kafka.service.keytab kafka/hostname@REALM.COM</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Running a consumer</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-console-consumer.sh --topic flume-kafka --zookeeper ambari.com:2181 --from-beginning --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
+<p> The security protocol must be specific.</p>
+</li>
+<li><p>Running a producer</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/hdp/3.0.1.0-187/kafka/bin/kafka-console-producer.sh --topic flume-kafka --broker-list ambari.com:6667 --security-protocol SASL_PLAINTEXT</span><br></pre></td></tr></table></figure>
+<p> The security protocol must be specific.</p>
+</li>
+</ol>
+<p>So, now you can use the terminal tool to test your consumer and producer.</p>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kafka</tag>
       </tags>
   </entry>
   <entry>
@@ -6990,41 +6926,21 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
-    <url>/posts/87dabd80.html</url>
-    <content><![CDATA[<p><img src="/posts/87dabd80/hive.jpg" alt="hive"></p>
+    <title>Some terms in Big Data Ecosystem</title>
+    <url>/posts/aa930aca.html</url>
+    <content><![CDATA[<p><img src="/posts/aa930aca/biddata.jpg" alt="bigdata"></p>
+<ul>
+<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
+</li>
+<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
+</li>
+<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
+</li>
+</ul>
 <span id="more"></span>
-
-<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
-<p>Command below for using Hive CLI.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-
-<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
-<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
-
-<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
-<ol>
-<li>Zookeeper</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
-<p><img src="/posts/87dabd80/hive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
-<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
-<blockquote>
-<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
-</blockquote>
-<p><img src="/posts/87dabd80/hive-connect-zookeeper.png" alt="zookeeper"></p>
-<ol start="2">
-<li>Thrift Server</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
-<p><img src="/posts/87dabd80/hive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
-<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
-<p><img src="/posts/87dabd80/hive-connect-thrift.png" alt="thrift"></p>
+<ul>
+<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
+</ul>
 ]]></content>
       <categories>
         <category>Back-end</category>
@@ -7032,111 +6948,8 @@ The authenticator which encrypted by TGS session key contains:
       </categories>
       <tags>
         <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux Command - netstat</title>
-    <url>/posts/187005a0.html</url>
-    <content><![CDATA[<p><img src="/posts/187005a0/netstat.jpg" alt="netstat"></p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><blockquote>
-<p>source: <a href>https://www.tecmint.com/20-netstat-commands-for-linux-network-management/</a></p>
-</blockquote>
-<p>netstat(network statistics) is a command line tool for monitoring connections both incoming and outgoing as well as viewing routing tables, interface statistics, etc.</p>
-<span id="more"></span>
-
-<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><p>So, let’s begin to learn some useful options for netstat.</p>
-<ol>
-<li><p>-a</p>
-<p>Show all.</p>
-</li>
-<li><p>-n</p>
-<p>Show networks as numbers, not hostnames.</p>
-</li>
-<li><p>-p</p>
-<p>Show protocol.</p>
-</li>
-</ol>
-<h2 id="Most-repeated-command"><a href="#Most-repeated-command" class="headerlink" title="Most repeated command"></a>Most repeated command</h2><p>You can use the practical command below to find listening programs</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080</span><br></pre></td></tr></table></figure>
-
-<p>And you also can use telnet to check specific port.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet [hostname or ip] [port]</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux Command</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
-<span id="more"></span>
-
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
-<ol>
-<li>Source</li>
-</ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
-<ol start="2">
-<li>Channel</li>
-</ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-        <tag>Flume</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using docker command to obtain dockers&#39; IP</title>
-    <url>/posts/de75b356.html</url>
-    <content><![CDATA[<p><img src="/posts/de75b356/docker.jpg" alt="docker"></p>
-<p><strong>check specific container’s ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
-
-<p><strong>check all containers’ ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Operation</category>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
+        <tag>DMP</tag>
+        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -7229,6 +7042,72 @@ The authenticator which encrypted by TGS session key contains:
         <tag>Python</tag>
         <tag>Django</tag>
         <tag>CI/CD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
+
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using docker command to obtain dockers&#39; IP</title>
+    <url>/posts/de75b356.html</url>
+    <content><![CDATA[<p><img src="/posts/de75b356/docker.jpg" alt="docker"></p>
+<p><strong>check specific container’s ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
+
+<p><strong>check all containers’ ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -7358,6 +7237,127 @@ The authenticator which encrypted by TGS session key contains:
         <tag>Ambari</tag>
         <tag>Kafka</tag>
         <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Several Pivotal Conceptions about Hive</title>
+    <url>/posts/449d41fb.html</url>
+    <content><![CDATA[<p><img src="/posts/449d41fb/Hive-feature-2.jpg" alt="Image result for Hive feature"></p>
+<h3 id="What-is-Apache-Hive"><a href="#What-is-Apache-Hive" class="headerlink" title="What is Apache Hive?"></a>What is Apache Hive?</h3><p>As the data grew in size, there was also the scarcity of Java developers who can write complex MapReduce jobs for Hadoop. Hence the advent of Hive comes which is created on top of Hadoop itself. Hive provides a SQL like a language termed HiveQL interface for users to extract data from a Hadoop system. With the simplicity provided by Hive to transform simple SQL queries into Hadoop’s MapReduce jobs, and runs them against a Hadoop cluster.</p>
+<span id="more"></span>
+
+<p>Apache Hive is well suited for Data warehousing applications in which case the data is structured, static and also formatted. As there are certain design constraints on Hive, it does not provide row-wise updates and inserts (which is coined as the biggest disadvantage of using Hive). As most Hive queries turn out into Map to Reduce jobs these queries will have higher latency due to start up overhead.</p>
+<p>Based on these details, Hive is <strong>NOT</strong> a</p>
+<ul>
+<li>Relational database</li>
+<li>Design for OLTP (stands for Online Transaction Processing)</li>
+<li>Language for real-time queries and row-level updates</li>
+</ul>
+<h3 id="Features-of-Hive"><a href="#Features-of-Hive" class="headerlink" title="Features of Hive"></a>Features of Hive</h3><p>With the basic understanding of what Apache Hive is, let us now take a look at all the features that are provided with this component of the Hadoop ecosystem:</p>
+<ul>
+<li>Hive stores the schema details in a database and processes the data into HDFS</li>
+<li>Hive is designed for OLAP (stands for Online Analytics Processing)</li>
+<li>Hive provides SQL like language for querying data, named as HiveQL or HQL (do not misinterpret this with HQL from Hibernate, which stands for Hibernate Query Language).</li>
+<li>Hive is a very fast, scalable and extensible component within the Hadoop ecosystem.</li>
+</ul>
+<h3 id="External-Table"><a href="#External-Table" class="headerlink" title="External Table"></a>External Table</h3><p>If there is data that is already existing in the HDFS cluster of Hadoop then an external Hive table is created to describe the data. These tables are called External tables, because they are going to be residing in the path specified by the LOCATION properties instead of the default warehouse directory (as described in the above paragraph).</p>
+<p>When the data is stored in the external tables and when it is dropped, the metadata table is deleted but then the data is kept as is. This means that Hive evidently ignores the data that is presently residing in the path specified by LOCATION property and is left untouched forever. If you want to delete such data, then use the command to achieve the same:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs –rmr ‘tablename’</span><br></pre></td></tr></table></figure>
+
+<p>For example, we can add <strong>EXTERNAL</strong> keyword for specifying the external table.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">external</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Internal-or-Managed-Table"><a href="#Internal-or-Managed-Table" class="headerlink" title="Internal or Managed Table"></a>Internal or Managed Table</h3><p>The tables that are created with the Hadoop Hive’s context, is very much similar to tables that are created on any of the RDBMS systems. Each of the tables that get created is associated with a directory configured within the ${HIVE_HOME}&#x2F;conf&#x2F;hive-site.xml in the Hadoop HDFS cluster.</p>
+<p>By default, on a Linux machine, it is this path <strong>&#x2F;user&#x2F;hive&#x2F;warehouse</strong> in HDFS. If there is a <strong>&#x2F;user&#x2F;hive&#x2F;warehouse&#x2F;match</strong> created by Hive in HDFS for a match table. All the data for the table is recorded in the same folder as mentioned above and hence such tables are called <strong>INTERNAL</strong> or <strong>MANAGED</strong> tables.</p>
+<p>When the data resides in the internal tables, then Hive takes the full responsibility of maintaining the life-cycle of the data and the table in itself. Hence it is evident that the data is removed the moment when the internal tables are dropped.</p>
+<p>By default Hive creates managed tables such as SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Partitioning-of-Table"><a href="#Partitioning-of-Table" class="headerlink" title="Partitioning of Table"></a>Partitioning of Table</h3><p>Hive stores tables in partitions. Partitions are used to divide the table into related parts. Partitions make data querying more efficient.</p>
+<p>For example, using SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name (</span><br><span class="line">  id                <span class="type">int</span>,</span><br><span class="line">  dtDontQuery       string,</span><br><span class="line">  name              string</span><br><span class="line">)</span><br><span class="line">partitioned <span class="keyword">by</span> (<span class="type">date</span> string)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Bucketing-of-Table"><a href="#Bucketing-of-Table" class="headerlink" title="Bucketing of Table"></a>Bucketing of Table</h3><p>As we all know, Partition helps in increasing efficiency when performing a query on a table. Instead of scanning the whole table, it will only scan for the partitioned set and does not scan or operate on the unpartitioned sets, which helps us to provide results in lesser time and the details will be displayed very quickly because of Hive Partition.</p>
+<p>Now, let’s assume a condition that there is a huge dataset. At times, even after partitioning on a particular field or fields, the partitioned file size doesn’t match with the actual expectation and remains huge and we want to manage the partition results into different parts. To overcome this problem of partitioning, Hive provides Bucketing concept, which allows the user to divide table data sets into more manageable parts.			</p>
+<p>The Bucketing concept is based on Hash function, which depends on the type of the bucketing column. Records which are bucketed by the same column will always be saved in the same bucket.</p>
+<p>In Hive Partition, each partition will be created as directory. But in Hive Buckets, each bucket will be created as file. Bucketing can also be done even without partitioning on Hive tables.</p>
+<p>With the help of <strong>CLUSTERED BY</strong> clause and optional <strong>SORTED BY</strong> clause in <strong>CREATE TABLE</strong> statement we can create bucketed tables. </p>
+<p>We can create a bucketed_user table with above-given requirement with the help of the below HiveQL.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> bucketed_user(</span><br><span class="line">firstname <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  lastname  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  address   STRING,</span><br><span class="line">  city <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">state  <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  post      STRING,</span><br><span class="line">  phone1    <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">  phone2    STRING,</span><br><span class="line">  email     STRING,</span><br><span class="line">  web       STRING</span><br><span class="line">  )</span><br><span class="line">COMMENT ‘A bucketed sorted <span class="keyword">user</span> <span class="keyword">table</span>’</span><br><span class="line">  PARTITIONED <span class="keyword">BY</span> (country <span class="type">VARCHAR</span>(<span class="number">64</span>))</span><br><span class="line">CLUSTERED <span class="keyword">BY</span> (state) SORTED <span class="keyword">BY</span> (city) <span class="keyword">INTO</span> <span class="number">32</span> BUCKETS</span><br><span class="line">  STORED <span class="keyword">AS</span> SEQUENCEFILE;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Row-Format-Delimited-x2F-SerDe"><a href="#Row-Format-Delimited-x2F-SerDe" class="headerlink" title="Row Format (Delimited &#x2F; SerDe)"></a>Row Format (Delimited &#x2F; SerDe)</h3><h4 id="SerDe"><a href="#SerDe" class="headerlink" title="SerDe"></a>SerDe</h4><p>Basically, SerDe is a short name for Serializer&#x2F;Deserializer.</p>
+<ul>
+<li><p><strong>Deserializer</strong></p>
+<p>The Hive deserializer converts record (string or binary) into a Java object that Hive can process.</p>
+<p>HDFS files –&gt; InputFileFormat –&gt; &lt;key, value&gt; –&gt; Deserializer –&gt; Row object</p>
+</li>
+<li><p><strong>Serializer</strong></p>
+<p>Now, the Hive serializer will take this Java object, convert it into suitable format that can be stored into HDFS.</p>
+<p>Row object –&gt; Serializer –&gt; &lt;key, value&gt; –&gt; OutputFileFormat –&gt; HDFS files</p>
+</li>
+</ul>
+<p>So, basically, a SerDe is responsible for converting the record bytes into something that can be used by Hive. Hive comes with several SerDe like JSon SerDe for JSon files, CSV SerDe for CSV files, etc.</p>
+<p>For example, using JsonSerDe:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="type">ROW</span> FORMAT SERDE</span><br><span class="line"><span class="string">&#x27;org.apache.hive.hcatalog.data.JsonSerDe&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>For more specific SerDes, we can check the official site: </p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-RowFormats&amp;SerDe</a></p>
+<h4 id="Row-Format"><a href="#Row-Format" class="headerlink" title="Row Format"></a>Row Format</h4><p>You can create tables with a custom SerDe or using a native SerDe. A native SerDe is used if <strong>ROW FORMAT</strong> is not specified or <strong>ROW FORMAT DELIMITED</strong> is specified.<br>Use the <strong>SERDE</strong> clause to create a table with a custom SerDe. </p>
+<p>Here is an example. </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>ROW FORMAT DELIMITED</strong>: This line is telling Hive to expect the file to contain one row per line. So basically, we are telling Hive that when it finds a newline character that means is a new record.</p>
+<h3 id="Fields-Terminated"><a href="#Fields-Terminated" class="headerlink" title="Fields Terminated"></a>Fields Terminated</h3><p>For example:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>FIELDS TERMINATED BY ‘,’</strong>: This is really similar to the one above, but instead of meaning rows this one means columns, this way Hive knows what delimiter you are using in your files to separate each column. If none is set the default will be used which is ctrl-A.</p>
+<h3 id="Storage-Format"><a href="#Storage-Format" class="headerlink" title="Storage Format"></a>Storage Format</h3><p>Hive supports built-in and custom-developed file formats. </p>
+<ul>
+<li><p><strong>STORED AS TEXTFILE</strong></p>
+<p>Stored as plain text files. TEXTFILE is the default file format, unless the configuration parameter <strong>hive.default.fileformat</strong> has a different setting.</p>
+</li>
+<li><p><strong>STORED AS SEQUENCEFILE</strong></p>
+<p>Stored as compressed Sequence File.</p>
+</li>
+<li><p><strong>STORED AS AVRO</strong></p>
+<p>Stored as Avro format.</p>
+</li>
+<li><p><strong>STORED AS JSONFILE</strong></p>
+<p>Stored as Json file format.</p>
+</li>
+<li><p><strong>STORED AS ORC</strong></p>
+<p>Stored as Optimized Row Columnar (ORC) file format.</p>
+</li>
+</ul>
+<p>For example:</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_name</span><br><span class="line"></span><br><span class="line">(id <span class="type">INT</span>, name STRING, published_year <span class="type">INT</span>)</span><br><span class="line"></span><br><span class="line"><span class="type">ROW</span> FORMAT DELIMITED</span><br><span class="line"></span><br><span class="line">FIELDS TERMINATED <span class="keyword">BY</span> ‘,’</span><br><span class="line"></span><br><span class="line">STORED <span class="keyword">AS</span> TEXTFILE</span><br></pre></td></tr></table></figure>
+
+<p><strong>STORED AS TEXTFILE:</strong> This is to tell Hive what type of file to expect.</p>
+<h3 id="Import-CSV-File"><a href="#Import-CSV-File" class="headerlink" title="Import CSV File"></a>Import CSV File</h3><ul>
+<li><p><strong>Step 1</strong> : </p>
+<p>If we want to import data from external CSV file which using comma to separate columns, we can use the <strong>CREATE TABLE</strong> statement SQL below.</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_name</span><br><span class="line">(</span><br><span class="line">    id string,</span><br><span class="line">    name string,</span><br><span class="line">    age string</span><br><span class="line">)</span><br><span class="line"><span class="type">row</span> format serde</span><br><span class="line"><span class="string">&#x27;org.apache.hadoop.hive.serde2.OpenCSVSerde&#x27;</span></span><br><span class="line"><span class="keyword">with</span></span><br><span class="line">SERDEPROPERTIES</span><br><span class="line">(&quot;separatorChar&quot;<span class="operator">=</span>&quot;,&quot;,&quot;quotechar&quot;<span class="operator">=</span>&quot;\&quot;&quot;)</span><br><span class="line">STORED AS TEXTFILE</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Step 2</strong> :  </p>
+<p>Loading data from CSV file of HDFS.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">load data local inpath &#x27;/home/hive/table_name.csv&#x27; overwrite into table table_name;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
 </search>
