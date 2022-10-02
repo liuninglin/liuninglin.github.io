@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/posts/ab80d8c6.html</loc>
+    <loc>https://liuninglin.github.io/posts/d2fb4425.html</loc>
     
     <lastmod>2022-10-02</lastmod>
     
@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/posts/d2fb4425.html</loc>
+    <loc>https://liuninglin.github.io/posts/ab80d8c6.html</loc>
     
     <lastmod>2022-10-02</lastmod>
     
@@ -333,6 +333,27 @@
   </url>
   
   <url>
+    <loc>https://liuninglin.github.io/tags/Markdown/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/tags/Hexo/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/tags/Blog/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://liuninglin.github.io/tags/Linux/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -361,42 +382,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/tags/Markdown/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/tags/Hexo/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/tags/Blog/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://liuninglin.github.io/tags/Kerberos/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/tags/NiFi/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/tags/Hive/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -417,7 +403,14 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/tags/life/</loc>
+    <loc>https://liuninglin.github.io/tags/Hive/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/tags/NiFi/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -425,6 +418,13 @@
   
   <url>
     <loc>https://liuninglin.github.io/tags/Mysql/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/tags/life/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -459,6 +459,13 @@
   </url>
   
   <url>
+    <loc>https://liuninglin.github.io/tags/Flume/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://liuninglin.github.io/tags/Python/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -474,13 +481,6 @@
   
   <url>
     <loc>https://liuninglin.github.io/tags/CI-CD/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/tags/Flume/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -510,6 +510,13 @@
   </url>
   
   <url>
+    <loc>https://liuninglin.github.io/categories/Language/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://liuninglin.github.io/categories/Operation/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -531,14 +538,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/categories/Language/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/categories/Operation/Linux/</loc>
+    <loc>https://liuninglin.github.io/categories/Language/Markdown/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -552,7 +552,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/categories/Back-end/BigData/</loc>
+    <loc>https://liuninglin.github.io/categories/Operation/Linux/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -566,14 +566,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/categories/Life-log/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/categories/Language/Markdown/</loc>
+    <loc>https://liuninglin.github.io/categories/Back-end/BigData/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -587,14 +580,7 @@
   </url>
   
   <url>
-    <loc>https://liuninglin.github.io/categories/Back-end/Django/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://liuninglin.github.io/categories/Operation/Docker/</loc>
+    <loc>https://liuninglin.github.io/categories/Life-log/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -609,6 +595,20 @@
   
   <url>
     <loc>https://liuninglin.github.io/categories/Database/Mysql/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/categories/Back-end/Django/</loc>
+    <lastmod>2022-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://liuninglin.github.io/categories/Operation/Docker/</loc>
     <lastmod>2022-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
