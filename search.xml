@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Attention for Using Markdown code block</title>
-    <url>/posts/d2fb4425.html</url>
-    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
-<span id="more"></span>  
-<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
-]]></content>
-      <categories>
-        <category>Language</category>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Amplify POC</title>
     <url>/posts/1998f291.html</url>
     <content><![CDATA[<p><img src="/posts/1998f291/amplify_banner.png" alt="amplify image"></p>
@@ -298,20 +281,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot Start Namenode with Safemode Error</title>
-    <url>/posts/ab80d8c6.html</url>
-    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
+    <title>Cannot start ambari services with 400 status code</title>
+    <url>/posts/7449623f.html</url>
+    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
+<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
 <span id="more"></span>
-<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
-<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
-<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
-<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
+</blockquote>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
+<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
+<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
+<p>So, update the table hostcomponentstate.</p>
+<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
 
-<p>Using the command below to get the state of the namenode</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
-
-<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
+<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
+<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
 <ol>
 <li><p>Clicking the button “Stop All”.</p>
 </li>
@@ -331,22 +316,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Cannot start ambari services with 400 status code</title>
-    <url>/posts/7449623f.html</url>
-    <content><![CDATA[<h2 id="Error-Message"><a href="#Error-Message" class="headerlink" title="Error Message"></a>Error Message</h2><p>You maybe meet this kind of error message showing below when you click the button “Start All”.</p>
-<p><img src="/posts/7449623f/cannotstartambari_1.png" alt="cannotstartambari"></p>
+    <title>Cannot Start Namenode with Safemode Error</title>
+    <url>/posts/ab80d8c6.html</url>
+    <content><![CDATA[<p><img src="/posts/ab80d8c6/namenodestarterror_1.png" alt="cannot start namenode"></p>
 <span id="more"></span>
-<blockquote>
-<p>Error message: java.lang.IllegalArgumentException: Invalid transition for servicecomponenthost, clusterName&#x3D;ambari, clusterId&#x3D;2, serviceName&#x3D;SMARTSENSE, componentName&#x3D;ACTIVITY_EXPLORER, hostname&#x3D;ambari.com, currentState&#x3D;STOPPING, newDesiredState&#x3D;STARTED</p>
-</blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>It’s so annoying I cannot find any great solutions online until I saw <a href="Cannot-start-ambari-services-with-400-status-code/https://community.hortonworks.com/questions/215008/cannot-start-secondary-namenode-currentstatestoppi.html">this article</a> in the hortonworks community.</p>
-<p><img src="/posts/7449623f/cannotstartambari_2.png" alt="cannotstartambari"></p>
-<h3 id="Step1-Update-the-state-of-components-in-Ambari"><a href="#Step1-Update-the-state-of-components-in-Ambari" class="headerlink" title="Step1: Update the state of components in Ambari"></a>Step1: Update the state of components in Ambari</h3><p><img src="/posts/7449623f/cannotstartambari_3.png" alt="cannotstartambari"></p>
-<p>So, update the table hostcomponentstate.</p>
-<h3 id="Step2-Restart-Ambari-agents-and-server"><a href="#Step2-Restart-Ambari-agents-and-server" class="headerlink" title="Step2: Restart Ambari agents and server"></a>Step2: Restart Ambari agents and server</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-agent restart</span><br><span class="line"></span><br><span class="line">ambari-server restart</span><br></pre></td></tr></table></figure>
+<p>It’s so annoying when you see the namenode error above, and always showing the same error after restarting several times.</p>
+<p>Fortunately, I found <a href="Cannot-start-Namenode-with-Safemode-Error/https://community.hortonworks.com/questions/14058/safe-mode-is-off.html">an answer</a> online writen by a hortonworks staff.</p>
+<p><img src="/posts/ab80d8c6/namenodestarterror_2.png" alt="cannot start namenode"></p>
+<p>So, we don’t need to worry about this kind of error, and we can use the command below to ignore this error.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop dfsadmin -safemode leave </span><br></pre></td></tr></table></figure>
 
-<h2 id="Reason"><a href="#Reason" class="headerlink" title="Reason"></a>Reason</h2><p>Stopping your Ambari cluster in an exceptional steps will cause this kind of message such as exceptional poweroff.</p>
-<p>So, we ought to follow the correct steps blow to avoid this kind of unexpectable error.</p>
+<p>Using the command below to get the state of the namenode</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfsadmin -safemode get </span><br></pre></td></tr></table></figure>
+
+<p>Incorrect steps for stopping your Ambari cluster may casue this kind of error.<br>Following steps below can avoid.</p>
 <ol>
 <li><p>Clicking the button “Stop All”.</p>
 </li>
@@ -5297,6 +5280,107 @@
       </tags>
   </entry>
   <entry>
+    <title>Attention for Using Markdown code block</title>
+    <url>/posts/d2fb4425.html</url>
+    <content><![CDATA[<p>When you are using markdown code block, you may meet a strange circumstance that disorder within code blocks. Just like the image below.  </p>
+<span id="more"></span>  
+<p><img src="/posts/d2fb4425/Attention-for-Using-Markdown-code-block%5Cattention_for_using_code_block.png" alt="attention_for_using_code_block"><br>So, when you confront the same problem like me, you just need to <strong>delete your space symbols after your end of code block</strong>. If you put one more space after your code block, the system will not recognize that’s an end signal of the code block.</p>
+]]></content>
+      <categories>
+        <category>Language</category>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Comparison between Hortonworks and Alibaba</title>
+    <url>/posts/720bb0c8.html</url>
+    <content><![CDATA[<p><img src="/posts/720bb0c8/comparison.png" alt="comparison"></p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>公司</th>
+<th>Hortonworks</th>
+<th>Alibaba</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大数据产品</td>
+<td>Ambari (提供Hadoop生态的管理、运维、升级等功能)<br>HDP (提供大部分Hadoop相关开源组件)<br>HDF (提供数据流相关的开源组件)</td>
+<td>Dataworks (大数据开发平台，提供在线编辑工具)<br>Dataphin (新一代大数据平台，为阿里的数据中台业务中台铺路)<br>QuickBI (提供全面的报表展示服务，为Martech助力)</td>
+</tr>
+<tr>
+<td>市场占有率</td>
+<td>国际市场的三驾马车之一（Cloudera, MapR），18年底完成与Cloudera公司的合并</td>
+<td>国际市场占有率低（有一部分Flink的原因，Flink16年出现）</td>
+</tr>
+<tr>
+<td>收费模式</td>
+<td>100%开源，提供收费技术支持及培训</td>
+<td>具体需要联系售前</td>
+</tr>
+<tr>
+<td>产品特点</td>
+<td>100%开源，使用不受任何限制</td>
+<td>基础架构及上层服务均需要全套阿里产品，同时数据留存在阿里</td>
+</tr>
+<tr>
+<td>技术栈</td>
+<td>Hadoop<br>HDFS<br>Yarn<br>Spark2(DataFrame + SQL)<br>Nifi<br>Kafka<br>Kerberos<br>ZooKeeper<br>Ranger<br>Oozie<br>….</td>
+<td>MaxCompute(阿里大数据处理引擎，基于Hadoop早期版本定制)<br>Blink(基于Flink的定制版，做batch及streaming处理)<br></td>
+</tr>
+<tr>
+<td>主要开发语言</td>
+<td>Java, Scala, SQL, 部分可视化拖拽（Nifi）</td>
+<td>可视化拖拽, SQL</td>
+</tr>
+<tr>
+<td>开发成本</td>
+<td>高(需要部署开发环境，同时需要IDE开发工具)</td>
+<td>低(配置+SQL，所有开发均在阿里在线开发环境完成)</td>
+</tr>
+<tr>
+<td>运维成本</td>
+<td>高(对Hadoop生态的优化需要自己完成)</td>
+<td>低</td>
+</tr>
+<tr>
+<td>第三方服务&#x2F;系统对接</td>
+<td>容易实现</td>
+<td>需要看阿里是否支持</td>
+</tr>
+<tr>
+<td>技术支持</td>
+<td>有成熟的社区及非常完善的文档，基本上遇到的问题都能解决<br>同时Ambari还提供智能支持的收费服务，也有收费培训等</td>
+<td>具体暂不清楚，应该会有对应的技术工程师提供完备的服务，省去了花时间自己找解决方案</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>Kerberos+Ranger</td>
+<td>阿里产品</td>
+</tr>
+<tr>
+<td>部署方式</td>
+<td>基于虚机&#x2F;Docker的部署，微软Azure提供深度支持</td>
+<td>独立部署（需要有千万级数据的体量）<br>多租户方式 (适于小体量同时价格便宜)</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Enable Kerberos on Ambari</title>
     <url>/posts/3f0454be.html</url>
     <content><![CDATA[<p><img src="/posts/3f0454be/kerberos.jpg" alt="kerberos"></p>
@@ -5387,138 +5471,6 @@
       <tags>
         <tag>Ambari</tag>
         <tag>Kerberos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[Hexo]Create a blog with hexo in github</title>
-    <url>/posts/fe740d97.html</url>
-    <content><![CDATA[<p><img src="/posts/fe740d97/Hexo-Create-a-blog-with-hexo-in-github%5Chexo.png" alt="hexo">  </p>
-<ol>
-<li><p>copy local ssh public key to github  </p>
-</li>
-<li><p>install npm, git</p>
-</li>
-<li><p>install hexo by npm  </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>init hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>	
-<ol start="5">
-<li><p>install other softwares by npm</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>edit file “_config.yml” and write your git address</p>
- <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">	<span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">	<span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>install hexo deployment tool</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>generate static pages by hexo</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>deploy static pages to github</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>using local tool to pre-check your blog</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>access to your github blog</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Front-end</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Comparison between Hortonworks and Alibaba</title>
-    <url>/posts/720bb0c8.html</url>
-    <content><![CDATA[<p><img src="/posts/720bb0c8/comparison.png" alt="comparison"></p>
-<span id="more"></span>
-
-<table>
-<thead>
-<tr>
-<th>公司</th>
-<th>Hortonworks</th>
-<th>Alibaba</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>大数据产品</td>
-<td>Ambari (提供Hadoop生态的管理、运维、升级等功能)<br>HDP (提供大部分Hadoop相关开源组件)<br>HDF (提供数据流相关的开源组件)</td>
-<td>Dataworks (大数据开发平台，提供在线编辑工具)<br>Dataphin (新一代大数据平台，为阿里的数据中台业务中台铺路)<br>QuickBI (提供全面的报表展示服务，为Martech助力)</td>
-</tr>
-<tr>
-<td>市场占有率</td>
-<td>国际市场的三驾马车之一（Cloudera, MapR），18年底完成与Cloudera公司的合并</td>
-<td>国际市场占有率低（有一部分Flink的原因，Flink16年出现）</td>
-</tr>
-<tr>
-<td>收费模式</td>
-<td>100%开源，提供收费技术支持及培训</td>
-<td>具体需要联系售前</td>
-</tr>
-<tr>
-<td>产品特点</td>
-<td>100%开源，使用不受任何限制</td>
-<td>基础架构及上层服务均需要全套阿里产品，同时数据留存在阿里</td>
-</tr>
-<tr>
-<td>技术栈</td>
-<td>Hadoop<br>HDFS<br>Yarn<br>Spark2(DataFrame + SQL)<br>Nifi<br>Kafka<br>Kerberos<br>ZooKeeper<br>Ranger<br>Oozie<br>….</td>
-<td>MaxCompute(阿里大数据处理引擎，基于Hadoop早期版本定制)<br>Blink(基于Flink的定制版，做batch及streaming处理)<br></td>
-</tr>
-<tr>
-<td>主要开发语言</td>
-<td>Java, Scala, SQL, 部分可视化拖拽（Nifi）</td>
-<td>可视化拖拽, SQL</td>
-</tr>
-<tr>
-<td>开发成本</td>
-<td>高(需要部署开发环境，同时需要IDE开发工具)</td>
-<td>低(配置+SQL，所有开发均在阿里在线开发环境完成)</td>
-</tr>
-<tr>
-<td>运维成本</td>
-<td>高(对Hadoop生态的优化需要自己完成)</td>
-<td>低</td>
-</tr>
-<tr>
-<td>第三方服务&#x2F;系统对接</td>
-<td>容易实现</td>
-<td>需要看阿里是否支持</td>
-</tr>
-<tr>
-<td>技术支持</td>
-<td>有成熟的社区及非常完善的文档，基本上遇到的问题都能解决<br>同时Ambari还提供智能支持的收费服务，也有收费培训等</td>
-<td>具体暂不清楚，应该会有对应的技术工程师提供完备的服务，省去了花时间自己找解决方案</td>
-</tr>
-<tr>
-<td>数据安全</td>
-<td>Kerberos+Ranger</td>
-<td>阿里产品</td>
-</tr>
-<tr>
-<td>部署方式</td>
-<td>基于虚机&#x2F;Docker的部署，微软Azure提供深度支持</td>
-<td>独立部署（需要有千万级数据的体量）<br>多租户方式 (适于小体量同时价格便宜)</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
       </tags>
   </entry>
   <entry>
@@ -5784,6 +5736,54 @@
       </tags>
   </entry>
   <entry>
+    <title>[Hexo]Create a blog with hexo in github</title>
+    <url>/posts/fe740d97.html</url>
+    <content><![CDATA[<p><img src="/posts/fe740d97/Hexo-Create-a-blog-with-hexo-in-github%5Chexo.png" alt="hexo">  </p>
+<ol>
+<li><p>copy local ssh public key to github  </p>
+</li>
+<li><p>install npm, git</p>
+</li>
+<li><p>install hexo by npm  </p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>init hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>	
+<ol start="5">
+<li><p>install other softwares by npm</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>edit file “_config.yml” and write your git address</p>
+ <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">	<span class="attr">type:</span> <span class="string">git</span>  </span><br><span class="line">	<span class="attr">repository:</span> <span class="string">github项目地址</span></span><br><span class="line">	<span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>install hexo deployment tool</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>generate static pages by hexo</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>deploy static pages to github</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>using local tool to pre-check your blog</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>access to your github blog</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">http://用户名.github.io</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Front-end</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>How to Recover a Crashed Mysql Database</title>
     <url>/posts/4cf6882d.html</url>
     <content><![CDATA[<p><img src="/posts/4cf6882d/How-to-Recover-a-Crashed-Mysql-Database%5Ccrash.jpg" alt="crash"></p>
@@ -5808,6 +5808,58 @@
       <tags>
         <tag>Ambari</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Installing HDF on Ambari 2.7.1 + HDP 3.0.1</title>
+    <url>/posts/8c49992b.html</url>
+    <content><![CDATA[<p><img src="/posts/8c49992b/hdfandhdp.png" alt="hdfandhdp"></p>
+<p>Installed Ambari and HDP are prerequisites for installing HDF on HDP clusters. So, after that, you can follow the steps below to complete installing HDF.</p>
+<span id="more"></span>
+
+<ol>
+<li><p>Downloading the installation package.</p>
+<p>Accessing the URL “<a href="https://docs.cloudera.com/HDPDocuments/HDF3/HDF-3.3.1/release-notes/content/hdf_repository_locations.html&quot;">https://docs.cloudera.com/HDPDocuments/HDF3/HDF-3.3.1/release-notes/content/hdf_repository_locations.html&quot;</a> to acquire the download location for your specific OS type.</p>
+<p>Copy the location for “HDF Management Pack” and “HDF Repo” and download these resources on the host where you installed Ambari.</p>
+</li>
+<li><p>Installing the HDF Management Pack.</p>
+<ol>
+<li><p>Stop all services on your Ambari.</p>
+</li>
+<li><p>Stop your Ambari by command.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run the command below on the node where the Ambari locates.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server install-mpack \</span><br><span class="line">--mpack=/tmp/hdf-ambari-mpack-&lt;version&gt;.tar.gz \</span><br><span class="line">--verbose</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start your Ambari.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server start</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>Adding HDF service to your HDP cluster.</p>
+<ol>
+<li><p>Unzipping your HDF installation package to your HTTP server and ensure that you can access the HDF installation resources.</p>
+</li>
+<li><p>Signing in your Ambari by user admin and registering HDF-3.2.</p>
+<p><img src="/posts/8c49992b/registerhdf.png" alt="registerhdf"></p>
+</li>
+<li><p>After that, you will notice a brand new stack component named “HDF-3.2.0.0” appearing on the page “Versions”.</p>
+<p><img src="/posts/8c49992b/appearhdf.png" alt="appearhdf"></p>
+</li>
+</ol>
+</li>
+<li><p>Following steps on Ambari Service Wizard to install NiFi.</p>
+<p>So now, you can install the component NiFi contained in HDF by following steps on Ambari Service Wizard.</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
       </tags>
   </entry>
   <entry>
@@ -6043,6 +6095,67 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
+    <title>MySQL Basic Operations for User Account Management</title>
+    <url>/posts/f4c81e09.html</url>
+    <content><![CDATA[<p><img src="/posts/f4c81e09/Mysql-Basic-operations-for-User-Account-Management%5Cmysql.jpg" alt="mysql">  </p>
+<ol>
+<li><p>Install MySQL server (not MySQL package)</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Start and launch MySQL</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="3">
+<li><p>Add users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CREATE USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p> The value of host:  </p>
+<ul>
+<li>%: connect to mysql server from any other machine    </li>
+<li>localhost: just local host  </li>
+<li>ip_address: specific ip address</li>
+</ul>
+</li>
+<li><p>Grant authority to users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES on [db_name].[db_table_name] TO [mysql_user_name]@[the_value_of_host] IDENTIFIED BY <span class="string">&#x27;[mysql_user_password]&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p> [all privileges] can be set with specific authority(“select,delete,update,create,drop”)</p>
+<p> [db_name] can be set with all databases(“*”)</p>
+<p> [db_table_name] can be set with all tables(“*”)</p>
+</li>
+<li><p>Update password.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Delete users.</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DROP USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Operation</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Odyssey</title>
+    <url>/posts/56e69a1d.html</url>
+    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness.</p>
+<span id="more"></span>
+
+<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.</p>
+<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
+]]></content>
+      <categories>
+        <category>Life log</category>
+      </categories>
+      <tags>
+        <tag>Shanghai</tag>
+        <tag>life</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Meeting 401 Http Status Code when Visting Oozie UI by a browser in a Kerberos environment</title>
     <url>/posts/3f9aa226.html</url>
     <content><![CDATA[<p><img src="/posts/3f9aa226/401_webui_1.png" alt="401 webui"></p>
@@ -6150,23 +6263,6 @@ The authenticator which encrypted by TGS session key contains:
         <tag>BigData</tag>
         <tag>Ambari</tag>
         <tag>Kafka</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Odyssey</title>
-    <url>/posts/56e69a1d.html</url>
-    <content><![CDATA[<p><img src="/posts/56e69a1d/odyssey%5Codyssey.jpg" alt="odyssey"><br>It is really a great determination for me to give up a comfortable and easy environment where I can complete all tasks successfully. Now, I had been to Shanghai for almost one month. And I need to study new development technology and make new friends in this unfamiliar city where I will be surrounded by loneliness. </p>
-<span id="more"></span>
-
-<p>Nevertheless, I really hope that I can meet all kinds of difficulties which offer me the huge experience to upgrade myself. So, I choose to jump out of my comfortable cage and forage challenges. In my opinion, It is a true tiger that runs above Africa prairie not one in the fancy cage.  </p>
-<p>Finally, I literally hope that my goal will be hit after one year and start with a more rough journey (Odyssey).</p>
-]]></content>
-      <categories>
-        <category>Life log</category>
-      </categories>
-      <tags>
-        <tag>Shanghai</tag>
-        <tag>life</tag>
       </tags>
   </entry>
   <entry>
@@ -6288,6 +6384,33 @@ The authenticator which encrypted by TGS session key contains:
       <tags>
         <tag>BigData</tag>
         <tag>Hive</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Some terms in Big Data Ecosystem</title>
+    <url>/posts/aa930aca.html</url>
+    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
+<ul>
+<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
+</li>
+<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
+</li>
+<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul>
+<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>DMP</tag>
+        <tag>MDM</tag>
       </tags>
   </entry>
   <entry>
@@ -6575,21 +6698,41 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Some terms in Big Data Ecosystem</title>
-    <url>/posts/aa930aca.html</url>
-    <content><![CDATA[<p><img src="/posts/aa930aca/Some-terms-in-Big-Data-Ecosystem%5Cbiddata.jpg" alt="bigdata"></p>
-<ul>
-<li><p><strong>DMP(Data Management Platform)</strong><br>A platform for collecting and managing data for digital marketing purposes.</p>
-</li>
-<li><p><strong>DSP(Demand-side Platform)</strong><br>A platform that allows buyers of online advertising to manage ad exchange and pay to buy some advertising banners according to Real-time bidding.</p>
-</li>
-<li><p><strong>SSP(Supply-side Plateform)</strong><br>A platform that allows web publishers or digital media owners to manage their advertising banners and receive money from this platform.</p>
-</li>
-</ul>
+    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
+    <url>/posts/87dabd80.html</url>
+    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
 <span id="more"></span>
-<ul>
-<li><strong>MDM(Master Data Management)</strong><br>A business method that helps companies or enterprises to integrate, manage, store critical data in a single point of reference.<br>These data can provide for other business platforms or business systems(B2B, B2C, CRM, OMS, etc).<br>And master data also are useful for marketing decisions and marketing analysis.<br>In China, Alibaba announced a business term(“数据中台”) that is based on MDM.<br>So, in the next few years, we need to build a digital smart platform to collect all sources of business data that can provide<br>information for all kinds of business systems or platforms and bread down obstacles between business systems in companies or enterprises.</li>
-</ul>
+
+<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
+<p>Command below for using Hive CLI.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
+
+<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
+<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
+
+<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
+<ol>
+<li>Zookeeper</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
+<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
+<blockquote>
+<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
+</blockquote>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
+<ol start="2">
+<li>Thrift Server</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
+
+<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
+<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
+<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
 ]]></content>
       <categories>
         <category>Back-end</category>
@@ -6597,8 +6740,8 @@ The authenticator which encrypted by TGS session key contains:
       </categories>
       <tags>
         <tag>BigData</tag>
-        <tag>DMP</tag>
-        <tag>MDM</tag>
+        <tag>Ambari</tag>
+        <tag>Hive</tag>
       </tags>
   </entry>
   <entry>
@@ -6928,53 +7071,6 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>The Two Ways of Connecting Hive For Developing or Testing</title>
-    <url>/posts/87dabd80.html</url>
-    <content><![CDATA[<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive.jpg" alt="hive"></p>
-<span id="more"></span>
-
-<h2 id="Hive-CLI"><a href="#Hive-CLI" class="headerlink" title="Hive CLI"></a>Hive CLI</h2><p>Hive CLI a legacy tool that had two main use cases. The first is that it served as a thick client for SQL on Hadoop. And the second is that it served as a command-line tool for Hiver Server. Hive Server had been deprecated and removed from Hive. So, it is not an ideal way to connect Hive by using Hive CLI.</p>
-<p>Command below for using Hive CLI.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hive</span><br></pre></td></tr></table></figure>
-
-<h2 id="Beeline-CLI"><a href="#Beeline-CLI" class="headerlink" title="Beeline CLI"></a>Beeline CLI</h2><p>It is a client tool for connecting Hive Server2 through JDBC. Then you can use SQL to obtain or process data.<br>Because of using JDBC, there are two tunnels for transmitting data. The first way is zookeeper which is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The second way is the apache thrift server which is RPC framework for scalable cross-language service development.</p>
-<p>Before we use beeline, we need to get TGT from TGS for using hive service when your Hadoop clusters using Kerberos authorization. After that, you can use Hive directly.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt [your hive service keytab file path] [your hive service principal]</span><br></pre></td></tr></table></figure>
-
-<p>You can checkout your kerberos.csv file to get a specific service keytab file path and service principal.</p>
-<ol>
-<li>Zookeeper</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline </span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:2181/sephora;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>So, you maybe want to get your own JDBC connection URL by using zookeeper. You can visit your own Ambari UI, then click “[Services]-&gt;[Hive]”. In your hive dashboard, you can get your own URL.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper-url.png" alt="JDBC URL by using zookeeper"></p>
-<p>After this, we may be encounter a bug that needs to input username and password. So, just click “Enter” two times because of owning the authorization for hive service.</p>
-<blockquote>
-<p><a href="https://issues.apache.org/jira/browse/HIVE-9144">https://issues.apache.org/jira/browse/HIVE-9144</a></p>
-</blockquote>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-zookeeper.png" alt="zookeeper"></p>
-<ol start="2">
-<li>Thrift Server</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">beeline</span><br><span class="line"></span><br><span class="line">!connect jdbc:hive2://bigdata.com:10001/sephora;transportMode=http;httpPath=cliservice;principal=hive/bigdata.com@CONNEXT.COM</span><br></pre></td></tr></table></figure>
-
-<p>We can get parameter values by visiting Ambari UI and checking the configuration of Hive.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift-url.png" alt="jdbc url by using thrift"></p>
-<p>Just like using zookeeper, we also encounter that bug. So, just click “Enter” two times.</p>
-<p><img src="/posts/87dabd80/The-Two-Ways-of-Connecting-Hive-For-Developing-or-Testing%5Chive-connect-thrift.png" alt="thrift"></p>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Hive</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Using Flume to transfer data from Kafka to HDFS in Ambari(2.4.2) with Kerberos</title>
     <url>/posts/dc7e5002.html</url>
     <content><![CDATA[<p><img src="/posts/dc7e5002/flume+kafka.png" alt="flume+kafka"></p>
@@ -7033,21 +7129,122 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Using docker command to obtain dockers&#39; IP</title>
-    <url>/posts/de75b356.html</url>
-    <content><![CDATA[<p><img src="/posts/de75b356/Using-docker-command-to-obtain-dockers-IP%5Cdocker.jpg" alt="docker"></p>
-<p><strong>check specific container’s ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
+    <title>Using Flume in Ambari with Kerberos</title>
+    <url>/posts/a833198.html</url>
+    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
+<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
+<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
+</blockquote>
+<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
+<span id="more"></span>
 
-<p><strong>check all containers’ ip address:</strong>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
+<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
+<p>Three key components of Flume:  </p>
+<ol>
+<li>Source</li>
+</ol>
+<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
+<ol start="2">
+<li>Channel</li>
+</ol>
+<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
+<ol start="3">
+<li>Sink</li>
+</ol>
+<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
+<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
+<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
+<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
+<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
+<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
+
+<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Operation</category>
-        <category>Docker</category>
+        <category>Back-end</category>
+        <category>BigData</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Kerberos</tag>
+        <tag>Flume</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Using spark-submit to submit a Spark application in Kerberos environment</title>
+    <url>/posts/b0e85a85.html</url>
+    <content><![CDATA[<p><img src="/posts/b0e85a85/spark.jpg" alt="spark"></p>
+<span id="more"></span>
+
+
+
+<p>Spark-submit is a shell script that allows you to deploy a spark application for execution, kill or request status of spark applications. So, it is generally a depolyment tool for spark application.</p>
+<h3 id="How-spark-runs-an-application"><a href="#How-spark-runs-an-application" class="headerlink" title="How spark runs an application"></a>How spark runs an application</h3><ol>
+<li>Create SparkContext from driver.</li>
+<li>Request resources from Cluster Manager.</li>
+<li>CM find Worker Node, then response to spark driver.</li>
+<li>Spark driver connects to Worker Nodes directly, then communicate each other (such as sending tasks).</li>
+</ol>
+<p>So, we can notice that serveral components are ciratical - spark driver, CM, Worker Node - in this submission process. And spark can use different CM - pseudo cluster manager, standalone CM, yarn, mesos and kubernets - to request resources and schedule tasks for spark applications. Spark also provides 2 different types of deployment mode - client and cluster - for running spark driver which can creates a SparkContext.</p>
+<h3 id="Cluster-Manager-types"><a href="#Cluster-Manager-types" class="headerlink" title="Cluster Manager types"></a>Cluster Manager types</h3><p>CM which acquires resources on the cluster is a critical key componet for a distributed system.  </p>
+<ol>
+<li><p>Pseudo cluster manager<br> In this kind of non-distributed single-JVM deployment mode, Spark creates all the execution components - driver, excutor and master - in the same single JVM.<br> Using this kind of cluster manager to test your spark application is very convient and easy.</p>
+<p> Run spark locally with two worker threads:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master local[2]</span><br></pre></td></tr></table></figure>
+<p> Run spark locally with as many as logical cores on your machine:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master local[*]</span><br></pre></td></tr></table></figure></li>
+<li><p>Standalone<br> It is a simple cluster manager providing by Spark. We can use it as a development tool and a testing tool among the project.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master spark://hostname:port</span><br></pre></td></tr></table></figure></li>
+<li><p>Hadoop Yarn<br> The resources manager in Hadoop 2.<br> I’s a excellent choice in ambari environment.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master yarn</span><br></pre></td></tr></table></figure></li>
+<li><p>Apache Mesos<br> A general cluster manager that can run Hadoop MapReduce and service application.</p>
+</li>
+<li><p>Kubernetes (K8S)<br> An open-source system for automating deployment, scaling, and management of containerized applications.</p>
+</li>
+</ol>
+<h3 id="Deployment-mode-types"><a href="#Deployment-mode-types" class="headerlink" title="Deployment mode types"></a>Deployment mode types</h3><ol>
+<li><p>Client<br> Spark driver runs where the job is submitted outside of the cluster.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--deploy-mode client</span><br></pre></td></tr></table></figure></li>
+<li><p>Cluster<br> By contrast with clident deployment mode, spark driver runs inside the cluster. </p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--deploy-mode cluster</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="Steps-for-using-spark-submit-command-to-launch-a-spark-application-in-ambari-with-kerberos-authorization"><a href="#Steps-for-using-spark-submit-command-to-launch-a-spark-application-in-ambari-with-kerberos-authorization" class="headerlink" title="Steps for using spark-submit command to launch a spark application in ambari with kerberos authorization"></a>Steps for using spark-submit command to launch a spark application in ambari with kerberos authorization</h3><ol>
+<li><p>Get TGT<br>Before we using this tool, we need to get TGT for spark service. Using command kinit to get ticket.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/spark.headless.keytab spark-bigdata@CONNEXT.COM </span><br></pre></td></tr></table></figure></li>
+<li><p>Submit application</p>
+<ol>
+<li><p>Pseudo cluster manager</p>
+<p> <strong>Notices:</strong></p>
+<ul>
+<li>The asterisk can be replaced by specific number that showing how many worker nodes to be applied. And the asterisk is just announced that acquiring worker nodes as many as logical cores on your machine.  </li>
+<li>Specifying package path and your application class name to CM for informing entry point of your spark application.</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		/usr/hdp/current/spark-client/bin/spark-submit \</span><br><span class="line">--master local[*] \</span><br><span class="line">--class com.johnny.demo.SparkDemo \</span><br><span class="line">/root/spark-demo-1.0.0.jar \</span><br></pre></td></tr></table></figure></li>
+<li><p>Yarn-cluster</p>
+<p> <strong>Notices:</strong></p>
+<ul>
+<li>Specifying entry point of your spark application which just likes the mode of pseudo cluster manager.</li>
+<li>Your application jar files and other files all need to upload to your cluster. Not local file system.</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		/usr/hdp/current/spark-client/bin/spark-submit \</span><br><span class="line">--class com.johnny.demo.SparkDemo \</span><br><span class="line">--master yarn \</span><br><span class="line">--deploy-mode cluster \</span><br><span class="line">--files /usr/hdp/current/spark-client/conf/hive-site.xml \</span><br><span class="line">--jars /usr/hdp/current/spark-client/lib/datanucleus-api-jdo-3.2.6.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-3.2.9.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-3.2.10.jar \</span><br><span class="line">hdfs://bigdata.com:8020/johnny/oozie/workflow/shell-action/demo1/spark-demo-1.0.0.jar</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Back-end</category>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>BigData</tag>
+        <tag>Ambari</tag>
+        <tag>Spark</tag>
       </tags>
   </entry>
   <entry>
@@ -7143,218 +7340,21 @@ The authenticator which encrypted by TGS session key contains:
       </tags>
   </entry>
   <entry>
-    <title>Using spark-submit to submit a Spark application in Kerberos environment</title>
-    <url>/posts/b0e85a85.html</url>
-    <content><![CDATA[<p><img src="/posts/b0e85a85/spark.jpg" alt="spark"></p>
-<span id="more"></span>
+    <title>Using docker command to obtain dockers&#39; IP</title>
+    <url>/posts/de75b356.html</url>
+    <content><![CDATA[<p><img src="/posts/de75b356/Using-docker-command-to-obtain-dockers-IP%5Cdocker.jpg" alt="docker"></p>
+<p><strong>check specific container’s ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> your_container_name_or_id</span><br></pre></td></tr></table></figure>
 
-
-
-<p>Spark-submit is a shell script that allows you to deploy a spark application for execution, kill or request status of spark applications. So, it is generally a depolyment tool for spark application.</p>
-<h3 id="How-spark-runs-an-application"><a href="#How-spark-runs-an-application" class="headerlink" title="How spark runs an application"></a>How spark runs an application</h3><ol>
-<li>Create SparkContext from driver.</li>
-<li>Request resources from Cluster Manager.</li>
-<li>CM find Worker Node, then response to spark driver.</li>
-<li>Spark driver connects to Worker Nodes directly, then communicate each other (such as sending tasks).</li>
-</ol>
-<p>So, we can notice that serveral components are ciratical - spark driver, CM, Worker Node - in this submission process. And spark can use different CM - pseudo cluster manager, standalone CM, yarn, mesos and kubernets - to request resources and schedule tasks for spark applications. Spark also provides 2 different types of deployment mode - client and cluster - for running spark driver which can creates a SparkContext.</p>
-<h3 id="Cluster-Manager-types"><a href="#Cluster-Manager-types" class="headerlink" title="Cluster Manager types"></a>Cluster Manager types</h3><p>CM which acquires resources on the cluster is a critical key componet for a distributed system.  </p>
-<ol>
-<li><p>Pseudo cluster manager<br> In this kind of non-distributed single-JVM deployment mode, Spark creates all the execution components - driver, excutor and master - in the same single JVM.<br> Using this kind of cluster manager to test your spark application is very convient and easy.</p>
-<p> Run spark locally with two worker threads:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master local[2]</span><br></pre></td></tr></table></figure>
-<p> Run spark locally with as many as logical cores on your machine:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master local[*]</span><br></pre></td></tr></table></figure></li>
-<li><p>Standalone<br> It is a simple cluster manager providing by Spark. We can use it as a development tool and a testing tool among the project.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master spark://hostname:port</span><br></pre></td></tr></table></figure></li>
-<li><p>Hadoop Yarn<br> The resources manager in Hadoop 2.<br> I’s a excellent choice in ambari environment.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--master yarn</span><br></pre></td></tr></table></figure></li>
-<li><p>Apache Mesos<br> A general cluster manager that can run Hadoop MapReduce and service application.</p>
-</li>
-<li><p>Kubernetes (K8S)<br> An open-source system for automating deployment, scaling, and management of containerized applications.</p>
-</li>
-</ol>
-<h3 id="Deployment-mode-types"><a href="#Deployment-mode-types" class="headerlink" title="Deployment mode types"></a>Deployment mode types</h3><ol>
-<li><p>Client<br> Spark driver runs where the job is submitted outside of the cluster.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--deploy-mode client</span><br></pre></td></tr></table></figure></li>
-<li><p>Cluster<br> By contrast with clident deployment mode, spark driver runs inside the cluster. </p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--deploy-mode cluster</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="Steps-for-using-spark-submit-command-to-launch-a-spark-application-in-ambari-with-kerberos-authorization"><a href="#Steps-for-using-spark-submit-command-to-launch-a-spark-application-in-ambari-with-kerberos-authorization" class="headerlink" title="Steps for using spark-submit command to launch a spark application in ambari with kerberos authorization"></a>Steps for using spark-submit command to launch a spark application in ambari with kerberos authorization</h3><ol>
-<li><p>Get TGT<br>Before we using this tool, we need to get TGT for spark service. Using command kinit to get ticket.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kinit -kt /etc/security/keytabs/spark.headless.keytab spark-bigdata@CONNEXT.COM </span><br></pre></td></tr></table></figure></li>
-<li><p>Submit application</p>
-<ol>
-<li><p>Pseudo cluster manager</p>
-<p> <strong>Notices:</strong></p>
-<ul>
-<li>The asterisk can be replaced by specific number that showing how many worker nodes to be applied. And the asterisk is just announced that acquiring worker nodes as many as logical cores on your machine.  </li>
-<li>Specifying package path and your application class name to CM for informing entry point of your spark application.</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		/usr/hdp/current/spark-client/bin/spark-submit \</span><br><span class="line">--master local[*] \</span><br><span class="line">--class com.johnny.demo.SparkDemo \</span><br><span class="line">/root/spark-demo-1.0.0.jar \</span><br></pre></td></tr></table></figure></li>
-<li><p>Yarn-cluster</p>
-<p> <strong>Notices:</strong></p>
-<ul>
-<li>Specifying entry point of your spark application which just likes the mode of pseudo cluster manager.</li>
-<li>Your application jar files and other files all need to upload to your cluster. Not local file system.</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">		/usr/hdp/current/spark-client/bin/spark-submit \</span><br><span class="line">--class com.johnny.demo.SparkDemo \</span><br><span class="line">--master yarn \</span><br><span class="line">--deploy-mode cluster \</span><br><span class="line">--files /usr/hdp/current/spark-client/conf/hive-site.xml \</span><br><span class="line">--jars /usr/hdp/current/spark-client/lib/datanucleus-api-jdo-3.2.6.jar,/usr/hdp/current/spark-client/lib/datanucleus-rdbms-3.2.9.jar,/usr/hdp/current/spark-client/lib/datanucleus-core-3.2.10.jar \</span><br><span class="line">hdfs://bigdata.com:8020/johnny/oozie/workflow/shell-action/demo1/spark-demo-1.0.0.jar</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Spark</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Using Flume in Ambari with Kerberos</title>
-    <url>/posts/a833198.html</url>
-    <content><![CDATA[<p><img src="/posts/a833198/flume.jpeg" alt="flume"></p>
-<h2 id="What-is-Flume"><a href="#What-is-Flume" class="headerlink" title="What is Flume"></a>What is Flume</h2><blockquote>
-<p>Flume is a distributed, reliable, and available service for efficiently <strong>collecting, aggregating, and moving</strong> large amounts of log data.	</p>
-</blockquote>
-<p>An <strong>Event</strong> is a unit of data, and events that carrying payloads flows from source to channel to sink. All above running in a flume agent that runs in a JVM.</p>
-<span id="more"></span>
-
-<p><img src="/posts/a833198/flume_principle.png" alt="flume_principle"></p>
-<p>Three key components of Flume:  </p>
-<ol>
-<li>Source</li>
-</ol>
-<p>The purpose of a source is to receive data from an external client and store it in a configured channel.  </p>
-<ol start="2">
-<li>Channel</li>
-</ol>
-<p>The channel is just like a bridge which receives data from a source and buffers them till they are consumed by sinks. </p>
-<ol start="3">
-<li>Sink</li>
-</ol>
-<p>Sinks can consume data from a channel and deliver it to another destination. The destination of the sink might be another agent or storage.</p>
-<p><strong>Attention:</strong><br>In HDP3.0, Ambari doesn’t use Flume continuously instead of using Nifi.</p>
-<h2 id="Kerberos-authorization"><a href="#Kerberos-authorization" class="headerlink" title="Kerberos authorization"></a>Kerberos authorization</h2><p>Before we use flume, we need to configure it in Ambari with Kerberos. Visit Ambari UI and click the “Flume” service to change the configuration file.</p>
-<p><img src="/posts/a833198/flume_configuration.png" alt="flume_configuration"></p>
-<p>More importantly, you need to append security content at the end of the property “flume-env template” when you using Kafka components with Kerberos. Every Kafka client needs a JAAS file to get a TGT from TGS. </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_OPTS=&quot;$JAVA_OPTS -Djava.security.auth.login.config=/home/flume/kafka-jaas.conf&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>There is a simple example that transferring log data from one pc to another pc, and I paste the configuration code below.<br>Using avro-source and avro-sink is a perfect choice to transfer data from one agent to another agent.</p>
-<h3 id="One-PC-configuration"><a href="#One-PC-configuration" class="headerlink" title="One PC configuration"></a>One PC configuration</h3><p>source: exec-source<br>channel: memory<br>sink: avro-sink</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">exec-memory-avro.sources = exec-source</span><br><span class="line">exec-memory-avro.sinks = avro-sink</span><br><span class="line">exec-memory-avro.channels = memory-channel</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.type = exec</span><br><span class="line">exec-memory-avro.sources.exec-source.command = tail -F /Users/JohnnyLiu/Documents/local_flume/data.log</span><br><span class="line">exec-memory-avro.sources.exec-source.shell = /bin/sh -c</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sinks.avro-sink.type = avro</span><br><span class="line">exec-memory-avro.sinks.avro-sink.hostname = bigdata.com</span><br><span class="line">exec-memory-avro.sinks.avro-sink.port = 44444</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.channels.memory-channel.type = memory</span><br><span class="line">	</span><br><span class="line">exec-memory-avro.sources.exec-source.channels = memory-channel</span><br><span class="line">exec-memory-avro.sinks.avro-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-
-<h3 id="Another-PC-configuration"><a href="#Another-PC-configuration" class="headerlink" title="Another PC configuration"></a>Another PC configuration</h3><p>source: avro-source<br>channel: memory<br>sink: logger</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">avro-memory-logger.sources = avro-source</span><br><span class="line">avro-memory-logger.sinks = logger-sink</span><br><span class="line">avro-memory-logger.channels = memory-channel</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.type = avro</span><br><span class="line">avro-memory-logger.sources.avro-source.bind = bigdata.com</span><br><span class="line">avro-memory-logger.sources.avro-source.port = 44444</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sinks.logger-sink.type = logger</span><br><span class="line"></span><br><span class="line">avro-memory-logger.channels.memory-channel.type = memory</span><br><span class="line"></span><br><span class="line">avro-memory-logger.sources.avro-source.channels = memory-channel</span><br><span class="line">avro-memory-logger.sinks.logger-sink.channel = memory-channel</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-        <tag>Kerberos</tag>
-        <tag>Flume</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Installing HDF on Ambari 2.7.1 + HDP 3.0.1</title>
-    <url>/posts/8c49992b.html</url>
-    <content><![CDATA[<p><img src="/posts/8c49992b/hdfandhdp.png" alt="hdfandhdp"></p>
-<p>Installed Ambari and HDP are prerequisites for installing HDF on HDP clusters. So, after that, you can follow the steps below to complete installing HDF.</p>
-<span id="more"></span>
-
-<ol>
-<li><p>Downloading the installation package.</p>
-<p>Accessing the URL “<a href="https://docs.cloudera.com/HDPDocuments/HDF3/HDF-3.3.1/release-notes/content/hdf_repository_locations.html&quot;">https://docs.cloudera.com/HDPDocuments/HDF3/HDF-3.3.1/release-notes/content/hdf_repository_locations.html&quot;</a> to acquire the download location for your specific OS type.</p>
-<p>Copy the location for “HDF Management Pack” and “HDF Repo” and download these resources on the host where you installed Ambari.</p>
-</li>
-<li><p>Installing the HDF Management Pack.</p>
-<ol>
-<li><p>Stop all services on your Ambari.</p>
-</li>
-<li><p>Stop your Ambari by command.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server stop</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Run the command below on the node where the Ambari locates.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server install-mpack \</span><br><span class="line">--mpack=/tmp/hdf-ambari-mpack-&lt;version&gt;.tar.gz \</span><br><span class="line">--verbose</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Start your Ambari.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ambari-server start</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>Adding HDF service to your HDP cluster.</p>
-<ol>
-<li><p>Unzipping your HDF installation package to your HTTP server and ensure that you can access the HDF installation resources.</p>
-</li>
-<li><p>Signing in your Ambari by user admin and registering HDF-3.2.</p>
-<p><img src="/posts/8c49992b/registerhdf.png" alt="registerhdf"></p>
-</li>
-<li><p>After that, you will notice a brand new stack component named “HDF-3.2.0.0” appearing on the page “Versions”.</p>
-<p><img src="/posts/8c49992b/appearhdf.png" alt="appearhdf"></p>
-</li>
-</ol>
-</li>
-<li><p>Following steps on Ambari Service Wizard to install NiFi.</p>
-<p>So now, you can install the component NiFi contained in HDF by following steps on Ambari Service Wizard.</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Back-end</category>
-        <category>BigData</category>
-      </categories>
-      <tags>
-        <tag>BigData</tag>
-        <tag>Ambari</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL Basic Operations for User Account Management</title>
-    <url>/posts/f4c81e09.html</url>
-    <content><![CDATA[<p><img src="/posts/f4c81e09/Mysql-Basic-operations-for-User-Account-Management%5Cmysql.jpg" alt="mysql">  </p>
-<ol>
-<li><p>Install MySQL server (not MySQL package)</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install mysql-server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Start and launch MySQL</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service mysqld start</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
-</ol>
-<span id="more"></span>
-<ol start="3">
-<li><p>Add users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CREATE USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p> The value of host:  </p>
-<ul>
-<li>%: connect to mysql server from any other machine    </li>
-<li>localhost: just local host  </li>
-<li>ip_address: specific ip address</li>
-</ul>
-</li>
-<li><p>Grant authority to users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES on [db_name].[db_table_name] TO [mysql_user_name]@[the_value_of_host] IDENTIFIED BY <span class="string">&#x27;[mysql_user_password]&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p> [all privileges] can be set with specific authority(“select,delete,update,create,drop”)</p>
-<p> [db_name] can be set with all databases(“*”)</p>
-<p> [db_table_name] can be set with all tables(“*”)</p>
-</li>
-<li><p>Update password.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ALTER USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Delete users.</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DROP USER <span class="string">&#x27;user_name&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<p><strong>check all containers’ ip address:</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;.Name&#125;&#125; - &#123;&#123;range.NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> $(docker ps -aq)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Operation</category>
-        <category>Linux</category>
+        <category>Docker</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Mysql</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
 </search>
